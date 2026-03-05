@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Our History - Government Services Online</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        section { 
+            padding: 80px 0; 
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #ffd700;
+            color: #1e3c5c;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #8e0a64;
+            color: #8e0a64;
+        }
+
+        .btn-outline:hover {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: #8e0a64;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: #1e3c5c;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title span {
+            color: #8e0a64;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #8e0a64;
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ===== SECTION 1: HERO WITH BACKGROUND IMAGE ===== */
+        .history-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: url('GS15.webp') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .history-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,15,28,0.85), rgba(142,10,100,0.8));
+            z-index: 1;
+        }
+
+        .history-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 30px;
+            background: rgba(255,215,0,0.2);
+            border: 2px solid #ffd700;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            color: #ffd700;
+        }
+
+        .hero-text {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 50px 0 40px;
+        }
+
+        .hero-stat {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            min-width: 160px;
+        }
+
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffd700;
+            display: block;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== SECTION 2: FOUNDATION STORY WITH IMAGES ===== */
+        .foundation-section {
+            background: white;
+        }
+
+        .foundation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .foundation-image {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .foundation-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .foundation-image-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255,215,0,0.9);
+            color: #1e3c5c;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .foundation-content h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #1e3c5c;
+            margin-bottom: 25px;
+        }
+
+        .foundation-year {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #8e0a64;
+            opacity: 0.1;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .foundation-content p {
+            font-size: 1.1rem;
+            color: #4a5a6e;
+            margin-bottom: 20px;
+        }
+
+        .foundation-features {
+            margin: 30px 0;
+        }
+
+        .foundation-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .foundation-feature i {
+            width: 40px;
+            height: 40px;
+            background: #8e0a64;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== SECTION 3: HISTORICAL TIMELINE CARDS ===== */
+        .timeline-cards-section {
+            background: #f8fafd;
+        }
+
+        .timeline-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .timeline-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(142,10,100,0.2);
+        }
+
+        .timeline-card-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .timeline-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .timeline-card:hover .timeline-card-image img {
+            transform: scale(1.1);
+        }
+
+        .timeline-card-content {
+            padding: 30px;
+            position: relative;
+        }
+
+        .timeline-card-year {
+            position: absolute;
+            top: -30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #ffd700;
+            color: #1e3c5c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            border: 4px solid white;
+        }
+
+        .timeline-card-content h3 {
+            font-size: 1.6rem;
+            color: #1e3c5c;
+            margin-bottom: 15px;
+            padding-right: 60px;
+        }
+
+        .timeline-card-content p {
+            color: #4a5a6e;
+            margin-bottom: 20px;
+        }
+
+        /* ===== SECTION 4: MILESTONES WITH BACKGROUND IMAGE ===== */
+        .milestones-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('GS16.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .milestones-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .milestones-header h2 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            color: white;
+        }
+
+        .milestones-header h2 span {
+            color: #ffd700;
+        }
+
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .milestone-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+
+        .milestone-item:hover {
+            transform: translateY(-15px) scale(1.05);
+            background: rgba(142,10,100,0.3);
+            border-color: #ffd700;
+        }
+
+        .milestone-icon {
+            width: 80px;
+            height: 80px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: #1e3c5c;
+        }
+
+        .milestone-year {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .milestone-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .milestone-item p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* ===== SECTION 5: LEGACY GALLERY ===== */
+        .legacy-section {
+            background: white;
+        }
+
+        .legacy-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .legacy-gallery-item {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .legacy-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .legacy-gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .legacy-gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(142,10,100,0.9), transparent);
+            color: white;
+            padding: 40px 30px;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+        }
+
+        .legacy-gallery-item:hover .legacy-gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .legacy-gallery-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .legacy-gallery-overlay p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .legacy-quote {
+            grid-column: span 2;
+            background: #f8fafd;
+            padding: 60px;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #1e3c5c;
+            border-left: 10px solid #8e0a64;
+            margin-top: 30px;
+        }
+
+        .legacy-quote i {
+            color: #8e0a64;
+            font-size: 3rem;
+            opacity: 0.3;
+            margin-right: 15px;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .foundation-grid,
+            .legacy-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-cards,
+            .milestones-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .legacy-quote {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+            
+            .hero-stats {
+                gap: 15px;
+            }
+            
+            .hero-stat {
+                min-width: 140px;
+                padding: 15px;
+            }
+            
+            .hero-stat .number {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .timeline-cards,
+            .milestones-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .foundation-image img {
+                height: 350px;
+            }
+            
+            .foundation-year {
+                font-size: 3.5rem;
+            }
+            
+            .legacy-gallery-item {
+                height: 300px;
+            }
+            
+            .legacy-quote {
+                padding: 40px 20px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-text {
+                font-size: 1rem;
+            }
+            
+            .hero-stat {
+                min-width: 120px;
+                padding: 12px;
+            }
+            
+            .hero-stat .number {
+                font-size: 1.6rem;
+            }
+            
+            .foundation-image img {
+                height: 280px;
+            }
+            
+            .foundation-image-caption {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+            
+            .timeline-card-year {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+            
+            .milestone-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .milestone-year {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Fix horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+         /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #8e0a64;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border: 2px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: #a80d78;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(142,10,100,0.4);
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+    <!-- HEADER PLACEHOLDER with Loading Animation -->
+    <div id="header-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1: Hero with Background Image -->
+        <section class="history-hero">
+            <div class="history-hero-overlay"></div>
+            <div class="container">
+                <div class="history-hero-content" data-aos="fade-up">
+                    <div class="hero-badge" data-aos="flip-up">EST. 1947</div>
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">Our <span>Historical</span> Journey</h1>
+                    <p class="hero-text" data-aos="fade-up" data-aos-delay="200">From the first administrative office to 500+ online services - tracing the evolution of citizen-centric governance in India.</p>
+                    
+                    <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+                        <div class="hero-stat">
+                            <span class="number">1947</span>
+                            <span class="label">Year Founded</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="number">77+</span>
+                            <span class="label">Years of Service</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="number">500+</span>
+                            <span class="label">Services Today</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                        <a href="404.html" class="btn btn-primary">Explore Timeline</a>
+                        <a href="404.html" class="btn btn-outline-light">Download History PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Foundation Story with Images -->
+        <section class="foundation-section">
+            <div class="container">
+                <div class="foundation-grid">
+                    <div class="foundation-image" data-aos="fade-right">
+                        <img src="GS18.webp" alt="Historic Government Building" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'500\' height=\'450\' viewBox=\'0 0 500 450\'%3E%3Crect width=\'500\' height=\'450\' fill=\'%2334495e\'/%3E%3Ctext x=\'120\' y=\'225\' fill=\'white\' font-size=\'30\'%3E1947%3C/text%3E%3C/svg%3E'">
+                        <div class="foundation-image-caption">
+                            <i class="fas fa-building"></i> First Administrative Office, New Delhi - 1947
+                        </div>
+                    </div>
+                    
+                    <div class="foundation-content" data-aos="fade-left">
+                        <div class="foundation-year">1947</div>
+                        <h2>The <span>Foundation</span> of Modern Governance</h2>
+                        <p>On August 15, 1947, India not only gained independence but also established the framework for citizen-centric administration. The first Secretariat was formed to serve the newly independent nation.</p>
+                        
+                        <div class="foundation-features">
+                            <div class="foundation-feature">
+                                <i class="fas fa-check"></i>
+                                <span>First administrative framework established</span>
+                            </div>
+                            <div class="foundation-feature">
+                                <i class="fas fa-check"></i>
+                                <span>33 original departments created</span>
+                            </div>
+                            <div class="foundation-feature">
+                                <i class="fas fa-check"></i>
+                                <span>First citizen charter drafted in 1950</span>
+                            </div>
+                            <div class="foundation-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Legacy of transparent governance began</span>
+                            </div>
+                        </div>
+                        
+                        <a href="404.html" class="btn btn-primary" style="margin-top: 20px;">Read Foundation Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Historical Timeline Cards -->
+        <section class="timeline-cards-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Key <span>Historical</span> Milestones</h2>
+                    <p style="font-size: 1.1rem; color: #4a5a6e; max-width: 700px; margin: 0 auto;">Important events that shaped citizen services in India</p>
+                </div>
+                
+                <div class="timeline-cards">
+                    <div class="timeline-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="timeline-card-image">
+                            <img src="GS17.webp" alt="1950 Constitution" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%2334495e\'/%3E%3Ctext x=\'100\' y=\'125\' fill=\'white\' font-size=\'25\'%3E1950%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="timeline-card-content">
+                            <div class="timeline-card-year">1950</div>
+                            <h3>Constitution Adopted</h3>
+                            <p>India became a sovereign democratic republic. Fundamental rights guaranteed to all citizens.</p>
+                            <a href="404.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="timeline-card-image">
+                            <img src="GS19.webp" alt="1970 Computerization" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%2334495e\'/%3E%3Ctext x=\'100\' y=\'125\' fill=\'white\' font-size=\'25\'%3E1970%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="timeline-card-content">
+                            <div class="timeline-card-year">1970</div>
+                            <h3>First Computerization</h3>
+                            <p>Railway reservations and census data management computerized for efficiency.</p>
+                            <a href="404.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="timeline-card-image">
+                            <img src="GS20.webp" alt="1990 NICNET" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%2334495e\'/%3E%3Ctext x=\'100\' y=\'125\' fill=\'white\' font-size=\'25\'%3E1990%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="timeline-card-content">
+                            <div class="timeline-card-year">1990</div>
+                            <h3>NICNET Established</h3>
+                            <p>National Informatics Centre network connected all district headquarters.</p>
+                            <a href="404.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="404.html" class="btn btn-secondary">View Complete Timeline</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Milestones with Background Image -->
+        <section class="milestones-section">
+            <div class="container">
+                <div class="milestones-header" data-aos="fade-down">
+                    <h2>Historic <span>Achievements</span></h2>
+                    <p>Major milestones in the journey of citizen services</p>
+                </div>
+                
+                <div class="milestones-grid">
+                    <div class="milestone-item" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="milestone-icon"><i class="fas fa-passport"></i></div>
+                        <div class="milestone-year">2006</div>
+                        <h3>Online Passport</h3>
+                        <p>First online passport application and tracking system launched</p>
+                    </div>
+                    
+                    <div class="milestone-item" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="milestone-icon"><i class="fas fa-id-card"></i></div>
+                        <div class="milestone-year">2009</div>
+                        <h3>Aadhaar Launch</h3>
+                        <p>UIDAI established to provide unique identity to residents</p>
+                    </div>
+                    
+                    <div class="milestone-item" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="milestone-icon"><i class="fas fa-flag"></i></div>
+                        <div class="milestone-year">2015</div>
+                        <h3>Digital India</h3>
+                        <p>Flagship program launched to transform governance</p>
+                    </div>
+                    
+                    <div class="milestone-item" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="milestone-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="milestone-year">2020</div>
+                        <h3>UMANG App</h3>
+                        <p>500+ services now available on single mobile platform</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Legacy Gallery -->
+        <section class="legacy-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Legacy in <span>Pictures</span></h2>
+                    <p style="font-size: 1.1rem; color: #4a5a6e; max-width: 700px; margin: 0 auto;">Visual journey through India's governance history</p>
+                </div>
+                
+                <div class="legacy-gallery">
+                    <div class="legacy-gallery-item" data-aos="fade-right">
+                        <img src="GS10.webp" alt="Old Secretariat" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'500\' height=\'400\' viewBox=\'0 0 500 400\'%3E%3Crect width=\'500\' height=\'400\' fill=\'%2334495e\'/%3E%3Ctext x=\'120\' y=\'200\' fill=\'white\' font-size=\'30\'%3ELegacy%3C/text%3E%3C/svg%3E'">
+                        <div class="legacy-gallery-overlay">
+                            <h3>Old Secretariat (1947)</h3>
+                            <p>The first administrative building where citizen services began.</p>
+                            <a href="404.html" class="btn btn-outline-light">View Gallery</a>
+                        </div>
+                    </div>
+                    
+                    <div class="legacy-gallery-item" data-aos="fade-left">
+                        <img src="GS11.webp" alt="Modern Office" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'500\' height=\'400\' viewBox=\'0 0 500 400\'%3E%3Crect width=\'500\' height=\'400\' fill=\'%2334495e\'/%3E%3Ctext x=\'120\' y=\'200\' fill=\'white\' font-size=\'30\'%3EModern%3C/text%3E%3C/svg%3E'">
+                        <div class="legacy-gallery-overlay">
+                            <h3>Digital India Centre (2024)</h3>
+                            <p>Today's state-of-the-art facility serving citizens online.</p>
+                            <a href="404.html" class="btn btn-outline-light">View Gallery</a>
+                        </div>
+                    </div>
+                    
+                    <div class="legacy-quote" data-aos="fade-up">
+                        <i class="fas fa-quote-left"></i>
+                        "The journey from paper files to digital services reflects India's commitment to citizen-centric governance. Our history is a testament to continuous evolution."
+                        <div style="margin-top: 20px; font-weight: 600; color: #8e0a64;">- Ministry of Electronics & IT</div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="404.html" class="btn btn-primary">Explore Full Archive</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER - Footer will load here -->
+    <div id="footer-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+
+        // Header and Footer Loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found (header1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    
+                    // Initialize header interactions after header is loaded
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #8e0a64; color: white; padding: 20px; text-align: center;">⚠️ Header Not Found - Please check header1.html file</header>';
+                });
+
+            // Load footer
+            fetch('footer1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found (footer1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    
+                    // Optional: Initialize footer interactions if needed
+                    setTimeout(initFooterInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1e2a3a; color: white; padding: 40px; text-align: center;">⚠️ Footer Not Found - Please check footer1.html file</footer>';
+                });
+        });
+
+        // Initialize header interactions (hamburger menu, dropdown)
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const logo = document.querySelector('.logo');
+            
+            console.log('Header initialized - menu toggle:', menuToggle ? '✓ Found' : '✗ Not Found');
+            
+            // Mobile menu toggle with logo hide
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (logo) {
+                        if (navMenu.classList.contains('active')) {
+                            logo.style.opacity = '0';
+                            logo.style.visibility = 'hidden';
+                            logo.style.pointerEvents = 'none';
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+            
+            // Handle all dropdown buttons
+            document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                const dropdownId = btn.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('[data-dropdown]').forEach(otherBtn => {
+                            if (otherBtn !== btn) {
+                                const otherDropdownId = otherBtn.getAttribute('data-dropdown');
+                                const otherDropdown = document.getElementById(otherDropdownId);
+                                if (otherDropdown) {
+                                    otherDropdown.classList.remove('show');
+                                    otherBtn.classList.remove('active');
+                                }
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('show');
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+            
+            // Close mobile menu when clicking on any link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                        
+                        document.querySelectorAll('.dropdown-menu').forEach(d => {
+                            d.classList.remove('show');
+                        });
+                        document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]') && !e.target.closest('.dropdown-menu')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (logo) {
+                        logo.style.opacity = '1';
+                        logo.style.visibility = 'visible';
+                        logo.style.pointerEvents = 'auto';
+                    }
+                    document.body.style.overflow = 'auto';
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Escape key handler
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                    }
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Initialize footer interactions (if needed)
+        function initFooterInteractions() {
+            console.log('Footer initialized');
+        }
+
+        // Refresh AOS on load and resize
+        window.addEventListener('load', () => AOS.refresh());
+        window.addEventListener('resize', () => AOS.refresh());
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100,
+            easing: 'ease-in-out',
+            mirror: true
+        });
+        // Back to Top Button Functionality
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+</body>
+</html>

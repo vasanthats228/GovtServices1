@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Mission & Vision - Government Services Online</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        section { 
+            padding: 80px 0; 
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #ffd700;
+            color: #1e3c5c;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #8e0a64;
+            color: #8e0a64;
+        }
+
+        .btn-outline:hover {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: #8e0a64;
+        }
+
+        /* Section Titles - Without Underline */
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: #1e3c5c;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .section-title span {
+            color: #8e0a64;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: #4a5a6e;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== SECTION 1: HERO WITH SPLIT DESIGN ===== */
+        .mission-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0a192f 0%, #1e3c5c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('GS2.webp');
+            opacity: 0.3;
+        }
+
+        .mission-hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-hero-left {
+            color: white;
+        }
+
+        .mission-hero-badge {
+            display: inline-block;
+            padding: 8px 25px;
+            background: rgba(255,215,0,0.2);
+            border: 2px solid #ffd700;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .mission-hero-left h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .mission-hero-left h1 span {
+            color: #ffd700;
+            display: block;
+        }
+
+        .mission-hero-left p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .mission-hero-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .mission-hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mission-hero-feature i {
+            width: 30px;
+            height: 30px;
+            background: #ffd700;
+            color: #1e3c5c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .mission-hero-right {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            padding: 50px;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        .mission-quote {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .mission-quote i {
+            color: #ffd700;
+            font-size: 2rem;
+            opacity: 0.5;
+            margin-right: 10px;
+        }
+
+        .mission-quote-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .mission-quote-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #ffd700;
+            object-fit: cover;
+        }
+
+        /* ===== SECTION 2: CORE VALUES CARDS ===== */
+        .values-section {
+            background: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: #f8fafd;
+            border-radius: 30px;
+            padding: 50px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e0e8f0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #8e0a64, #c71585);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(142,10,100,0.15);
+        }
+
+        .value-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #8e0a64, #c71585);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            color: white;
+            transition: all 0.4s;
+        }
+
+        .value-card:hover .value-icon {
+            transform: rotateY(180deg);
+        }
+
+        .value-card h3 {
+            font-size: 1.8rem;
+            color: #1e3c5c;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #4a5a6e;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .value-stats {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .value-stats span {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #8e0a64;
+        }
+
+        .value-stats small {
+            font-size: 0.9rem;
+            color: #4a5a6e;
+        }
+
+        /* ===== SECTION 3: VISION WITH FLOATING IMAGES ===== */
+        .vision-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .vision-content h2 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            margin-bottom: 25px;
+        }
+
+        .vision-content h2 span {
+            color: #ffd700;
+        }
+
+        .vision-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .vision-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .vision-highlight {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 25px 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .vision-highlight .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffd700;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .vision-highlight span:last-child {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .vision-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .vision-img {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .vision-img img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .vision-img:hover img {
+            transform: scale(1.1);
+        }
+
+        .vision-img:first-child {
+            transform: translateY(-20px);
+        }
+
+        .vision-img:last-child {
+            transform: translateY(20px);
+        }
+
+        /* ===== SECTION 4: STRATEGIC PILLARS ===== */
+        .pillars-section {
+            background: white;
+        }
+
+        .pillars-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .pillar-item {
+            background: #f8fafd;
+            border-radius: 20px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: all 0.3s;
+            border-bottom: 5px solid transparent;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-item:hover {
+            border-bottom-color: #8e0a64;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(142,10,100,0.1);
+        }
+
+        .pillar-icon {
+            width: 80px;
+            height: 80px;
+            background: #8e0a64;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .pillar-item h3 {
+            font-size: 1.4rem;
+            color: #1e3c5c;
+            margin-bottom: 15px;
+        }
+
+        .pillar-item p {
+            color: #4a5a6e;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .pillar-progress {
+            margin-top: auto;
+            height: 8px;
+            background: #e0e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .pillar-progress-bar {
+            height: 100%;
+            background: #8e0a64;
+            border-radius: 4px;
+        }
+
+        .pillar-item small {
+            font-size: 0.85rem;
+            color: #4a5a6e;
+            display: block;
+            text-align: right;
+        }
+
+        /* ===== SECTION 5: FUTURE COMMITMENTS ===== */
+        .commitments-section {
+            background: linear-gradient(135deg, #0a192f, #1e3c5c);
+            color: white;
+        }
+
+        .commitments-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .commitments-image {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .commitments-image img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .commitments-image-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255,215,0,0.9);
+            color: #1e3c5c;
+            padding: 20px;
+            border-radius: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .commitments-content h2 {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+        }
+
+        .commitments-content h2 span {
+            color: #ffd700;
+        }
+
+        .commitments-content > p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .commitments-list {
+            margin: 40px 0;
+        }
+
+        .commitment-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .commitment-item:hover {
+            background: rgba(142,10,100,0.3);
+            transform: translateX(10px);
+        }
+
+        .commitment-item i {
+            font-size: 2rem;
+            color: #ffd700;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .commitment-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .commitment-item p {
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .commitment-year {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255,215,0,0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #ffd700;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .mission-hero-container,
+            .vision-container,
+            .commitments-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .values-grid,
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mission-hero-right {
+                order: -1;
+            }
+            
+            .vision-images {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .vision-img:first-child,
+            .vision-img:last-child {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { 
+                padding: 60px 0; 
+            }
+            
+            .values-grid,
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .vision-highlights {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .mission-hero-right {
+                padding: 30px;
+            }
+            
+            .mission-quote {
+                font-size: 1.4rem;
+            }
+            
+            .vision-images {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .vision-img img {
+                height: 200px;
+            }
+            
+            .commitments-image img {
+                height: 400px;
+            }
+            
+            .commitment-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .commitment-item i {
+                margin: 0 auto;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mission-hero-left h1 {
+                font-size: 2rem;
+            }
+            
+            .mission-hero-left p {
+                font-size: 1rem;
+            }
+            
+            .mission-hero-feature {
+                font-size: 0.95rem;
+            }
+            
+            .value-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .value-card {
+                padding: 40px 20px;
+            }
+            
+            .value-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .value-stats span {
+                font-size: 1.6rem;
+            }
+            
+            .pillar-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .pillar-item h3 {
+                font-size: 1.3rem;
+            }
+            
+            .vision-highlight .number {
+                font-size: 2rem;
+            }
+            
+            .commitments-image img {
+                height: 300px;
+            }
+            
+            .commitments-image-caption {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Fix horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+         /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #8e0a64;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border: 2px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: #a80d78;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(142,10,100,0.4);
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+    <!-- HEADER PLACEHOLDER with Loading Animation -->
+    <div id="header-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1: Hero with Split Design -->
+        <section class="mission-hero">
+            <div class="mission-hero-pattern"></div>
+            <div class="container">
+                <div class="mission-hero-container">
+                    <div class="mission-hero-left" data-aos="fade-right">
+                        <div class="mission-hero-badge">OUR PURPOSE</div>
+                        <h1>Mission & <span>Vision</span> for Digital India</h1>
+                        <p>Driving transformative change in citizen services through innovation, transparency, and inclusive governance.</p>
+                        
+                        <div class="mission-hero-features">
+                            <div class="mission-hero-feature">
+                                <i class="fas fa-check"></i>
+                                <span>500+ services accessible to 1.4B citizens</span>
+                            </div>
+                            <div class="mission-hero-feature">
+                                <i class="fas fa-check"></i>
+                                <span>33 integrated government departments</span>
+                            </div>
+                            <div class="mission-hero-feature">
+                                <i class="fas fa-check"></i>
+                                <span>94% citizen satisfaction rate</span>
+                            </div>
+                        </div>
+                        
+                        <a href="404.html" class="btn btn-primary">Read Full Charter</a>
+                    </div>
+                    
+                    <div class="mission-hero-right" data-aos="fade-left">
+                        <div class="mission-quote">
+                            <i class="fas fa-quote-left"></i>
+                            To create a digitally empowered India where every citizen can access government services seamlessly, transparently, and securely.
+                        </div>
+                        <div class="mission-quote-author">
+                            <img src="h29.webp" alt="Secretary" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 60 60\'%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'30\' fill=\'%238e0a64\'/%3E%3C/svg%3E'">
+                            <div>
+                                <strong>Dr. Amit Sharma</strong>
+                                <p style="opacity: 0.8; font-size: 0.9rem;">Secretary, Ministry of Electronics & IT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Core Values Cards -->
+        <section class="values-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Our Core <span>Values</span></h2>
+                    <p class="section-desc">The principles that guide our service to citizens</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Integrity</h3>
+                        <p>Uncompromising ethical standards in all citizen services and data handling.</p>
+                        <div class="value-stats">
+                            <span>100%</span>
+                            <small>transparency</small>
+                        </div>
+                        <a href="404.html" class="btn btn-outline">Learn More</a>
+                    </div>
+                    
+                    <div class="value-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Innovation</h3>
+                        <p>Continuous technological advancement to simplify citizen-government interaction.</p>
+                        <div class="value-stats">
+                            <span>500+</span>
+                            <small>digital services</small>
+                        </div>
+                        <a href="404.html" class="btn btn-outline">Learn More</a>
+                    </div>
+                    
+                    <div class="value-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="value-icon"><i class="fas fa-users"></i></div>
+                        <h3>Inclusivity</h3>
+                        <p>Services accessible to every citizen regardless of location or background.</p>
+                        <div class="value-stats">
+                            <span>1.4B</span>
+                            <small>citizens covered</small>
+                        </div>
+                        <a href="404.html" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Vision with Floating Images -->
+        <section class="vision-section">
+            <div class="container">
+                <div class="vision-container">
+                    <div class="vision-content" data-aos="fade-right">
+                        <h2>Our <span>Vision</span> 2030</h2>
+                        <p>A future where every citizen-government interaction is seamless, paperless, and instantaneous through AI-powered governance.</p>
+                        
+                        <div class="vision-highlights">
+                            <div class="vision-highlight">
+                                <span class="number">100%</span>
+                                <span>Paperless</span>
+                            </div>
+                            <div class="vision-highlight">
+                                <span class="number">24/7</span>
+                                <span>AI Support</span>
+                            </div>
+                            <div class="vision-highlight">
+                                <span class="number">1B+</span>
+                                <span>Digital Citizens</span>
+                            </div>
+                            <div class="vision-highlight">
+                                <span class="number">0</span>
+                                <span>Physical Visits</span>
+                            </div>
+                        </div>
+                        
+                        <a href="404.html" class="btn btn-secondary">Explore Vision 2030</a>
+                    </div>
+                    
+                    <div class="vision-images" data-aos="fade-left">
+                        <div class="vision-img">
+                            <img src="GS3.webp" alt="Digital Future" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'220\' viewBox=\'0 0 300 220\'%3E%3Crect width=\'300\' height=\'220\' fill=\'%2334495e\'/%3E%3Ctext x=\'80\' y=\'120\' fill=\'white\' font-size=\'20\'%3EVision%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="vision-img">
+                            <img src="GS4.webp" alt="Smart Governance" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'220\' viewBox=\'0 0 300 220\'%3E%3Crect width=\'300\' height=\'220\' fill=\'%2334495e\'/%3E%3Ctext x=\'80\' y=\'120\' fill=\'white\' font-size=\'20\'%3E2030%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Strategic Pillars -->
+        <section class="pillars-section">
+            <div class="container">
+                <div class="pillars-header" data-aos="fade-down">
+                    <h2 class="section-title">Strategic <span>Pillars</span></h2>
+                    <p class="section-desc">Four key focus areas driving our mission forward</p>
+                </div>
+                
+                <div class="pillars-grid">
+                    <div class="pillar-item" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="pillar-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Digital Access</h3>
+                        <p>Ensuring every citizen has access to government services through multiple digital channels.</p>
+                        <div class="pillar-progress">
+                            <div class="pillar-progress-bar" style="width: 85%"></div>
+                        </div>
+                        <small>85% achieved</small>
+                    </div>
+                    
+                    <div class="pillar-item" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="pillar-icon"><i class="fas fa-lock"></i></div>
+                        <h3>Data Security</h3>
+                        <p>Bank-grade encryption and privacy protection for all citizen data.</p>
+                        <div class="pillar-progress">
+                            <div class="pillar-progress-bar" style="width: 92%"></div>
+                        </div>
+                        <small>92% achieved</small>
+                    </div>
+                    
+                    <div class="pillar-item" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="pillar-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3>Service Speed</h3>
+                        <p>Reducing average processing time to under 2 minutes for all services.</p>
+                        <div class="pillar-progress">
+                            <div class="pillar-progress-bar" style="width: 78%"></div>
+                        </div>
+                        <small>78% achieved</small>
+                    </div>
+                    
+                    <div class="pillar-item" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="pillar-icon"><i class="fas fa-universal-access"></i></div>
+                        <h3>Inclusive Design</h3>
+                        <p>Services accessible to elderly, disabled, and non-tech-savvy citizens.</p>
+                        <div class="pillar-progress">
+                            <div class="pillar-progress-bar" style="width: 70%"></div>
+                        </div>
+                        <small>70% achieved</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Future Commitments -->
+        <section class="commitments-section">
+            <div class="container">
+                <div class="commitments-wrapper">
+                    <div class="commitments-image" data-aos="fade-right">
+                        <img src="GS7.webp" alt="Future Commitments" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'500\' height=\'550\' viewBox=\'0 0 500 550\'%3E%3Crect width=\'500\' height=\'550\' fill=\'%2334495e\'/%3E%3Ctext x=\'150\' y=\'275\' fill=\'white\' font-size=\'30\'%3E2025%3C/text%3E%3C/svg%3E'">
+                        <div class="commitments-image-caption">
+                            <i class="fas fa-flag-checkered"></i> Our Commitments for 2025
+                        </div>
+                    </div>
+                    
+                    <div class="commitments-content" data-aos="fade-left">
+                        <h2>Our <span>Commitments</span> to Citizens</h2>
+                        <p>Concrete targets we aim to achieve in the next 3 years</p>
+                        
+                        <div class="commitments-list">
+                            <div class="commitment-item">
+                                <i class="fas fa-robot"></i>
+                                <div>
+                                    <h4>AI-Powered Services</h4>
+                                    <p>Intelligent chatbots for 24/7 citizen assistance in 12 languages</p>
+                                    <span class="commitment-year">Target: 2025</span>
+                                </div>
+                            </div>
+                            
+                            <div class="commitment-item">
+                                <i class="fas fa-brain"></i>
+                                <div>
+                                    <h4>Predictive Governance</h4>
+                                    <p>Proactive service delivery based on life events (birth, marriage, retirement)</p>
+                                    <span class="commitment-year">Target: 2026</span>
+                                </div>
+                            </div>
+                            
+                            <div class="commitment-item">
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <h4>Blockchain Integration</h4>
+                                    <p>Tamper-proof document verification across all departments</p>
+                                    <span class="commitment-year">Target: 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="404.html" class="btn btn-secondary">View Full Roadmap</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER - Footer will load here -->
+    <div id="footer-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+
+        //======================================================
+        // Header and Footer Loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found (header1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    
+                    // Initialize header interactions after header is loaded
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #8e0a64; color: white; padding: 20px; text-align: center;">⚠️ Header Not Found - Please check header1.html file</header>';
+                });
+
+            // Load footer
+            fetch('footer1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found (footer1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    
+                    // Optional: Initialize footer interactions if needed
+                    setTimeout(initFooterInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1e2a3a; color: white; padding: 40px; text-align: center;">⚠️ Footer Not Found - Please check footer1.html file</footer>';
+                });
+        });
+
+        // Initialize header interactions (hamburger menu, dropdown)
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const logo = document.querySelector('.logo');
+            
+            console.log('Header initialized - menu toggle:', menuToggle ? '✓ Found' : '✗ Not Found');
+            
+            // Mobile menu toggle with logo hide
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (logo) {
+                        if (navMenu.classList.contains('active')) {
+                            logo.style.opacity = '0';
+                            logo.style.visibility = 'hidden';
+                            logo.style.pointerEvents = 'none';
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+            
+            // Handle all dropdown buttons
+            document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                const dropdownId = btn.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('[data-dropdown]').forEach(otherBtn => {
+                            if (otherBtn !== btn) {
+                                const otherDropdownId = otherBtn.getAttribute('data-dropdown');
+                                const otherDropdown = document.getElementById(otherDropdownId);
+                                if (otherDropdown) {
+                                    otherDropdown.classList.remove('show');
+                                    otherBtn.classList.remove('active');
+                                }
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('show');
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+            
+            // Close mobile menu when clicking on any link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                        
+                        document.querySelectorAll('.dropdown-menu').forEach(d => {
+                            d.classList.remove('show');
+                        });
+                        document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]') && !e.target.closest('.dropdown-menu')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (logo) {
+                        logo.style.opacity = '1';
+                        logo.style.visibility = 'visible';
+                        logo.style.pointerEvents = 'auto';
+                    }
+                    document.body.style.overflow = 'auto';
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Escape key handler
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                    }
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Initialize footer interactions (if needed)
+        function initFooterInteractions() {
+            console.log('Footer initialized');
+        }
+
+        // Refresh AOS on load and resize
+        window.addEventListener('load', () => AOS.refresh());
+        window.addEventListener('resize', () => AOS.refresh());
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100,
+            easing: 'ease-in-out',
+            mirror: true
+        });
+
+        // Back to Top Button Functionality
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+</body>
+</html>

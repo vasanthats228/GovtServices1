@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>404 - Page Not Found | Government Services Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #293dce 0%, #6d074f 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Animated Background Elements */
+        .bg-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            right: -200px;
+            animation-delay: 5s;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        .shape-4 {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            right: 15%;
+            background: rgba(248, 245, 240, 0.05);
+            animation: float 15s infinite ease-in-out reverse;
+        }
+
+        .shape-5 {
+            width: 250px;
+            height: 250px;
+            bottom: 10%;
+            left: 10%;
+            background: rgba(248, 245, 240, 0.05);
+            animation: float 18s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(50px, 50px) scale(1.1);
+            }
+            50% {
+                transform: translate(0, 100px) scale(1);
+            }
+            75% {
+                transform: translate(-50px, 50px) scale(0.9);
+            }
+        }
+
+        /* Main Container */
+        .error-container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(248, 245, 240, 0.2);
+            animation: containerAppear 0.8s ease-out;
+        }
+
+        @keyframes containerAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* 404 Number with Animation */
+        .error-number {
+            font-size: 180px;
+            font-weight: 900;
+            color: #f8f5f0;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: numberGlow 3s infinite ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .digit {
+            display: inline-block;
+            animation: digitBounce 2s infinite ease-in-out;
+        }
+
+        .digit-1 {
+            animation-delay: 0s;
+        }
+
+        .digit-2 {
+            animation-delay: 0.3s;
+        }
+
+        .digit-3 {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes digitBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes numberGlow {
+            0%, 100% {
+                text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                text-shadow: 0 20px 50px rgba(248, 245, 240, 0.5);
+            }
+        }
+
+        /* Error Title */
+        .error-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            animation: slideUp 0.8s ease-out 0.2s both;
+            text-transform: uppercase;
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Error Message */
+        .error-message {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideUp 0.8s ease-out 0.4s both;
+            font-weight: 500;
+        }
+
+        /* Back to Home Button - SINGLE BUTTON */
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #f8f5f0;
+            color: #8e0a64;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 60px;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: buttonAppear 0.8s ease-out 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(142, 10, 100, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .home-button:hover {
+            background: #ffffff;
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: #8e0a64;
+        }
+
+        .home-button:hover::before {
+            left: 100%;
+        }
+
+        .home-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .home-button i {
+            font-size: 22px;
+            transition: transform 0.4s ease;
+        }
+
+        .home-button:hover i {
+            transform: translateX(-8px) scale(1.2);
+        }
+
+        @keyframes buttonAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Decorative Elements */
+        .decor-line {
+            width: 100px;
+            height: 3px;
+            background: #f8f5f0;
+            margin: 30px auto;
+            border-radius: 3px;
+            opacity: 0.5;
+            animation: linePulse 2s infinite ease-in-out;
+        }
+
+        @keyframes linePulse {
+            0%, 100% {
+                width: 100px;
+                opacity: 0.5;
+            }
+            50% {
+                width: 150px;
+                opacity: 0.8;
+            }
+        }
+
+        /* Floating Icons */
+        .floating-icon {
+            position: absolute;
+            color: rgba(248, 245, 240, 0.2);
+            font-size: 24px;
+            animation: iconFloat 10s infinite linear;
+            z-index: 1;
+        }
+
+        .icon-1 {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .icon-2 {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .icon-3 {
+            top: 30%;
+            right: 20%;
+            animation-delay: 6s;
+        }
+
+        .icon-4 {
+            bottom: 25%;
+            left: 15%;
+            animation-delay: 9s;
+        }
+
+        @keyframes iconFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.2;
+            }
+            25% {
+                transform: translateY(-20px) rotate(90deg);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(0) rotate(180deg);
+                opacity: 0.2;
+            }
+            75% {
+                transform: translateY(20px) rotate(270deg);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .error-number {
+                font-size: 140px;
+            }
+
+            .error-title {
+                font-size: 28px;
+            }
+
+            .error-message {
+                font-size: 16px;
+                padding: 0 15px;
+            }
+
+            .home-button {
+                padding: 15px 35px;
+                font-size: 18px;
+            }
+
+            .error-container {
+                padding: 30px 15px;
+                border-radius: 40px;
+            }
+
+            .shape-1 {
+                width: 200px;
+                height: 200px;
+            }
+
+            .shape-2 {
+                width: 250px;
+                height: 250px;
+            }
+
+            .shape-3 {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-number {
+                font-size: 100px;
+            }
+
+            .error-title {
+                font-size: 22px;
+            }
+
+            .error-message {
+                font-size: 15px;
+            }
+
+            .home-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+
+            .home-button i {
+                font-size: 18px;
+            }
+
+            .error-container {
+                padding: 25px 10px;
+                border-radius: 30px;
+            }
+
+            .decor-line {
+                width: 60px;
+            }
+
+            @keyframes linePulse {
+                0%, 100% {
+                    width: 60px;
+                }
+                50% {
+                    width: 100px;
+                }
+            }
+
+            .floating-icon {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .error-number {
+                font-size: 80px;
+            }
+
+            .error-title {
+                font-size: 18px;
+            }
+
+            .error-message {
+                font-size: 14px;
+            }
+
+            .home-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        /* Landscape Mode */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .error-container {
+                padding: 20px;
+            }
+
+            .error-number {
+                font-size: 100px;
+            }
+
+            .error-title {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .error-message {
+                margin-bottom: 20px;
+            }
+
+            .home-button {
+                padding: 10px 30px;
+            }
+        }
+
+        /* High Resolution Screens */
+        @media (min-width: 1400px) {
+            .error-number {
+                font-size: 220px;
+            }
+
+            .error-title {
+                font-size: 42px;
+            }
+
+            .error-message {
+                font-size: 20px;
+                max-width: 600px;
+            }
+
+            .home-button {
+                padding: 20px 55px;
+                font-size: 22px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background Shapes -->
+    <div class="bg-shape">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+    </div>
+
+    <!-- Floating Icons -->
+    <div class="floating-icon icon-1">
+        <i class="fas fa-gopuram"></i>
+    </div>
+    <div class="floating-icon icon-2">
+        <i class="fas fa-star"></i>
+    </div>
+    <div class="floating-icon icon-3">
+        <i class="fas fa-envelope"></i>
+    </div>
+    <div class="floating-icon icon-4">
+        <i class="fas fa-phone-alt"></i>
+    </div>
+
+    <!-- Main 404 Container -->
+    <div class="error-container">
+        <!-- 404 Number with Animated Digits -->
+        <div class="error-number">
+            <span class="digit digit-1">4</span>
+            <span class="digit digit-2">0</span>
+            <span class="digit digit-3">4</span>
+        </div>
+
+        <!-- Error Title -->
+        <h1 class="error-title">Page Not Found</h1>
+
+        <!-- Error Message -->
+        <p class="error-message">
+            The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+        </p>
+
+        <!-- Decorative Line -->
+        <div class="decor-line"></div>
+
+        <!-- SINGLE BACK TO HOME BUTTON -->
+        <a href="home2.html" class="home-button">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Home</span>
+        </a>
+    </div>
+</body>
+</html>

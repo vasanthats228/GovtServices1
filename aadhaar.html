@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Aadhaar Services - Government Services Online</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        section { 
+            padding: 100px 0; 
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #ffd700;
+            color: #1e3c5c;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #8e0a64;
+            color: #8e0a64;
+        }
+
+        .btn-outline:hover {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: #8e0a64;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: #1e3c5c;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: #8e0a64;
+        }
+
+        .section-desc {
+            font-size: 1.2rem;
+            color: #4a5a6e;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .breadcrumb a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .breadcrumb i {
+            font-size: 0.8rem;
+        }
+
+        /* ===== SECTION 1: HERO WITH BACKGROUND IMAGE ===== */
+        .aadhaar-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: url('Aadhaar.webp') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,15,28,0.85), rgba(142,10,100,0.8));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 25px;
+            background: rgba(255,215,0,0.2);
+            border: 2px solid #ffd700;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #ffd700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .hero-stat {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            min-width: 180px;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffd700;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .hero-stat .label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== SECTION 2: SERVICE CARDS WITH HOVER EFFECT ===== */
+        .service-cards {
+            background: white;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card-item {
+            background: #f8fafd;
+            border-radius: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid #e0e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #8e0a64, #c71585);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+
+        .card-item:hover::after {
+            transform: scaleX(1);
+        }
+
+        .card-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 50px rgba(142,10,100,0.15);
+            border-color: #8e0a64;
+        }
+
+        .card-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #8e0a64, #c71585);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            transition: all 0.4s;
+        }
+
+        .card-item:hover .card-icon {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        .card-item h3 {
+            font-size: 1.8rem;
+            color: #1e3c5c;
+            margin-bottom: 15px;
+        }
+
+        .card-item p {
+            color: #4a5a6e;
+            margin-bottom: 20px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            color: #8e0a64;
+            font-weight: 500;
+        }
+
+        .card-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: #8e0a64;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .card-btn:hover {
+            background: #c71585;
+            transform: scale(1.05);
+        }
+
+        /* ===== SECTION 3: PROCESS STEPS WITH CIRCLES ===== */
+        .process-steps {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #8e0a64);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .step-box {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-circle {
+            width: 120px;
+            height: 120px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e3c5c;
+            border: 5px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: all 0.4s;
+        }
+
+        .step-box:hover .step-circle {
+            transform: scale(1.2) rotate(10deg);
+            background: #8e0a64;
+            color: white;
+        }
+
+        .step-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .step-box p {
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .step-time {
+            display: inline-block;
+            padding: 5px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== SECTION 4: BENEFITS WITH SPLIT LAYOUT ===== */
+        .benefits-split {
+            background: white;
+        }
+
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .split-image {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .split-image-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            background: rgba(255,215,0,0.9);
+            color: #1e3c5c;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .split-content h2 {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            margin-bottom: 30px;
+        }
+
+        .benefits-list {
+            margin-bottom: 40px;
+        }
+
+        .benefit-item-split {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8fafd;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border-left: 5px solid #8e0a64;
+        }
+
+        .benefit-item-split:hover {
+            transform: translateX(15px);
+            box-shadow: 0 20px 40px rgba(142,10,100,0.1);
+        }
+
+        .benefit-item-split i {
+            font-size: 2rem;
+            color: #8e0a64;
+        }
+
+        .benefit-item-split h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .benefit-item-split p {
+            color: #4a5a6e;
+        }
+
+        /* ===== SECTION 5: CTA WITH WAVE DESIGN ===== */
+        .cta-wave {
+            background: #f8fafd;
+        }
+
+        .wave-card {
+            background: linear-gradient(135deg, #8e0a64, #c71585);
+            border-radius: 60px;
+            padding: 80px 60px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="GS9.webp" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="white" opacity="0.2"></path></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .wave-card h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+        }
+
+        .wave-card h2 span {
+            color: #ffd700;
+        }
+
+        .wave-card p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .wave-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .steps-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .steps-container::before {
+                display: none;
+            }
+            
+            .split-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+            
+            .cards-grid,
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .hero-stat {
+                min-width: 140px;
+                padding: 15px;
+            }
+            
+            .hero-stat .number {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .split-image img {
+                height: 350px;
+            }
+            
+            .wave-card {
+                padding: 40px 20px;
+                border-radius: 40px;
+            }
+            
+            .wave-card h2 {
+                font-size: 2rem;
+            }
+            
+            .step-circle {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .card-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .card-item h3 {
+                font-size: 1.5rem;
+            }
+            
+            .card-meta {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .benefit-item-split {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .benefit-item-split i {
+                margin: 0 auto;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Fix horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #8e0a64;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border: 2px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: #a80d78;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(142,10,100,0.4);
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+    <!-- HEADER PLACEHOLDER with Loading Animation -->
+    <div id="header-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1: Hero with Background Image -->
+        <section class="aadhaar-hero">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="breadcrumb" data-aos="fade-down">
+                        <a href="home1.html">Home</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="online-services.html">Services</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Aadhaar Services</span>
+                    </div>
+                    <div class="hero-badge" data-aos="flip-up">UIDAI</div>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Aadhaar <span>Services</span></h1>
+                    <p data-aos="fade-up" data-aos-delay="200">India's unique identification system - 135 crore+ Aadhaar issued. Access all Aadhaar services online.</p>
+                    
+                    <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+                        <div class="hero-stat">
+                            <span class="number">135Cr+</span>
+                            <span class="label">Aadhaar Issued</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="number">99%</span>
+                            <span class="label">Adult Coverage</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="number">24/7</span>
+                            <span class="label">Online Services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Service Cards with Hover Effect -->
+        <section class="service-cards">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Aadhaar <span>Services</span></h2>
+                    <p class="section-desc">Complete suite of Aadhaar-related services available online</p>
+                </div>
+                
+                <div class="cards-grid">
+                    <div class="card-item" data-aos="flip-left" data-aos-delay="100">
+                        <div class="card-icon"><i class="fas fa-download"></i></div>
+                        <h3>Download Aadhaar</h3>
+                        <p>Get your e-Aadhaar instantly online</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-clock"></i> 2 mins</span>
+                            <span><i class="fas fa-rupee-sign"></i> Free</span>
+                        </div>
+                        <a href="404.html" class="card-btn">Download Now</a>
+                    </div>
+                    
+                    <div class="card-item" data-aos="flip-left" data-aos-delay="200">
+                        <div class="card-icon"><i class="fas fa-edit"></i></div>
+                        <h3>Update Details</h3>
+                        <p>Update address, mobile, email online</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-clock"></i> 5 mins</span>
+                            <span><i class="fas fa-rupee-sign"></i> ₹50</span>
+                        </div>
+                        <a href="404.html" class="card-btn">Update Now</a>
+                    </div>
+                    
+                    <div class="card-item" data-aos="flip-left" data-aos-delay="300">
+                        <div class="card-icon"><i class="fas fa-qrcode"></i></div>
+                        <h3>Verify Aadhaar</h3>
+                        <p>Check Aadhaar validity and details</p>
+                        <div class="card-meta">
+                            <span><i class="fas fa-clock"></i> 1 min</span>
+                            <span><i class="fas fa-rupee-sign"></i> Free</span>
+                        </div>
+                        <a href="404.html" class="card-btn">Verify Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Process Steps with Circles -->
+        <section class="process-steps">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title" style="color: white;">How to <span style="color: #ffd700;">Update Aadhaar</span></h2>
+                    <p class="section-desc" style="color: rgba(255,255,255,0.9);">Simple 4-step process for Aadhaar update</p>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-box" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="step-circle">1</div>
+                        <h3>Login</h3>
+                        <p>Login with Aadhaar & OTP</p>
+                        <span class="step-time">2 minutes</span>
+                    </div>
+                    
+                    <div class="step-box" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="step-circle">2</div>
+                        <h3>Select Update</h3>
+                        <p>Choose what to update</p>
+                        <span class="step-time">1 minute</span>
+                    </div>
+                    
+                    <div class="step-box" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="step-circle">3</div>
+                        <h3>Upload Docs</h3>
+                        <p>Upload valid proof</p>
+                        <span class="step-time">3 minutes</span>
+                    </div>
+                    
+                    <div class="step-box" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="step-circle">4</div>
+                        <h3>Submit & Track</h3>
+                        <p>Get URN and track</p>
+                        <span class="step-time">Instant</span>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="404.html" class="btn btn-secondary">Start Update Process</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Benefits with Split Layout -->
+        <section class="benefits-split">
+            <div class="container">
+                <div class="split-container">
+                    <div class="split-image" data-aos="fade-right">
+                        <img src="GS17.webp" alt="Aadhaar Benefits">
+                        <div class="split-image-caption">
+                            <i class="fas fa-shield-alt"></i> Your Identity, Your Rights
+                        </div>
+                    </div>
+                    
+                    <div class="split-content" data-aos="fade-left">
+                        <h2>Benefits of <span>Aadhaar</span></h2>
+                        
+                        <div class="benefits-list">
+                            <div class="benefit-item-split">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <div>
+                                    <h4>Direct Benefit Transfer</h4>
+                                    <p>Subsidies and benefits directly to bank account</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item-split">
+                                <i class="fas fa-sim-card"></i>
+                                <div>
+                                    <h4>e-KYC</h4>
+                                    <p>Instant verification for mobile, bank accounts</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item-split">
+                                <i class="fas fa-file-signature"></i>
+                                <div>
+                                    <h4>Digital Signature</h4>
+                                    <p>Legally valid e-Sign for documents</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="404.html" class="btn btn-primary">Know More Benefits</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: CTA with Wave Design -->
+        <section class="cta-wave">
+            <div class="container">
+                <div class="wave-card" data-aos="zoom-in">
+                    <h2>Ready to <span>Update</span> Your Aadhaar?</h2>
+                    <p>Join 135 crore+ Indians who already have Aadhaar</p>
+                    <div class="wave-buttons">
+                        <a href="404.html" class="btn btn-secondary">Update Now</a>
+                        <a href="404.html" class="btn btn-outline-light">Download Aadhaar</a>
+                        <a href="404.html" class="btn btn-outline-light">Check Status</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER - Footer will load here -->
+    <div id="footer-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        //======================================================
+        // Header and Footer Loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found (header1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    
+                    // Initialize header interactions after header is loaded
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #8e0a64; color: white; padding: 20px; text-align: center;">⚠️ Header Not Found - Please check header1.html file</header>';
+                });
+
+            // Load footer
+            fetch('footer1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found (footer1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    
+                    // Optional: Initialize footer interactions if needed
+                    setTimeout(initFooterInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1e2a3a; color: white; padding: 40px; text-align: center;">⚠️ Footer Not Found - Please check footer1.html file</footer>';
+                });
+        });
+
+        // Initialize header interactions (hamburger menu, dropdown)
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const logo = document.querySelector('.logo');
+            
+            console.log('Header initialized - menu toggle:', menuToggle ? '✓ Found' : '✗ Not Found');
+            
+            // Mobile menu toggle with logo hide
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (logo) {
+                        if (navMenu.classList.contains('active')) {
+                            logo.style.opacity = '0';
+                            logo.style.visibility = 'hidden';
+                            logo.style.pointerEvents = 'none';
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+            
+            // Handle all dropdown buttons
+            document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                const dropdownId = btn.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('[data-dropdown]').forEach(otherBtn => {
+                            if (otherBtn !== btn) {
+                                const otherDropdownId = otherBtn.getAttribute('data-dropdown');
+                                const otherDropdown = document.getElementById(otherDropdownId);
+                                if (otherDropdown) {
+                                    otherDropdown.classList.remove('show');
+                                    otherBtn.classList.remove('active');
+                                }
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('show');
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+            
+            // Close mobile menu when clicking on any link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                        
+                        document.querySelectorAll('.dropdown-menu').forEach(d => {
+                            d.classList.remove('show');
+                        });
+                        document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]') && !e.target.closest('.dropdown-menu')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (logo) {
+                        logo.style.opacity = '1';
+                        logo.style.visibility = 'visible';
+                        logo.style.pointerEvents = 'auto';
+                    }
+                    document.body.style.overflow = 'auto';
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Escape key handler
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                    }
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Initialize footer interactions (if needed)
+        function initFooterInteractions() {
+            console.log('Footer initialized');
+        }
+
+        // Refresh AOS on load and resize
+        window.addEventListener('load', () => AOS.refresh());
+        window.addEventListener('resize', () => AOS.refresh());
+
+        //=========================================================
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100,
+            easing: 'ease-in-out',
+            mirror: true
+        });
+
+        // Back to Top Button Functionality
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+</body>
+</html>

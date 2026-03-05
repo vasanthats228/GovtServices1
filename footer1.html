@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Government Services Portal - Footer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f7ff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+       
+        .footer {
+            background: #8e0a64; 
+            color: #ffffff;
+            margin-top: auto;
+            padding: 60px 0 30px;
+            font-family: 'Inter', sans-serif;
+            border-top: 4px solid #f8f5f0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            width: 100%;
+        }
+
+        /* Footer Logo Section - VISIBLE NOW */
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-logo img {
+            height: 45px;
+            width: auto;
+            max-width: 280px;
+            display: block;
+            background: transparent;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo:hover img {
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Government-related sentence - ALL BOLD */
+        .footer-tagline {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ffffff;
+            max-width: 350px;
+            font-style: italic;
+            padding-left: 15px;
+            border-left: 3px solid #f8f5f0;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .footer-tagline:hover {
+            border-left-color: #ffffff;
+            padding-left: 20px;
+            color: #f8f5f0;
+        }
+
+        .footer-tagline i {
+            transition: transform 0.3s ease;
+            color: #f8f5f0;
+        }
+
+        .footer-tagline:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Social Icons under tagline */
+        .footer-social-under {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+            padding-left: 15px;
+        }
+
+        .footer-social-under a {
+            color: #8e0a64;
+            background: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-social-under a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(142, 10, 100, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .footer-social-under a:hover::before {
+            left: 100%;
+        }
+
+        .footer-social-under a:hover {
+            background: #f8f5f0;
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            color: #6d074f;
+        }
+
+        .footer-social-under a:active {
+            transform: translateY(-2px) scale(0.95);
+        }
+
+        /* Footer Headings - ALL BOLD */
+        .footer-heading {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            cursor: default;
+            transition: all 0.3s ease;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #f8f5f0;
+            transition: width 0.3s ease;
+        }
+
+        .footer-heading:hover::after {
+            width: 100%;
+        }
+
+        .footer-heading:hover {
+            letter-spacing: 1px;
+            color: #f8f5f0;
+        }
+
+        /* Quick Links and Resources - ALL BOLD */
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            padding: 4px 0 4px 4px;
+            border-radius: 4px;
+        }
+
+        .footer-links li a i {
+            color: #f8f5f0;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links li a:hover {
+            color: #f8f5f0;
+            transform: translateX(8px);
+            background: rgba(248, 245, 240, 0.15);
+            padding: 4px 12px 4px 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-links li a:hover i {
+            transform: translateX(5px) scale(1.2);
+            color: #ffffff;
+        }
+
+        .footer-links li a:active {
+            transform: translateX(4px) scale(0.98);
+        }
+
+        /* ===== COMPACT CONTACT SECTION - FULLY RESPONSIVE ===== */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 0;
+            transition: all 0.3s ease;
+            flex-wrap: wrap;
+            word-break: break-word;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding-left: 8px;
+        }
+
+        .contact-item i {
+            width: 20px;
+            color: #f8f5f0;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-item span {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: 1.5fr 1fr 1fr;
+            }
+            .footer-logo-section {
+                grid-column: span 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-logo-section {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-logo-section {
+                grid-column: span 1;
+            }
+            .contact-item {
+                gap: 10px;
+                font-size: 13px;
+            }
+            .contact-item i {
+                width: 18px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                padding: 40px 0 20px;
+            }
+            .footer-container {
+                padding: 0 20px;
+                gap: 25px;
+            }
+            .footer-logo img {
+                height: 35px;
+            }
+            .footer-social-under a {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+            .contact-item {
+                padding: 5px 0;
+            }
+            .contact-item span {
+                font-size: 12px;
+                min-width: 120px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .contact-item {
+                gap: 8px;
+            }
+            .contact-item span {
+                font-size: 11px;
+                min-width: 100px;
+            }
+            .contact-item i {
+                width: 16px;
+                font-size: 12px;
+            }
+        }
+
+        /* Footer Bottom - Centered */
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid rgba(248, 245, 240, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer-bottom:hover {
+            border-top-color: #f8f5f0;
+        }
+
+        .copyright {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .copyright:hover {
+            background: rgba(248, 245, 240, 0.15);
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .copyright i {
+            transition: transform 0.3s ease;
+        }
+
+        .copyright:hover i {
+            transform: rotate(360deg);
+        }
+
+        /* Responsive Footer Bottom */
+        @media (max-width: 768px) {
+            .footer-bottom {
+                padding: 20px 20px 0;
+                margin-top: 40px;
+            }
+            .copyright {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-bottom {
+                margin-top: 30px;
+                padding: 15px 15px 0;
+            }
+            .copyright {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- FOOTER ONLY - With Compact Contact Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo and Tagline Section with Social Icons Under -->
+            <div class="footer-logo-section">
+                <a href="index.html" class="footer-logo">
+                    <img src="Stacklylogo.webp" alt="Government Services" 
+                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'100\' viewBox=\'0 0 280 100\'%3E%3Crect width=\'280\' height=\'100\' fill=\'%238e0a64\'/%3E%3Ctext x=\'20\' y=\'65\' fill=\'%23FFFFFF\' font-size=\'48\' font-weight=\'bold\'%3ESTACKLY%3C/text%3E%3C/svg%3E';">
+                </a>
+                <!-- Government-related sentence - BOLD -->
+                <div class="footer-tagline">
+                    <i class="fas fa-quote-left"></i>
+                    Empowering Citizens through Transparent & Accessible E-Governance
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <!-- Social Icons Under Tagline -->
+                <div class="footer-social-under">
+                    <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="404.html" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="404.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-quick-links">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home1.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="projects.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                    <li><a href="online-services.html"><i class="fas fa-chevron-right"></i> Online Services</a></li>
+                    <li><a href="notification.html"><i class="fas fa-chevron-right"></i> Notifications</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
+                    <li><a href="login1.html"><i class="fas fa-chevron-right"></i> Login</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="footer-resources">
+                <h3 class="footer-heading">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="404.html"><i class="fas fa-download"></i> Download Forms</a></li>
+                    <li><a href="404.html"><i class="fas fa-book"></i> Citizen Charter</a></li>
+                    <li><a href="404.html"><i class="fas fa-file-pdf"></i> Annual Reports</a></li>
+                    <li><a href="404.html"><i class="fas fa-video"></i> Tutorials</a></li>
+                    <li><a href="404.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="404.html"><i class="fas fa-sitemap"></i> Site Map</a></li>
+                </ul>
+            </div>
+
+            <!-- COMPACT CONTACT SECTION - FULLY RESPONSIVE -->
+            <div class="contact-section">
+                <h3 class="footer-heading">Contact Us</h3>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>New Delhi - 110001</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>1800-425-9876</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>support@gov.in</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Fri, 9:30AM-6PM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom - Centered -->
+        <div class="footer-bottom">
+            <div class="copyright">
+                <i class="far fa-copyright"></i> 2026 Government Services Portal. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- No newsletter script needed -->
+</body>
+</html>

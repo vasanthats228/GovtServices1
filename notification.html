@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Government Services – Notifications & Citizen Alerts</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f9ff;
+            color: #1e2b3c;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* main container – no horizontal overflow */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+            overflow-x: hidden;
+        }
+
+        /* each section has unique spacing */
+        section {
+            padding: 70px 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* section headers – NO UNDERLINE */
+        .section-head {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-head h2 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: #0b2d4b;
+            display: inline-block;
+            /* no underline, no pseudo-element */
+        }
+        .section-head p {
+            color: #2b4d6a;
+            font-size: 1.1rem;
+            margin-top: 12px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* all buttons redirect to 404.html */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+        }
+        .btn-primary:hover { background: #1d4ed8; transform: translateY(-3px); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+        .btn-outline:hover { background: #2563eb; color: white; }
+        .btn-amber {
+            background: #f59e0b;
+            color: white;
+        }
+        .btn-amber:hover { background: #d97706; transform: translateY(-3px); }
+
+        /* ===== 1. HERO – GOVERNMENT NOTIFICATIONS ===== */
+        .hero-notify {
+            background: linear-gradient(145deg, #0b2d4b 0%, #1a4a76 100%);
+            color: white;
+            border-radius: 0 0 40px 40px;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 24px;
+        }
+        .hero-badge i { color: #fbbf24; }
+        .hero-grid h1 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0 20px;
+        }
+        .stat-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 14px 22px;
+            min-width: 140px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fbbf24;
+            display: block;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+        }
+
+        /* ===== 2. URGENT NOTIFICATIONS (3 CARDS WITH IMAGES) ===== */
+        .urgent-cards {
+            background: white;
+        }
+        .urgent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .urgent-item {
+            background: #f8fafd;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #e6edf4;
+            box-shadow: 0 15px 25px -8px rgba(0,0,0,0.05);
+        }
+        .urgent-item:hover { transform: translateY(-8px); border-color: #2563eb; }
+        .urgent-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .urgent-content {
+            padding: 25px 20px;
+        }
+        .urgent-content h3 { font-size: 1.3rem; margin-bottom: 8px; color: #0b2d4b; }
+        .urgent-content p { color: #3b5e7e; margin-bottom: 20px; font-size: 0.95rem; }
+        .urgent-tag {
+            background: #2563eb10;
+            color: #2563eb;
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        /* ===== 3. LATEST UPDATES (with date + image) ===== */
+        .latest-updates {
+            background: #f4f9ff;
+        }
+        .update-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .update-row {
+            background: white;
+            border-radius: 28px;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+            border: 1px solid #e2eaf2;
+        }
+        .update-img-small {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .update-date {
+            background: #2563eb;
+            color: white;
+            min-width: 100px;
+            text-align: center;
+            padding: 12px 8px;
+            border-radius: 24px;
+            font-weight: 700;
+        }
+        .update-date .day { font-size: 2rem; line-height: 1; }
+        .update-date .month { font-size: 0.8rem; opacity: 0.9; }
+        .update-content { flex: 1; }
+        .update-content h4 { font-size: 1.2rem; margin-bottom: 6px; color: #0b2d4b; }
+        .update-content p { color: #3b5e7e; }
+
+        /* ===== 4. CATEGORY WISE (grid with icons & images) ===== */
+        .category-wise {
+            background: white;
+        }
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        .cat-card {
+            background: #f8fafd;
+            border-radius: 32px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid #e9eff6;
+            transition: 0.3s;
+        }
+        .cat-card:hover { border-color: #f59e0b; transform: scale(1.02); }
+        .cat-card img {
+            width: 90px;
+            height: 90px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        .cat-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+        .cat-badge {
+            background: #2563eb;
+            color: white;
+            padding: 5px 16px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        /* ===== 5. IMPORTANT DEADLINES (cards with image) ===== */
+        .deadlines {
+            background: #f4f9ff;
+        }
+        .deadline-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        .deadline-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border: 1px solid #e2eaf2;
+        }
+        .deadline-card img {
+            width: 110px;
+            height: 110px;
+            border-radius: 28px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .deadline-info h3 { font-size: 1.2rem; margin-bottom: 5px; }
+        .deadline-info .date { color: #dc2626; font-weight: 700; margin: 8px 0; }
+
+        /* ===== 6. DEPARTMENT WISE (compact with images) ===== */
+        .dept-wise {
+            background: white;
+        }
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .dept-card {
+            background: #f8fafd;
+            border-radius: 30px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid #e6edf4;
+        }
+        .dept-card img {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+        .dept-card h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .dept-card span { color: #2563eb; font-weight: 700; }
+
+        /* ===== 7. CITIZEN ALERTS (with image background) ===== */
+        .citizen-alerts {
+            background: linear-gradient(145deg, #0f3a60, #1e4b7a);
+            color: white;
+        }
+        .alerts-flex {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .alerts-flex img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 40px;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+        }
+        .alert-text h2 { font-size: 2.2rem; margin-bottom: 20px; }
+        .alert-text ul { list-style: none; }
+        .alert-text li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .alert-text i { color: #fbbf24; font-size: 1.3rem; }
+
+        /* ===== 8. QUICK ACTIONS (with images) ===== */
+        .quick-actions {
+            background: white;
+        }
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .quick-card {
+            background: #f8fafd;
+            border-radius: 30px;
+            padding: 30px 15px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #e2eaf2;
+        }
+        .quick-card:hover { border-color: #2563eb; transform: translateY(-5px); }
+        .quick-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+        .quick-card h4 { font-size: 1.1rem; margin-bottom: 15px; }
+
+        /* ===== 9. NEWSLETTER (with image) ===== */
+        .newsletter-section {
+            background: #f4f9ff;
+            padding: 50px 0;
+        }
+        .newsletter-box {
+            background: white;
+            border-radius: 60px;
+            padding: 50px 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.05);
+        }
+        .newsletter-box img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .newsletter-form {
+            flex: 1;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 25px;
+            border: 2px solid #e2eaf2;
+            border-radius: 60px;
+            font-size: 1rem;
+            min-width: 250px;
+        }
+        .newsletter-form input:focus { outline: none; border-color: #2563eb; }
+        .newsletter-error { color: #dc2626; margin-top: 5px; display: none; }
+
+        /* ===== FULLY RESPONSIVE (NO HORIZONTAL SCROLL) ===== */
+        @media (max-width: 1100px) {
+            .cat-grid { grid-template-columns: repeat(2,1fr); }
+            .quick-grid { grid-template-columns: repeat(2,1fr); }
+            .dept-grid { grid-template-columns: repeat(2,1fr); }
+        }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-stats { justify-content: center; }
+            .hero-cta { justify-content: center; }
+            .urgent-grid { grid-template-columns: 1fr; }
+            .deadline-grid { grid-template-columns: 1fr; }
+            .update-row { flex-direction: column; text-align: center; }
+            .update-date { width: 100%; }
+        }
+        @media (max-width: 700px) {
+            .cat-grid { grid-template-columns: 1fr; }
+            .quick-grid { grid-template-columns: 1fr; }
+            .dept-grid { grid-template-columns: 1fr; }
+            .deadline-card { flex-direction: column; text-align: center; }
+            .alerts-flex { justify-content: center; text-align: center; }
+            .newsletter-box { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 12px; }
+            .stat-item { min-width: 100%; }
+            .hero-cta .btn { width: 100%; text-align: center; }
+        }
+
+                /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #8e0a64;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border: 2px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: #a80d78;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(142,10,100,0.4);
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+
+
+    <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+    <!-- HEADER PLACEHOLDER with Loading Animation -->
+    <div id="header-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <!-- 1. HERO – GOVERNMENT NOTIFICATIONS (no HMDA) -->
+    <section class="hero-notify">
+        <div class="container">
+            <div class="hero-grid">
+                <div data-aos="fade-right">
+                    <div class="hero-badge"><i class="fas fa-bell"></i> GOVERNMENT OF INDIA</div>
+                    <h1>National <span class="hero-gradient">Notifications</span> & Citizen Alerts</h1>
+                    <p>Official updates from central & state departments — schemes, deadlines, digital services.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item"><span class="number">1,284+</span> Notifications</div>
+                        <div class="stat-item"><span class="number">33</span> Departments</div>
+                        <div class="stat-item"><span class="number">142</span> New this week</div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="404.html" class="btn btn-primary"><i class="fas fa-bell"></i> Subscribe</a>
+                        <a href="404.html" class="btn btn-outline">View Calendar</a>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left">
+                    <img src="GS14.webp" alt="Government building" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%232563eb\'/%3E%3Ctext x=\'50\' y=\'150\' fill=\'white\' font-size=\'30\'%3EGovt%3C/text%3E%3C/svg%3E'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. URGENT NOTIFICATIONS (three cards with images) -->
+    <section class="urgent-cards">
+        <div class="container">
+            <div class="section-head" data-aos="fade-down">
+                <h2>⚠️ Urgent / High Priority</h2>
+                <p>Time‑sensitive announcements – act now</p>
+            </div>
+            <div class="urgent-grid">
+                <div class="urgent-item" data-aos="flip-up">
+                    <img class="urgent-img" src="Aadhaar.webp" alt="PAN Aadhaar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'180\' viewBox=\'0 0 300 180\'%3E%3Crect width=\'300\' height=\'180\' fill=\'%23dc2626\'/%3E%3C/svg%3E'">
+                    <div class="urgent-content">
+                        <h3>PAN‑Aadhaar Linking Deadline</h3>
+                        <p>Last date 31 March 2026. Non‑compliance may lead to PAN inactivation.</p>
+                        <span class="urgent-tag">Income Tax</span>
+                        <a href="404.html" class="btn btn-primary" style="margin-top:15px;">Link Now</a>
+                    </div>
+                </div>
+                <div class="urgent-item" data-aos="flip-up" data-aos-delay="80">
+                    <img class="urgent-img" src="Passport.webp" alt="Passport" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'180\' viewBox=\'0 0 300 180\'%3E%3Crect width=\'300\' height=\'180\' fill=\'%232563eb\'/%3E%3C/svg%3E'">
+                    <div class="urgent-content">
+                        <h3>Passport Seva Kendra Closure</h3>
+                        <p>All PSK closed 29‑30 March for maintenance. Online services continue.</p>
+                        <span class="urgent-tag">Passport Office</span>
+                        <a href="404.html" class="btn btn-primary" style="margin-top:15px;">Check Status</a>
+                    </div>
+                </div>
+                <div class="urgent-item" data-aos="flip-up" data-aos-delay="160">
+                    <img class="urgent-img" src="GS21.webp" alt="Digital India" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'180\' viewBox=\'0 0 300 180\'%3E%3Crect width=\'300\' height=\'180\' fill=\'%230b2d4b\'/%3E%3C/svg%3E'">
+                    <div class="urgent-content">
+                        <h3>Free Aadhaar Update Camp</h3>
+                        <p>Extended till 30 June 2026. Update at any enrollment centre.</p>
+                        <span class="urgent-tag">UIDAI</span>
+                        <a href="404.html" class="btn btn-primary" style="margin-top:15px;">Find Centre</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. LATEST UPDATES (with images & dates) -->
+    <section class="latest-updates">
+        <div class="container">
+            <div class="section-head" data-aos="fade-down">
+                <h2>📢 Latest Updates</h2>
+                <p>Recent announcements from various ministries</p>
+            </div>
+            <div class="update-list">
+                <div class="update-row" data-aos="fade-up">
+                    <img class="update-img-small" src="GS6.webp" alt="ITR" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'70\' height=\'70\' viewBox=\'0 0 70 70\'%3E%3Ccircle cx=\'35\' cy=\'35\' r=\'35\' fill=\'%232563eb\'/%3E%3C/svg%3E'">
+                    <div class="update-date"><span class="day">15</span><span class="month">MAR</span></div>
+                    <div class="update-content"><h4>ITR deadline extended</h4><p>Income Tax Return for FY 2024‑25 now due 31 March 2026.</p></div>
+                    <a href="404.html" class="btn btn-amber">File now</a>
+                </div>
+                <div class="update-row" data-aos="fade-up" data-aos-delay="60">
+                    <img class="update-img-small" src="GS7.webp" alt="EPFO" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'70\' height=\'70\' viewBox=\'0 0 70 70\'%3E%3Ccircle cx=\'35\' cy=\'35\' r=\'35\' fill=\'%23f59e0b\'/%3E%3C/svg%3E'">
+                    <div class="update-date"><span class="day">12</span><span class="month">MAR</span></div>
+                    <div class="update-content"><h4>EPFO interest rate 8.25%</h4><p>Circular issued for 2025‑26; credit by April.</p></div>
+                    <a href="404.html" class="btn btn-amber">Details</a>
+                </div>
+                <div class="update-row" data-aos="fade-up" data-aos-delay="120">
+                    <img class="update-img-small" src="GS8.webp" alt="Driving license" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'70\' height=\'70\' viewBox=\'0 0 70 70\'%3E%3Ccircle cx=\'35\' cy=\'35\' r=\'35\' fill=\'%2310b981\'/%3E%3C/svg%3E'">
+                    <div class="update-date"><span class="day">10</span><span class="month">MAR</span></div>
+                    <div class="update-content"><h4>Driving test slots released</h4><p>April 2026 slots open – book via Sarathi.</p></div>
+                    <a href="404.html" class="btn btn-amber">Book slot</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CATEGORY WISE NOTIFICATIONS (with images) -->
+    <section class="category-wise">
+        <div class="container">
+            <div class="section-head" data-aos="fade-down">
+                <h2>📂 Category Wise</h2>
+                <p>Browse by scheme or service type</p>
+            </div>
+            <div class="cat-grid">
+                <div class="cat-card" data-aos="zoom-in"><img src="GS9.webp" alt="Financial"><h3>Financial Aid</h3><span class="cat-badge">48</span></div>
+                <div class="cat-card" data-aos="zoom-in" data-aos-delay="50"><img src="GS10.webp" alt="Documents"><h3>Documents</h3><span class="cat-badge">37</span></div>
+                <div class="cat-card" data-aos="zoom-in" data-aos-delay="100"><img src="GS11.webp" alt="Health"><h3>Health Schemes</h3><span class="cat-badge">24</span></div>
+                <div class="cat-card" data-aos="zoom-in" data-aos-delay="150"><img src="GS12.webp" alt="Education"><h3>Education</h3><span class="cat-badge">31</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. IMPORTANT DEADLINES (cards with images) -->
+    <section class="deadlines">
+        <div class="container">
+            <div class="section-head" data-aos="fade-down">
+                <h2>⏳ Important Deadlines</h2>
+                <p>Don’t miss these dates</p>
+            </div>
+            <div class="deadline-grid">
+                <div class="deadline-card" data-aos="fade-right">
+                    <img src="GS13.webp" alt="ITR">
+                    <div class="deadline-info"><h3>Income Tax Return</h3><p class="date">31 March 2026</p><p>FY 2024‑25</p><a href="404.html" class="btn btn-outline">e‑file</a></div>
+                </div>
+                <div class="deadline-card" data-aos="fade-left">
+                    <img src="GS14.webp" alt="PAN">
+                    <div class="deadline-info"><h3>PAN‑Aadhaar Link</h3><p class="date">31 March 2026</p><p>mandatory</p><a href="404.html" class="btn btn-outline">Link now</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. DEPARTMENT WISE (with images) -->
+    <section class="dept-wise">
+        <div class="container">
+            <div class="section-head" data-aos="fade-down">
+                <h2>🏛️ Department Wise</h2>
+                <p>Notifications by ministry</p>
+            </div>
+            <div class="dept-grid">
+                <div class="dept-card" data-aos="fade-up"><img src="GS19.webp" alt="Finance"><div><h4>Finance</h4><span>142 notices</span></div></div>
+                <div class="dept-card" data-aos="fade-up" data-aos-delay="50"><img src="GS18.webp" alt="Health"><div><h4>Health</h4><span>98 notices</span></div></div>
+                <div class="dept-card" data-aos="fade-up" data-aos-delay="100"><img src="GS17.webp" alt="Rural"><div><h4>Rural Development</h4><span>67 notices</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CITIZEN ALERTS (with image) -->
+    <section class="citizen-alerts">
+        <div class="container">
+            <div class="alerts-flex" data-aos="fade-up">
+                <img src="GS21.webp" alt="Citizen">
+                <div class="alert-text">
+                    <h2>📣 Citizen Alerts</h2>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> New pension calculator launched</li>
+                        <li><i class="fas fa-check-circle"></i> 10 lakh Ayushman cards generated this month</li>
+                        <li><i class="fas fa-check-circle"></i> PM‑KISAN 16th instalment release next week</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary" style="margin-top:20px;">Read all alerts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. QUICK ACTIONS (with images) -->
+    <section class="quick-actions">
+        <div class="container">
+            <div class="section-head" data-aos="fade-down">
+                <h2>⚡ Quick Actions</h2>
+                <p>Frequently used services</p>
+            </div>
+            <div class="quick-grid">
+                <a href="404.html" class="quick-card"><img src="GS1.webp" alt="Apply"><h4>New Application</h4><span class="btn btn-primary" style="padding:6px 20px;">Apply</span></a>
+                <a href="404.html" class="quick-card"><img src="GS2.webp" alt="Track"><h4>Track Status</h4><span class="btn btn-primary" style="padding:6px 20px;">Track</span></a>
+                <a href="404.html" class="quick-card"><img src="GS3.webp" alt="Download"><h4>e‑Certificates</h4><span class="btn btn-primary" style="padding:6px 20px;">Download</span></a>
+                <a href="404.html" class="quick-card"><img src="GS4.webp" alt="Grievance"><h4>Grievance</h4><span class="btn btn-primary" style="padding:6px 20px;">Raise</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. NEWSLETTER (with image + validation) -->
+<section class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-box" data-aos="zoom-in">
+            <img src="GS5.webp" alt="Newsletter">
+            <div style="flex:1;">
+                <h2 style="color:#0b2d4b;">Get notified instantly</h2>
+                <p style="margin:10px 0;">Subscribe to receive government alerts via email</p>
+                <div class="newsletter-form">
+                    <input type="email" id="newsEmail" placeholder="your@email.com">
+                    <button onclick="validateNewsletter()" class="btn btn-primary">Subscribe</button>
+                </div>
+                <div id="newsletterError" class="newsletter-error" style="color:#dc2626; margin-top:8px; display:none;">Please enter a valid email address</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER PLACEHOLDER - Footer will load here -->
+    <div id="footer-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+        //======================================================
+        // Header and Footer Loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found (header1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    
+                    // Initialize header interactions after header is loaded
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #8e0a64; color: white; padding: 20px; text-align: center;">⚠️ Header Not Found - Please check header1.html file</header>';
+                });
+
+            // Load footer
+            fetch('footer1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found (footer1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    
+                    // Optional: Initialize footer interactions if needed
+                    setTimeout(initFooterInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1e2a3a; color: white; padding: 40px; text-align: center;">⚠️ Footer Not Found - Please check footer1.html file</footer>';
+                });
+        });
+
+        // Initialize header interactions (hamburger menu, dropdown)
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const logo = document.querySelector('.logo');
+            
+            console.log('Header initialized - menu toggle:', menuToggle ? '✓ Found' : '✗ Not Found');
+            
+            // Mobile menu toggle with logo hide
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (logo) {
+                        if (navMenu.classList.contains('active')) {
+                            logo.style.opacity = '0';
+                            logo.style.visibility = 'hidden';
+                            logo.style.pointerEvents = 'none';
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+            
+            // Handle all dropdown buttons
+            document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                const dropdownId = btn.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('[data-dropdown]').forEach(otherBtn => {
+                            if (otherBtn !== btn) {
+                                const otherDropdownId = otherBtn.getAttribute('data-dropdown');
+                                const otherDropdown = document.getElementById(otherDropdownId);
+                                if (otherDropdown) {
+                                    otherDropdown.classList.remove('show');
+                                    otherBtn.classList.remove('active');
+                                }
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('show');
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+            
+            // Close mobile menu when clicking on any link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                        
+                        document.querySelectorAll('.dropdown-menu').forEach(d => {
+                            d.classList.remove('show');
+                        });
+                        document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]') && !e.target.closest('.dropdown-menu')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (logo) {
+                        logo.style.opacity = '1';
+                        logo.style.visibility = 'visible';
+                        logo.style.pointerEvents = 'auto';
+                    }
+                    document.body.style.overflow = 'auto';
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Escape key handler
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                    }
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Initialize footer interactions (if needed)
+        function initFooterInteractions() {
+            console.log('Footer initialized');
+        }
+
+        // Refresh AOS on load and resize
+        window.addEventListener('load', () => AOS.refresh());
+        window.addEventListener('resize', () => AOS.refresh());
+
+        //=========================================================
+
+        AOS.init({ duration: 800, once: true, offset: 20 });
+        // all buttons already point to 404.html
+
+        function validateNewsletter() {
+    const emailInput = document.getElementById('newsEmail');
+    const errorDiv = document.getElementById('newsletterError');
+    const email = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailRegex.test(email)) {
+        errorDiv.style.display = 'none';
+        emailInput.style.borderColor = '#e2eaf2'; // reset
+        window.location.href = '404.html'; // only redirect on valid email
+    } else {
+        emailInput.style.borderColor = '#dc2626';
+        errorDiv.style.display = 'block';
+    }
+}
+
+// Back to Top Button Functionality
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+</body>
+</html>

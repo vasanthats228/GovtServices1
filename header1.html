@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Government Services Portal - Header</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f7ff;
+            min-height: 100vh;
+        }
+
+        /* Fixed Header Container */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* ----- TOP BAR (#8e0a64) ----- */
+        .top-bar {
+            background: #8e0a64;
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: none;
+        }
+
+        .top-bar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            flex: 1;
+        }
+
+        .top-bar-left i {
+            color: #ffffff;
+            font-size: 14px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .moving-text {
+            display: inline-block;
+            animation: moveText 25s linear infinite;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .moving-text i {
+            margin: 0 10px;
+            color: #ffffff;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateX(0%);
+            }
+            50% {
+                transform: translateX(-100%);
+            }
+            50.01% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .top-bar-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+        }
+
+        .top-bar-contact-item i {
+            font-size: 14px;
+            color: #ffffff;
+            transition: transform 0.3s ease;
+        }
+
+        .top-bar-contact-item:hover i {
+            transform: scale(1.2);
+        }
+
+        .top-bar-contact-item span,
+        .top-bar-contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+
+        .top-bar-contact-item a:hover {
+            color: #cccccc;
+        }
+
+        .top-bar-separator {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* ----- MAIN NAVIGATION (Light color) ----- */
+        .main-nav {
+            background: #f8f5f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: none;
+        }
+
+        .navbar {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 12px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            height: 100px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            z-index: 1001;
+            transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+            line-height: 0;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            height: 45px; 
+            width: auto;
+            max-width: 200px;
+            display: block;
+            border: none;
+            outline: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu li a {
+            color: #333333;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-menu li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #8e0a64;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu li a:hover:after {
+            width: 80%;
+        }
+
+        .nav-menu li a:hover {
+            color: #8e0a64;
+        }
+
+        /* Dropdown Container */
+        .nav-item-with-dropdown {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link {
+            color: #333333;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 0;
+        }
+
+        .dropdown-icon {
+            background: none;
+            border: none;
+            font-size: 14px;
+            color: #666666;
+            cursor: pointer;
+            padding: 8px 5px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-icon:hover {
+            color: #8e0a64;
+        }
+
+        .dropdown-icon.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 1px solid #eee;
+        }
+
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(10px);
+        }
+
+        .dropdown-menu li {
+            list-style: none;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            display: block;
+            color: #333 !important;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-menu li a i {
+            width: 20px;
+            color: #8e0a64;
+            margin-right: 10px;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #f5f5f5;
+            color: #8e0a64 !important;
+            padding-left: 25px;
+        }
+
+        .dropdown-menu li a:hover:after {
+            display: none;
+        }
+
+        /* Login Button  */
+        .consultant-link {
+            background: #8e0a64;
+            color: white !important;
+            padding: 10px 25px !important;
+            border-radius: 30px;
+            font-weight: 700 !important;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .consultant-link:hover {
+            background: #a80d78;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(142, 10, 100, 0.4);
+            color: white !important;
+        }
+
+        .consultant-link:hover:after {
+            display: none !important;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: #333333;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Responsiveness - FIXED: Logo hidden when menu active */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 15px;
+            }
+            
+            .nav-menu li a {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-container {
+                padding: 0 20px;
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .top-bar-left {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .top-bar-right {
+                width: 100%;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .navbar {
+                padding: 10px 20px;
+            }
+
+            .logo {
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            .logo img {
+                height: 60px; 
+                max-width: 180px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: #f8f5f0;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                transition: left 0.4s ease;
+                z-index: 999;
+                padding: 80px 20px 40px;
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            /* CRITICAL FIX: Logo hidden when mobile menu is active */
+            .nav-menu.active ~ .logo,
+            .nav-menu.active + .logo,
+            body:has(.nav-menu.active) .logo {
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu li a {
+                font-size: 20px;
+                padding: 12px;
+                display: inline-block;
+                color: #333333;
+            }
+
+            .nav-item-with-dropdown {
+                justify-content: center;
+            }
+
+            .dropdown-icon {
+                font-size: 16px;
+                padding: 12px 10px;
+                color: #666666;
+            }
+
+            .dropdown-menu {
+                position: static;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                margin: 10px auto 0;
+                width: 90%;
+                border-radius: 15px;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                border: 1px solid #eee;
+            }
+
+            .dropdown-menu.show {
+                display: block;
+            }
+
+            .dropdown-menu li a {
+                font-size: 18px !important;
+                color: #333333 !important;
+            }
+
+            .dropdown-menu li a i {
+                color: #8e0a64;
+            }
+
+            .dropdown-menu li a:hover {
+                background: #f5f5f5;
+                color: #8e0a64 !important;
+            }
+
+            .consultant-link {
+                display: inline-block !important;
+                font-size: 20px !important;
+                padding: 12px 40px !important;
+                margin-top: 20px;
+                background: #8e0a64;
+                color: white !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar-contact-item {
+                font-size: 12px;
+            }
+            
+            .top-bar-right {
+                gap: 10px;
+            }
+            
+            .top-bar-separator {
+                display: none;
+            }
+            
+            .logo img {
+                height: 50px; 
+                max-width: 150px;
+            }
+        }
+        
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ONLY HEADER - NO HERO CONTENT -->
+    <header class="header">
+        <!-- Top Bar with #8e0a64 color -->
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <div class="top-bar-left">
+                    <i class="fas fa-gopuram"></i>
+                    <div class="moving-text">
+                        <i class="fas fa-star"></i> Government Services Portal - Digital India Initiative - Online Services Available 24/7 - Your Gateway to E-Governance 
+                        <i class="fas fa-star"></i> Government Services Portal - Digital India Initiative - Online Services Available 24/7 - Your Gateway to E-Governance
+                    </div>
+                </div>
+                <div class="top-bar-right">
+                    <div class="top-bar-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="404.html">info@thestackly.com</a>
+                    </div>
+                    <span class="top-bar-separator">|</span>
+                    <div class="top-bar-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 12345 09876</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation with Light Color -->
+        <div class="main-nav">
+            <nav class="navbar">
+                <!-- Logo - NO BACKGROUND COLOR, NO BOX SHADOW, INCREASED SIZE -->
+                <a href="index.html" class="logo">
+                    <img src="Stacklylogo.webp" alt="Government Services" 
+                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'70\' viewBox=\'0 0 200 70\'%3E%3Ctext x=\'10\' y=\'45\' fill=\'%238e0a64\' font-size=\'36\' font-weight=\'bold\'%3EGOV%3C/text%3E%3C/svg%3E';">
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- Navigation Menu -->
+                <ul class="nav-menu" id="navMenu">
+                    <!-- Home with Dropdown -->
+                    <li>
+                        <div class="nav-item-with-dropdown">
+                            <a href="index.html" class="nav-link">Home</a>
+                            <button class="dropdown-icon" data-dropdown="homeDropdown">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="dropdown-menu" id="homeDropdown">
+                            <li><a href="home2.html"><i class="fas fa-tachometer-alt"></i> Homepage 2</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <!-- About Us with Dropdown -->
+                    <li>
+                        <div class="nav-item-with-dropdown">
+                            <a href="about.html" class="nav-link">About Us</a>
+                            <button class="dropdown-icon" data-dropdown="aboutDropdown">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="dropdown-menu" id="aboutDropdown">
+                            <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+                            <li><a href="mission.html"><i class="fas fa-bullseye"></i> Mission & Vision</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Projects -->
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+
+                    <!-- Online Services with Dropdown -->
+                    <li>
+                        <div class="nav-item-with-dropdown">
+                            <a href="online-services.html" class="nav-link">Online Services</a>
+                            <button class="dropdown-icon" data-dropdown="servicesDropdown">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <ul class="dropdown-menu" id="servicesDropdown">
+                            <li><a href="aadhaar.html"><i class="fas fa-id-card"></i> Aadhaar Services</a></li>
+                            <li><a href="passport.html"><i class="fas fa-passport"></i> Passport</a></li>
+                            <li><a href="driving-license.html"><i class="fas fa-car"></i> Driving License</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Notification -->
+                    <li><a href="notification.html" class="nav-link">Notification</a></li>
+
+                    <!-- Media -->
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+
+                    <!-- Login Button - NO ICON -->
+                    <li><a href="login1.html" class="consultant-link">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- EMPTY SPACER - JUST TO SHOW HEADER IS FIXED (NO CONTENT) -->
+    <div style="margin-top: 140px;"></div>
+
+    <!-- JavaScript for Functionality - FIXED with logo hide/show -->
+    <script>
+        // Get elements
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const logo = document.querySelector('.logo');
+        
+        // Mobile menu toggle - FIXED with logo hide/show
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Toggle logo visibility - CRITICAL FIX
+            if (navMenu.classList.contains('active')) {
+                // Force hide logo with inline styles (strongest specificity)
+                logo.style.setProperty('opacity', '0', 'important');
+                logo.style.setProperty('visibility', 'hidden', 'important');
+                logo.style.setProperty('pointer-events', 'none', 'important');
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Restore logo
+                logo.style.removeProperty('opacity');
+                logo.style.removeProperty('visibility');
+                logo.style.removeProperty('pointer-events');
+                document.body.style.overflow = 'auto';
+                
+                // Close all dropdowns when closing menu
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+                document.querySelectorAll('.dropdown-icon').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }
+        });
+
+        // Dropdown functionality
+        document.querySelectorAll('.dropdown-icon').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const dropdownId = this.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                // Close other dropdowns
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    if (menu.id !== dropdownId) {
+                        menu.classList.remove('show');
+                    }
+                });
+                document.querySelectorAll('.dropdown-icon').forEach(btn => {
+                    if (btn !== this) {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                dropdown.classList.toggle('show');
+                this.classList.toggle('active');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-item-with-dropdown')) {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+                document.querySelectorAll('.dropdown-icon').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }
+        });
+
+        // Close mobile menu when clicking on a link - FIXED with logo restore
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    
+                    // Restore logo
+                    logo.style.removeProperty('opacity');
+                    logo.style.removeProperty('visibility');
+                    logo.style.removeProperty('pointer-events');
+                    
+                    document.body.style.overflow = 'auto';
+                    
+                    // Close all dropdowns
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.classList.remove('show');
+                    });
+                    document.querySelectorAll('.dropdown-icon').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        });
+
+        // Handle window resize - FIXED with logo restore
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                
+                // Restore logo
+                logo.style.removeProperty('opacity');
+                logo.style.removeProperty('visibility');
+                logo.style.removeProperty('pointer-events');
+                
+                document.body.style.overflow = 'auto';
+                
+                // Close all dropdowns
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+                document.querySelectorAll('.dropdown-icon').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }
+        });
+
+        // Escape key handler - FIXED with logo restore
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (navMenu.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    
+                    // Restore logo
+                    logo.style.removeProperty('opacity');
+                    logo.style.removeProperty('visibility');
+                    logo.style.removeProperty('pointer-events');
+                    
+                    document.body.style.overflow = 'auto';
+                }
+                
+                // Close all dropdowns
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+                document.querySelectorAll('.dropdown-icon').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }
+        });
+        
+    </script>
+</body>
+</html>

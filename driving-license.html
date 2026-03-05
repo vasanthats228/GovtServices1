@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Driving License Services - Government Services Online</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        section { 
+            padding: 80px 0; 
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            min-width: 160px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background: #1e3c5c;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2c4a6e;
+        }
+
+        .btn-secondary {
+            background: #f39c12;
+            color: #1e3c5c;
+        }
+
+        .btn-secondary:hover {
+            background: #e67e22;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #1e3c5c;
+            color: #1e3c5c;
+        }
+
+        .btn-outline:hover {
+            background: #1e3c5c;
+            color: white;
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: #1e3c5c;
+        }
+
+        .btn-license {
+            background: #f39c12;
+            color: #1e3c5c;
+            font-weight: 700;
+            border: none;
+        }
+
+        .btn-license:hover {
+            background: #e67e22;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-title span {
+            color: #f39c12;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb i {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ===== SECTION 1: HERO ===== */
+        .driving-hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Driving.webp') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30,60,92,0.9), rgba(243,156,18,0.4));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            background: rgba(243,156,18,0.15);
+            border: 1px solid #f39c12;
+            border-radius: 40px;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #f39c12;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 28px;
+            border-radius: 40px;
+            border: 1px solid rgba(243,156,18,0.3);
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-feature i {
+            color: #f39c12;
+            font-size: 1.2rem;
+        }
+
+        /* ===== SECTION 2: LICENSE TYPES ===== */
+        .license-types {
+            background: white;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .license-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .license-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(243,156,18,0.1);
+            border-color: #f39c12;
+        }
+
+        .license-icon {
+            width: 100px;
+            height: 100px;
+            background: #1e3c5c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2.8rem;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .license-card:hover .license-icon {
+            background: #f39c12;
+        }
+
+        .license-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .license-card p {
+            color: #64748b;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .license-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f39c12;
+            margin: 16px 0;
+        }
+
+        .license-price small {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .license-features {
+            list-style: none;
+            margin: 20px 0 30px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .license-features li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1rem;
+        }
+
+        .license-features i {
+            color: #f39c12;
+            width: 20px;
+            font-size: 1rem;
+        }
+
+        /* ===== SECTION 3: PROCESS STEPS ===== */
+        .process-steps {
+            background: #1e3c5c;
+            color: white;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 35px 25px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-item:hover {
+            background: rgba(243,156,18,0.1);
+            transform: translateY(-3px);
+            border-color: #f39c12;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: #f39c12;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1e3c5c;
+            transition: all 0.3s;
+        }
+
+        .step-item:hover .step-number {
+            background: white;
+        }
+
+        .step-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .step-item p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            flex-grow: 1;
+        }
+
+        .step-time {
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(243,156,18,0.2);
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #f39c12;
+            align-self: center;
+        }
+
+        /* ===== SECTION 4: DOCUMENTS ===== */
+        .documents-section {
+            background: #f8fafc;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .doc-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(243,156,18,0.1);
+            border-color: #f39c12;
+        }
+
+        .doc-icon {
+            width: 90px;
+            height: 90px;
+            background: #1e3c5c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2.2rem;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .doc-card:hover .doc-icon {
+            background: #f39c12;
+        }
+
+        .doc-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .doc-card p {
+            color: #64748b;
+            margin-bottom: 24px;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            padding: 6px 20px;
+            background: #f39c12;
+            color: #1e293b;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            align-self: center;
+        }
+
+        /* ===== SECTION 5: CTA ===== */
+        .cta-section {
+            background: white;
+            padding: 60px 0;
+        }
+
+        .cta-plate {
+            background: linear-gradient(135deg, #1e3c5c, #2c3e50);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+
+        .cta-plate h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-plate h2 span {
+            color: #f39c12;
+        }
+
+        .cta-plate p {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .types-grid,
+            .documents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .steps-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { 
+                padding: 60px 0; 
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .types-grid,
+            .steps-container,
+            .documents-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            
+            .hero-feature {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .license-card .btn,
+            .doc-card .btn {
+                margin-top: auto;
+            }
+            
+            .cta-plate {
+                padding: 40px 24px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .hero-feature {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-desc {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            
+            .license-card {
+                padding: 30px 20px;
+            }
+            
+            .license-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .license-price {
+                font-size: 1.8rem;
+            }
+            
+            .license-features li {
+                font-size: 0.95rem;
+            }
+            
+            .step-item {
+                padding: 25px 20px;
+            }
+            
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+            
+            .step-item h3 {
+                font-size: 1.2rem;
+            }
+            
+            .doc-card {
+                padding: 30px 20px;
+            }
+            
+            .doc-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .doc-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .doc-card p {
+                font-size: 0.95rem;
+            }
+            
+            .cta-plate {
+                padding: 30px 20px;
+            }
+            
+            .cta-plate h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-plate p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 24px;
+                font-size: 0.95rem;
+                min-width: 140px;
+            }
+        }
+
+        /* Fix horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Center alignment for all sections */
+        .text-center {
+            text-align: center;
+        }
+
+        /* Ensure proper spacing */
+        .mt-4 {
+            margin-top: 24px;
+        }
+        /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #8e0a64;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border: 2px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: #a80d78;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(142,10,100,0.4);
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+    <!-- HEADER PLACEHOLDER with Loading Animation -->
+    <div id="header-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1: Hero -->
+        <section class="driving-hero">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="breadcrumb" data-aos="fade-down">
+                        <a href="home1.html">Home</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="online-services.html">Services</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Driving License</span>
+                    </div>
+                    <div class="hero-badge" data-aos="flip-up">MINISTRY OF ROAD TRANSPORT</div>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Driving <span>License</span> Services</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Apply for learner's license, permanent license, renewals, and duplicate licenses online. Fast, paperless, and secure.</p>
+                    
+                    <div class="hero-features" data-aos="fade-up" data-aos-delay="300">
+                        <div class="hero-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>3-7 Days Processing</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-rupee-sign"></i>
+                            <span>Starting ₹500</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-car"></i>
+                            <span>18+ Years Age</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: License Types -->
+        <section class="license-types">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">License <span>Types</span></h2>
+                    <p class="section-desc">Choose the right license for your vehicle</p>
+                </div>
+                
+                <div class="types-grid">
+                    <div class="license-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="license-icon"><i class="fas fa-motorcycle"></i></div>
+                        <h3>Learner's License</h3>
+                        <p>For learning to drive</p>
+                        <div class="license-price">₹500</div>
+                        <ul class="license-features">
+                            <li><i class="fas fa-check"></i> Valid for 6 months</li>
+                            <li><i class="fas fa-check"></i> Online written test</li>
+                            <li><i class="fas fa-check"></i> For all vehicle types</li>
+                        </ul>
+                        <a href="404.html" class="btn btn-outline">Apply Now</a>
+                    </div>
+                    
+                    <div class="license-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="license-icon"><i class="fas fa-car"></i></div>
+                        <h3>Permanent License</h3>
+                        <p>After passing driving test</p>
+                        <div class="license-price">₹1,000</div>
+                        <ul class="license-features">
+                            <li><i class="fas fa-check"></i> Valid for 20 years</li>
+                            <li><i class="fas fa-check"></i> LMV/HMV options</li>
+                            <li><i class="fas fa-check"></i> All India valid</li>
+                        </ul>
+                        <a href="404.html" class="btn btn-outline">Apply Now</a>
+                    </div>
+                    
+                    <div class="license-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="license-icon"><i class="fas fa-sync-alt"></i></div>
+                        <h3>Renewal & Duplicate</h3>
+                        <p>Renew expired license or get duplicate</p>
+                        <div class="license-price">₹500</div>
+                        <ul class="license-features">
+                            <li><i class="fas fa-check"></i> Online renewal</li>
+                            <li><i class="fas fa-check"></i> Duplicate issue</li>
+                            <li><i class="fas fa-check"></i> Address change</li>
+                        </ul>
+                        <a href="404.html" class="btn btn-outline">Renew Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Application Process -->
+        <section class="process-steps">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title" style="color: white;">Application <span style="color: #f39c12;">Process</span></h2>
+                    <p class="section-desc" style="color: #e2e8f0;">Simple 4-step process to get your driving license</p>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">1</div>
+                        <h3>Apply Online</h3>
+                        <p>Fill application form and upload documents</p>
+                        <span class="step-time">10 minutes</span>
+                    </div>
+                    
+                    <div class="step-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">2</div>
+                        <h3>Pay Fees</h3>
+                        <p>Online payment through multiple modes</p>
+                        <span class="step-time">2 minutes</span>
+                    </div>
+                    
+                    <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-number">3</div>
+                        <h3>Book Test</h3>
+                        <p>Schedule your driving test slot</p>
+                        <span class="step-time">Choose slot</span>
+                    </div>
+                    
+                    <div class="step-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="step-number">4</div>
+                        <h3>Get License</h3>
+                        <p>Download e-license or get by post</p>
+                        <span class="step-time">Instant</span>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="404.html" class="btn btn-license">Start Application</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Documents Required -->
+        <section class="documents-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Required <span>Documents</span></h2>
+                    <p class="section-desc">Documents needed for license application</p>
+                </div>
+                
+                <div class="documents-grid">
+                    <div class="doc-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="doc-icon"><i class="fas fa-id-card"></i></div>
+                        <h3>Identity Proof</h3>
+                        <p>Aadhaar, Voter ID, Passport, PAN Card</p>
+                        <span class="doc-badge">Any One</span>
+                    </div>
+                    
+                    <div class="doc-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="doc-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Address Proof</h3>
+                        <p>Bank Passbook, Rent Agreement, Utility Bills</p>
+                        <span class="doc-badge">Any One</span>
+                    </div>
+                    
+                    <div class="doc-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="doc-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>Age Proof</h3>
+                        <p>Birth Certificate, School Certificate, 10th Marksheet</p>
+                        <span class="doc-badge">Any One</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-plate" data-aos="zoom-in">
+                    <h2>Ready to <span>Drive?</span></h2>
+                    <p>Join 10 crore+ licensed drivers in India. Apply for your driving license today.</p>
+                    <div class="cta-buttons">
+                        <a href="404.html" class="btn btn-secondary">Apply Now</a>
+                        <a href="404.html" class="btn btn-outline-light">Track Status</a>
+                        <a href="404.html" class="btn btn-outline-light">Download License</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER - Footer will load here -->
+    <div id="footer-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+         //======================================================
+        // Header and Footer Loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found (header1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    
+                    // Initialize header interactions after header is loaded
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #8e0a64; color: white; padding: 20px; text-align: center;">⚠️ Header Not Found - Please check header1.html file</header>';
+                });
+
+            // Load footer
+            fetch('footer1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found (footer1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    
+                    // Optional: Initialize footer interactions if needed
+                    setTimeout(initFooterInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1e2a3a; color: white; padding: 40px; text-align: center;">⚠️ Footer Not Found - Please check footer1.html file</footer>';
+                });
+        });
+
+        // Initialize header interactions (hamburger menu, dropdown)
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const logo = document.querySelector('.logo');
+            
+            console.log('Header initialized - menu toggle:', menuToggle ? '✓ Found' : '✗ Not Found');
+            
+            // Mobile menu toggle with logo hide
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (logo) {
+                        if (navMenu.classList.contains('active')) {
+                            logo.style.opacity = '0';
+                            logo.style.visibility = 'hidden';
+                            logo.style.pointerEvents = 'none';
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+            
+            // Handle all dropdown buttons
+            document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                const dropdownId = btn.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('[data-dropdown]').forEach(otherBtn => {
+                            if (otherBtn !== btn) {
+                                const otherDropdownId = otherBtn.getAttribute('data-dropdown');
+                                const otherDropdown = document.getElementById(otherDropdownId);
+                                if (otherDropdown) {
+                                    otherDropdown.classList.remove('show');
+                                    otherBtn.classList.remove('active');
+                                }
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('show');
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+            
+            // Close mobile menu when clicking on any link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                        
+                        document.querySelectorAll('.dropdown-menu').forEach(d => {
+                            d.classList.remove('show');
+                        });
+                        document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]') && !e.target.closest('.dropdown-menu')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (logo) {
+                        logo.style.opacity = '1';
+                        logo.style.visibility = 'visible';
+                        logo.style.pointerEvents = 'auto';
+                    }
+                    document.body.style.overflow = 'auto';
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Escape key handler
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                    }
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Initialize footer interactions (if needed)
+        function initFooterInteractions() {
+            console.log('Footer initialized');
+        }
+
+        // Refresh AOS on load and resize
+        window.addEventListener('load', () => AOS.refresh());
+        window.addEventListener('resize', () => AOS.refresh());
+
+        //=========================================================
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out',
+        });
+
+        // Back to Top Button Functionality
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+</body>
+</html>

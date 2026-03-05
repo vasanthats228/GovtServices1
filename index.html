@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Stackly · Loading</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #8e0a64;  /* dark teal background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', system-ui, sans-serif;
+      padding: 1rem;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* container - perfectly centers the logo */
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* logo styling - responsive, no animation, just the image */
+    .stackly-logo {
+      width: min(300px, 70vw);
+      height: auto;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      background: white;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .stackly-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    /* optional subtle fade-in */
+    .stackly-logo {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <div class="stackly-logo">
+      <img src="Stacklylogo.webp" alt="Stackly" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'%3E%3Ccircle cx=\'100\' cy=\'100\' r=\'95\' fill=\'%23306767\' stroke=\'%239fd4d4\' stroke-width=\'3\'/%3E%3Ctext x=\'100\' y=\'130\' font-size=\'50\' text-anchor=\'middle\' fill=\'%23ffffff\' font-weight=\'bold\'%3EST%3C/text%3E%3C/svg%3E'">
+    </div>
+  </div>
+
+  <script>
+    // Simple loader: wait 2 seconds then redirect to home1.html
+    setTimeout(function() {
+      window.location.href = 'home1.html';
+    }, 2000);
+  </script>
+</body>
+</html>

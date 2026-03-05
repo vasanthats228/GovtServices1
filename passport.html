@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Passport Services - Government Services Online</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        section { 
+            padding: 100px 0; 
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary {
+            background: #1e3c5c;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #ffd700;
+            color: #1e3c5c;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #1e3c5c;
+            color: #1e3c5c;
+        }
+
+        .btn-outline:hover {
+            background: #1e3c5c;
+            color: white;
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: #1e3c5c;
+        }
+
+        .btn-passport {
+            background: #2a5f7a;
+            color: white;
+            box-shadow: 0 10px 0 #12344d;
+            transform: translateY(-3px);
+        }
+
+        .btn-passport:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 0 #12344d;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: #1e3c5c;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: #2a5f7a;
+        }
+
+        .section-desc {
+            font-size: 1.2rem;
+            color: #4a5a6e;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .breadcrumb a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .breadcrumb i {
+            font-size: 0.8rem;
+        }
+
+        /* ===== SECTION 1: HERO WITH DIPLOMATIC DESIGN ===== */
+        .passport-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a1a2f, #1e3c5c);
+            overflow: hidden;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Passport.webp');
+            background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+        }
+
+        .hero-globe {
+            position: absolute;
+            top: 50%;
+            right: -100px;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: rotateGlobe 30s linear infinite;
+        }
+
+        @keyframes rotateGlobe {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 25px;
+            background: rgba(255,215,0,0.2);
+            border: 2px solid #ffd700;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #ffd700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+
+        .hero-feature i {
+            color: #ffd700;
+        }
+
+        /* ===== SECTION 2: PASSPORT TYPES WITH 3D CARDS ===== */
+        .passport-types {
+            background: white;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .type-card {
+            background: #f8fafd;
+            border-radius: 40px 40px 40px 0;
+            padding: 50px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e0e8f0;
+            transform-style: preserve-3d;
+        }
+
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #1e3c5c, #2a5f7a);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+
+        .type-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .type-card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 30px 50px rgba(30,60,92,0.2);
+            border-color: #1e3c5c;
+        }
+
+        .type-ribbon {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #ffd700;
+            color: #1e3c5c;
+            padding: 5px 40px;
+            font-weight: 700;
+            transform: rotate(45deg);
+            font-size: 0.9rem;
+        }
+
+        .type-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #1e3c5c, #2a5f7a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3.5rem;
+            color: white;
+            transition: all 0.4s;
+        }
+
+        .type-card:hover .type-icon {
+            transform: rotateY(180deg);
+        }
+
+        .type-card h3 {
+            font-size: 2rem;
+            color: #1e3c5c;
+            margin-bottom: 15px;
+        }
+
+        .type-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2a5f7a;
+            margin: 20px 0;
+        }
+
+        .type-price small {
+            font-size: 0.9rem;
+            color: #4a5a6e;
+        }
+
+        .type-features {
+            list-style: none;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .type-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px dashed #e0e8f0;
+        }
+
+        .type-features i {
+            color: #2a5f7a;
+        }
+
+        /* ===== SECTION 3: APPLICATION PROCESS WITH VERTICAL TIMELINE ===== */
+        .application-process {
+            background: linear-gradient(135deg, #1e3c5c, #2a5f7a);
+            color: white;
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #8e0a64);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .timeline-node {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .node-number {
+            width: 100px;
+            height: 100px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e3c5c;
+            border: 5px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .node-number::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px dashed #ffd700;
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+        }
+
+        .timeline-node:hover .node-number {
+            transform: scale(1.2);
+            background: white;
+            color: #1e3c5c;
+        }
+
+        .timeline-node h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .timeline-node p {
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .node-time {
+            display: inline-block;
+            padding: 5px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== SECTION 4: DOCUMENTS REQUIREMENT WITH HEXAGONS ===== */
+        .documents-section {
+            background: white;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .document-hexagon {
+            background: #f8fafd;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            padding: 60px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            cursor: pointer;
+            border: 1px solid #e0e8f0;
+        }
+
+        .document-hexagon:hover {
+            transform: scale(1.1);
+            background: #1e3c5c;
+            color: white;
+            border-color: #ffd700;
+        }
+
+        .document-hexagon i {
+            font-size: 3rem;
+            color: #2a5f7a;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .document-hexagon:hover i {
+            color: #ffd700;
+            transform: scale(1.2);
+        }
+
+        .document-hexagon h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .document-hexagon p {
+            margin-bottom: 20px;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #ffd700;
+            color: #1e3c5c;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .document-hexagon:hover .doc-badge {
+            background: white;
+            color: #1e3c5c;
+        }
+
+        /* ===== SECTION 5: CTA WITH PASSPORT STAMP ===== */
+        .cta-passport {
+            background: #f8fafd;
+        }
+
+        .stamp-card {
+            background: linear-gradient(135deg, #1e3c5c, #2a5f7a);
+            border-radius: 60px;
+            padding: 80px 60px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stamp-card::before {
+            content: '✧';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 10rem;
+            color: rgba(255,215,0,0.1);
+            transform: rotate(-15deg);
+            font-family: serif;
+        }
+
+        .stamp-card::after {
+            content: '✧';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 8rem;
+            color: rgba(255,215,0,0.1);
+            transform: rotate(15deg);
+            font-family: serif;
+        }
+
+        .stamp-card h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+        }
+
+        .stamp-card h2 span {
+            color: #ffd700;
+        }
+
+        .stamp-card p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .stamp-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .types-grid,
+            .process-timeline,
+            .documents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-timeline::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+            
+            .types-grid,
+            .process-timeline,
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-feature {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .stamp-card {
+                padding: 40px 20px;
+                border-radius: 40px;
+            }
+            
+            .stamp-card h2 {
+                font-size: 2rem;
+            }
+            
+            .node-number {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .node-number::after {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .type-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .type-card h3 {
+                font-size: 1.6rem;
+            }
+            
+            .type-price {
+                font-size: 1.6rem;
+            }
+            
+            .document-hexagon {
+                clip-path: none;
+                border-radius: 30px;
+                padding: 40px 20px;
+            }
+            
+            .document-hexagon h3 {
+                font-size: 1.4rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Fix horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #8e0a64;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border: 2px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: #a80d78;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(142,10,100,0.4);
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+    <!-- HEADER PLACEHOLDER with Loading Animation -->
+    <div id="header-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1: Hero with Diplomatic Design -->
+        <section class="passport-hero">
+            <div class="hero-pattern"></div>
+            <div class="hero-globe"></div>
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="breadcrumb" data-aos="fade-down">
+                        <a href="home1.html">Home</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="online-services.html">Services</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Passport Services</span>
+                    </div>
+                    <div class="hero-badge" data-aos="flip-up">MINISTRY OF EXTERNAL AFFAIRS</div>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Passport <span>Services</span></h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Your gateway to the world. Apply for new passport, renew existing, or track your application online.</p>
+                    
+                    <div class="hero-features" data-aos="fade-up" data-aos-delay="300">
+                        <div class="hero-feature">
+                            <i class="fas fa-clock"></i>
+                            <span>7-10 Days Processing</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-globe"></i>
+                            <span>190+ Countries</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>e-Passport Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Passport Types with 3D Cards -->
+        <section class="passport-types">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Passport <span>Types</span></h2>
+                    <p class="section-desc">Choose the right passport for your needs</p>
+                </div>
+                
+                <div class="types-grid">
+                    <div class="type-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="type-ribbon">MOST POPULAR</div>
+                        <div class="type-icon"><i class="fas fa-passport"></i></div>
+                        <h3>Ordinary Passport</h3>
+                        <div class="type-price">₹1500 <small>for 36 pages</small></div>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> 10 years validity</li>
+                            <li><i class="fas fa-check"></i> 36/60 page options</li>
+                            <li><i class="fas fa-check"></i> Fresh/renewal</li>
+                        </ul>
+                        <a href="404.html" class="btn btn-outline">Apply Now</a>
+                    </div>
+                    
+                    <div class="type-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="type-ribbon">FAST TRACK</div>
+                        <div class="type-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Tatkaal Passport</h3>
+                        <div class="type-price">₹3500 <small>express fee</small></div>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> 3-5 days processing</li>
+                            <li><i class="fas fa-check"></i> Priority verification</li>
+                            <li><i class="fas fa-check"></i> Emergency travel</li>
+                        </ul>
+                        <a href="404.html" class="btn btn-outline">Apply Now</a>
+                    </div>
+                    
+                    <div class="type-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="type-ribbon">DIPLOMATIC</div>
+                        <div class="type-icon"><i class="fas fa-crown"></i></div>
+                        <h3>Official Passport</h3>
+                        <div class="type-price">₹2000 <small>white cover</small></div>
+                        <ul class="type-features">
+                            <li><i class="fas fa-check"></i> Government officials</li>
+                            <li><i class="fas fa-check"></i> Diplomatic missions</li>
+                            <li><i class="fas fa-check"></i> Official travel</li>
+                        </ul>
+                        <a href="404.html" class="btn btn-outline">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Application Process with Vertical Timeline -->
+        <section class="application-process">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title" style="color: white;">Application <span style="color: #ffd700;">Process</span></h2>
+                    <p class="section-desc" style="color: rgba(255,255,255,0.9);">Simple 4-step process to get your passport</p>
+                </div>
+                
+                <div class="process-timeline">
+                    <div class="timeline-node" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="node-number">1</div>
+                        <h3>Register Online</h3>
+                        <p>Create account on Passport Seva Portal</p>
+                        <span class="node-time">10 minutes</span>
+                    </div>
+                    
+                    <div class="timeline-node" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="node-number">2</div>
+                        <h3>Fill Application</h3>
+                        <p>Complete form and upload documents</p>
+                        <span class="node-time">15 minutes</span>
+                    </div>
+                    
+                    <div class="timeline-node" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="node-number">3</div>
+                        <h3>Pay Fees</h3>
+                        <p>Online payment through multiple modes</p>
+                        <span class="node-time">5 minutes</span>
+                    </div>
+                    
+                    <div class="timeline-node" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="node-number">4</div>
+                        <h3>Book Appointment</h3>
+                        <p>Visit PSK for verification</p>
+                        <span class="node-time">Schedule online</span>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="404.html" class="btn btn-secondary">Start Application</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Documents Requirement with Hexagons -->
+        <section class="documents-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Required <span>Documents</span></h2>
+                    <p class="section-desc">Documents needed for passport application</p>
+                </div>
+                
+                <div class="documents-grid">
+                    <div class="document-hexagon" data-aos="flip-up" data-aos-delay="100">
+                        <i class="fas fa-id-card"></i>
+                        <h3>Identity Proof</h3>
+                        <p>Aadhaar, Voter ID, Driving License</p>
+                        <span class="doc-badge">Any One</span>
+                    </div>
+                    
+                    <div class="document-hexagon" data-aos="flip-up" data-aos-delay="200">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Address Proof</h3>
+                        <p>Bank Passbook, Rent Agreement, Utility Bills</p>
+                        <span class="doc-badge">Any One</span>
+                    </div>
+                    
+                    <div class="document-hexagon" data-aos="flip-up" data-aos-delay="300">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Date of Birth</h3>
+                        <p>Birth Certificate, School Certificate, PAN</p>
+                        <span class="doc-badge">Any One</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: CTA with Passport Stamp -->
+        <section class="cta-passport">
+            <div class="container">
+                <div class="stamp-card" data-aos="zoom-in">
+                    <h2>Ready for Your <span>Passport?</span></h2>
+                    <p>Join millions of Indians with valid passports. Apply online today.</p>
+                    <div class="stamp-buttons">
+                        <a href="404.html" class="btn btn-secondary">Apply Now</a>
+                        <a href="404.html" class="btn btn-outline-light">Track Application</a>
+                        <a href="404.html" class="btn btn-outline-light">Check Status</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER - Footer will load here -->
+    <div id="footer-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+         //======================================================
+        // Header and Footer Loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found (header1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    
+                    // Initialize header interactions after header is loaded
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #8e0a64; color: white; padding: 20px; text-align: center;">⚠️ Header Not Found - Please check header1.html file</header>';
+                });
+
+            // Load footer
+            fetch('footer1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found (footer1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    
+                    // Optional: Initialize footer interactions if needed
+                    setTimeout(initFooterInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1e2a3a; color: white; padding: 40px; text-align: center;">⚠️ Footer Not Found - Please check footer1.html file</footer>';
+                });
+        });
+
+        // Initialize header interactions (hamburger menu, dropdown)
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const logo = document.querySelector('.logo');
+            
+            console.log('Header initialized - menu toggle:', menuToggle ? '✓ Found' : '✗ Not Found');
+            
+            // Mobile menu toggle with logo hide
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (logo) {
+                        if (navMenu.classList.contains('active')) {
+                            logo.style.opacity = '0';
+                            logo.style.visibility = 'hidden';
+                            logo.style.pointerEvents = 'none';
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+            
+            // Handle all dropdown buttons
+            document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                const dropdownId = btn.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('[data-dropdown]').forEach(otherBtn => {
+                            if (otherBtn !== btn) {
+                                const otherDropdownId = otherBtn.getAttribute('data-dropdown');
+                                const otherDropdown = document.getElementById(otherDropdownId);
+                                if (otherDropdown) {
+                                    otherDropdown.classList.remove('show');
+                                    otherBtn.classList.remove('active');
+                                }
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('show');
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+            
+            // Close mobile menu when clicking on any link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                        
+                        document.querySelectorAll('.dropdown-menu').forEach(d => {
+                            d.classList.remove('show');
+                        });
+                        document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]') && !e.target.closest('.dropdown-menu')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (logo) {
+                        logo.style.opacity = '1';
+                        logo.style.visibility = 'visible';
+                        logo.style.pointerEvents = 'auto';
+                    }
+                    document.body.style.overflow = 'auto';
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Escape key handler
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                    }
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Initialize footer interactions (if needed)
+        function initFooterInteractions() {
+            console.log('Footer initialized');
+        }
+
+        // Refresh AOS on load and resize
+        window.addEventListener('load', () => AOS.refresh());
+        window.addEventListener('resize', () => AOS.refresh());
+
+        //=========================================================
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100,
+            easing: 'ease-in-out',
+            mirror: true
+        });
+
+        // Back to Top Button Functionality
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+</body>
+</html>

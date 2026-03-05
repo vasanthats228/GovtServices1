@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Stackly - Government Services Contact</title>
+    <!-- Font Awesome, Google Fonts, AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8;
+            color: #1e2b3c;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+             padding-top: 85px;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* ----- SECTION 1: HERO WITH GOVERNMENT THEME ----- */
+        .hero-section {
+            background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 71, 133, 0.85)), 
+                        url('GS1.webp') center/cover no-repeat fixed;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 80px 20px;
+            border-bottom: 4px solid #ff9933; /* Saffron for Indian gov */
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            word-wrap: break-word;
+        }
+
+        .hero-content h1 i {
+            color: #ff9933; /* Saffron */
+            margin-right: 10px;
+        }
+
+        .hero-content .breadcrumb {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.9);
+            flex-wrap: wrap;
+        }
+
+        .hero-content .breadcrumb a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+        .hero-content .breadcrumb a:hover {
+            color: #ff9933;
+            text-decoration: underline;
+        }
+        .hero-content .breadcrumb i {
+            color: #ff9933;
+            font-size: 12px;
+        }
+        .hero-content .breadcrumb span {
+            color: #ffffff;
+            font-weight: 500;
+            background: rgba(255, 153, 51, 0.3);
+            padding: 4px 12px;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        .hero-divider {
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff9933, #ffffff, #138808); /* Indian tricolor */
+            margin: 25px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ----- SECTION 2: GOVERNMENT SERVICE CONTACT GRID ----- */
+        .contact-grid-section {
+            max-width: 1280px;
+            margin: 80px auto;
+            padding: 0 24px;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+            width: 100%;
+        }
+
+        /* left card - Government contact info */
+        .info-card {
+            background: #ffffff;
+            padding: 40px 32px;
+            border-radius: 20px;
+            box-shadow: 0 20px 35px -8px rgba(0, 51, 102, 0.12);
+            border: 1px solid #e2e8f0;
+            border-top: 6px solid #ff9933; /* Saffron top border */
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .info-card h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+        }
+
+        .info-card h2 i {
+            color: #ff9933;
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+            border-left: 4px solid #138808; /* Green */
+            padding-left: 15px;
+        }
+
+        .info-card p {
+            color: #334155;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            word-wrap: break-word;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #003366;
+        }
+
+        .contact-details {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 18px;
+            font-size: 1rem;
+            color: #1e293b;
+            font-weight: 500;
+            word-break: break-word;
+            padding: 10px;
+            background: #f9fcff;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .contact-details li:hover {
+            background: #f0f4f8;
+            transform: translateX(5px);
+        }
+
+        .contact-details li i {
+            width: 24px;
+            color: #003366;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .contact-details li i.fa-clock {
+            color: #ff9933;
+        }
+
+        .follow-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: #003366;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .follow-title i {
+            color: #ff9933;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: #f0f4f9;
+            border-radius: 50%;
+            color: #003366;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .social-icons a:hover {
+            background: #ff9933;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .official-links {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px dashed #cbd5e1;
+        }
+
+        .official-links p {
+            font-weight: 600;
+            color: #003366;
+            margin-bottom: 10px;
+            background: none;
+            padding: 0;
+        }
+
+        .official-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e6f0ff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            color: #003366;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #b8d1ff;
+        }
+
+        .official-badge i {
+            color: #ff9933;
+        }
+
+        .official-badge:hover {
+            background: #003366;
+            color: white;
+        }
+
+        .official-badge:hover i {
+            color: #ff9933;
+        }
+
+        /* right card - Government service form */
+        .form-card {
+            background: #ffffff;
+            padding: 40px 32px;
+            border-radius: 20px;
+            box-shadow: 0 20px 35px -8px rgba(0, 51, 102, 0.12);
+            border: 1px solid #e2e8f0;
+            border-top: 6px solid #138808; /* Green top border */
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .form-card h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #003366;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+
+        .form-card h2 i {
+            color: #138808;
+            margin-right: 10px;
+        }
+
+        .service-badge {
+            background: #f1f5f9;
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .service-badge i {
+            color: #ff9933;
+            margin-right: 5px;
+        }
+
+        .input-group {
+            margin-bottom: 22px;
+            width: 100%;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #003366;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .input-group label i {
+            color: #ff9933;
+            margin-right: 5px;
+            font-size: 0.9rem;
+        }
+
+        .input-group label .required {
+            color: #dc2626;
+            margin-left: 4px;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            background: #fafcff;
+            transition: 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='GS5.webp' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23003366' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #003366;
+            box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.1);
+        }
+
+        .input-group input.error,
+        .input-group textarea.error,
+        .input-group select.error {
+            border-color: #ef4444;
+            background: #fff2f2;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+            word-wrap: break-word;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .captcha-box {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .captcha-code {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #003366;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px dashed #ff9933;
+        }
+
+        .send-btn {
+            background: #003366;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 16px 28px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 18px -8px rgba(0, 51, 102, 0.5);
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .send-btn:hover {
+            background: #ff9933;
+            color: #003366;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 25px -8px rgba(255, 153, 51, 0.5);
+        }
+
+        .send-btn i {
+            transition: transform 0.3s;
+        }
+
+        .send-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .gov-note {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .gov-note i {
+            color: #138808;
+        }
+
+        /* ----- SECTION 3: GOOGLE MAPS EMBED ----- */
+        .map-section {
+            max-width: 1280px;
+            margin: 0 auto 80px;
+            padding: 0 24px;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 40px -12px rgba(0, 51, 102, 0.2);
+            border: 1px solid #e2e8f0;
+            border-bottom: 4px solid #138808;
+            height: 450px;
+            width: 100%;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .map-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #003366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .map-badge i {
+            color: #ff9933;
+            margin-right: 5px;
+        }
+
+        /* responsive fixes */
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 350px;
+                padding: 60px 15px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .contact-grid-section {
+                margin: 60px auto;
+                padding: 0 15px;
+            }
+            .info-card, .form-card {
+                padding: 30px 20px;
+            }
+            .info-card h2 {
+                font-size: 2rem;
+            }
+            .form-card h2 {
+                font-size: 1.8rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .map-section {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content .breadcrumb {
+                font-size: 1rem;
+            }
+            .map-container {
+                height: 300px;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+            .captcha-box {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .info-card, .form-card {
+                padding: 25px 15px;
+            }
+            .info-card h2 {
+                font-size: 1.8rem;
+            }
+            .form-card h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        [data-aos] {
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        img, iframe, video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- YOUR HEADER (header.html) WILL GO HERE -->
+    <div id="header-placeholder"></div> 
+
+    <!-- SECTION 1: Hero with Government Theme -->
+    <section class="hero-section" data-aos="fade-down" data-aos-duration="1000">
+        <div class="hero-content">
+            <h1><i class="fas fa-govt"></i> Government Services</h1>
+            <div class="breadcrumb">
+                <a href="home2.html">Home</a> <i class="fas fa-chevron-right"></i> 
+                <a href="support.html">Support</a> <i class="fas fa-chevron-right"></i>
+                <span>Contact</span>
+            </div>
+            <div class="hero-divider"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Government Service Contact -->
+    <section class="contact-grid-section">
+        <div class="contact-grid">
+            <!-- LEFT: Government Contact Info -->
+            <div class="info-card" data-aos="fade-right" data-aos-duration="800">
+                <h2><i class="fas fa-govt"></i> Government Service Center</h2>
+                <h3>Citizen Support & Grievance Cell</h3>
+                <p>Official contact point for all government online services. We're here to assist with Aadhaar, PAN, Passport, Voter ID, Driving License, and other citizen services.</p>
+
+                <ul class="contact-details">
+                    <li><i class="fas fa-map-marker-alt"></i> <span><strong>Citizen Service Centre</strong><br>Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka - 560068</span></li>
+                    <li><i class="fas fa-phone-alt"></i> <span><strong>Toll Free:</strong> 1800-123-4567<br><strong>Support:</strong> +91 70107 92745</span></li>
+                    <li><i class="fas fa-envelope"></i> <span><strong>Official Email:</strong> support.gov@thestackly.com<br><strong>Grievance:</strong> grievance@thestackly.com</span></li>
+                    <li><i class="fas fa-clock"></i> <span><strong>Service Hours:</strong><br>Mon - Fri: 9:30 AM - 6:30 PM<br>Sat: 9:30 AM - 2:00 PM (Limited Services)<br>Sun & National Holidays: Closed</span></li>
+                    <li><i class="fas fa-language"></i> <span><strong>Languages Supported:</strong> English, Hindi, Kannada, Tamil, Telugu</span></li>
+                </ul>
+
+                <div class="follow-title">
+                    <i class="fas fa-check-circle"></i> Official Government Portals
+                </div>
+                
+                <div class="official-links">
+                    <p>Quick Access to Government Services:</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <a href="4042.html" class="official-badge"><i class="fas fa-id-card"></i> DigiLocker</a>
+                        <a href="4042.html" class="official-badge"><i class="fas fa-mobile-alt"></i> UMANG</a>
+                        <a href="4042.html" class="official-badge"><i class="fas fa-fingerprint"></i> Aadhaar</a>
+                        <a href="4042.html" class="official-badge"><i class="fas fa-passport"></i> Passport Seva</a>
+                        <a href="4042.html" class="official-badge"><i class="fas fa-car"></i> Parivahan</a>
+                        <a href="4042.html" class="official-badge"><i class="fas fa-file-invoice"></i> Income Tax</a>
+                    </div>
+                </div>
+
+                <div class="follow-title" style="margin-top: 25px;">
+                    <i class="fas fa-share-alt"></i> Follow Official Channels
+                </div>
+                <div class="social-icons">
+                    <a href="4042.html" aria-label="MyGov"><i class="fas fa-govt"></i></a>
+                    <a href="4042.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="4042.html" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="4042.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="4042.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- RIGHT: Government Service Request Form -->
+            <div class="form-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                <h2><i class="fas fa-file-signature"></i> Service Request Form</h2>
+                <div class="service-badge">
+                    <i class="fas fa-shield-alt"></i> Government of India - Citizen Service
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label><i class="fas fa-user"></i> Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="As per Aadhaar" required 
+                                   onkeydown="return /[a-zA-Z\s]|Backspace|Delete|ArrowLeft|ArrowRight|Tab|Home|End|Space/i.test(event.key)" 
+                                   oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')">
+                            <div class="error-message" id="nameError">Only letters and spaces allowed</div>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fas fa-envelope"></i> Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="citizen@example.com" required>
+                            <div class="error-message" id="emailError">Enter a valid email address</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label><i class="fas fa-phone"></i> Mobile <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" maxlength="10"
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                            <div class="error-message" id="phoneError">Enter valid 10-digit number</div>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fas fa-id-card"></i> Aadhaar (Optional)</label>
+                            <input type="text" id="aadhaar" name="aadhaar" placeholder="XXXX XXXX XXXX" maxlength="12"
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-tasks"></i> Service Type <span class="required">*</span></label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="aadhaar">Aadhaar Services</option>
+                            <option value="pan">PAN Card</option>
+                            <option value="passport">Passport</option>
+                            <option value="voter">Voter ID</option>
+                            <option value="driving">Driving License</option>
+                            <option value="birth">Birth Certificate</option>
+                            <option value="death">Death Certificate</option>
+                            <option value="caste">Caste Certificate</option>
+                            <option value="income">Income Certificate</option>
+                            <option value="other">Other Government Service</option>
+                        </select>
+                        <div class="error-message" id="serviceError">Please select a service</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-id-number"></i> Application/Reference Number (Optional)</label>
+                        <input type="text" id="refno" name="refno" placeholder="Enter if you have existing application">
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fas fa-comment"></i> Message/Query <span class="required">*</span></label>
+                        <textarea id="message" name="message" placeholder="Please describe your requirement or query..." rows="4" required></textarea>
+                        <div class="error-message" id="messageError">Message cannot be empty</div>
+                    </div>
+
+                    <!-- Simple CAPTCHA-like for government feel -->
+                    <div class="captcha-box">
+                        <span><i class="fas fa-shield-alt" style="color: #003366;"></i> Verification</span>
+                        <span class="captcha-code">G2H5K9</span>
+                        <span>Enter code: <input type="text" style="width: 80px; padding: 5px; border-radius: 5px;" placeholder="G2H5K9"></span>
+                    </div>
+
+                    <button type="submit" class="send-btn" id="submitBtn">
+                        <span>Submit Request</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <div class="gov-note">
+                        <i class="fas fa-lock"></i> Your information is secure and protected under IT Act 2000
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Google Maps with Government Office -->
+    <section class="map-section" data-aos="zoom-in-up" data-aos-duration="900">
+        <div class="map-container">
+            <div class="map-badge">
+                <i class="fas fa-govt"></i> Government Service Centre
+            </div>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.372956843392!2d77.6174273!3d12.874509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae14f6b8b8b8b9%3A0x8b8b8b8b8b8b8b8b!2sSNN%20Raj%20Serenity!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- YOUR FOOTER (footer.html) WILL GO HERE -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        //=================================================================================
+// Header and Footer Loader with Hamburger Menu Fix
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header2.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    
+                    // Initialize header interactions after header is loaded
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #6c5ce7; color: white; padding: 20px; text-align: center;">Header Not Found</header>';
+                });
+
+            // Load footer
+            fetch('footer2.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1a1a2e; color: white; padding: 40px; text-align: center;">Footer Not Found</footer>';
+                });
+        });
+
+        // Initialize header interactions (hamburger menu, dropdown for + symbols)
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            console.log('Header initialized - menu toggle:', menuToggle, 'nav menu:', navMenu);
+            
+            // Mobile menu toggle
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    // Prevent body scroll when menu is open
+                    if (navMenu.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = 'auto';
+                        // Close all dropdowns when closing menu
+                        closeAllDropdowns();
+                    }
+                });
+            }
+            
+            // ===== DROPDOWN FUNCTIONALITY FOR + SYMBOLS =====
+            function closeAllDropdowns(except = null) {
+                document.querySelectorAll('.nav-item.dropdown').forEach(d => {
+                    if (d !== except) d.classList.remove('open');
+                });
+            }
+            
+            // Handle clicks on + icons (both desktop and mobile)
+            document.addEventListener('click', function(e) {
+                // Check if clicked element is a plus icon
+                const isPlusIcon = e.target.classList.contains('fa-plus') || 
+                                   (e.target.parentElement && e.target.parentElement.classList.contains('fa-plus'));
+                
+                if (isPlusIcon) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Plus icon clicked');
+                    
+                    const parentItem = e.target.closest('.nav-item.dropdown');
+                    if (parentItem) {
+                        const isOpen = parentItem.classList.contains('open');
+                        closeAllDropdowns(isOpen ? parentItem : null);
+                        if (!isOpen) {
+                            parentItem.classList.add('open');
+                        } else {
+                            parentItem.classList.remove('open');
+                        }
+                    }
+                    return;
+                }
+                
+                // If click is on dropdown content, don't close
+                if (e.target.closest('.dropdown-content')) {
+                    return;
+                }
+                
+                // If click is on nav-link but not on plus icon
+                if (e.target.closest('.nav-link') && !e.target.closest('i')) {
+                    closeAllDropdowns();
+                    return;
+                }
+                
+                // Click outside any dropdown
+                if (!e.target.closest('.nav-item.dropdown')) {
+                    closeAllDropdowns();
+                }
+            });
+            
+            // Prevent clicks inside dropdown from closing
+            document.querySelectorAll('.dropdown-content').forEach(c => {
+                c.addEventListener('click', e => e.stopPropagation());
+            });
+            
+            // Close mobile menu when clicking on any link (except plus icons)
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Don't close if clicking on plus icon
+                    if (e.target.classList.contains('fa-plus') || 
+                        (e.target.parentElement && e.target.parentElement.classList.contains('fa-plus'))) {
+                        return;
+                    }
+                    
+                    if (window.innerWidth <= 768) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        closeAllDropdowns();
+                    }
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    closeAllDropdowns();
+                }
+            });
+            
+            // Escape key
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeAllDropdowns();
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+        }
+
+        // Scroll Animation Script 
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+//=================================================================================sssss
+
+        // Initialize AOS
+        AOS.init({
+            once: false,
+            mirror: true,
+            duration: 900,
+            offset: 20,
+            easing: 'ease-out-cubic'
+        });
+
+        // Form validation
+        const form = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const serviceInput = document.getElementById('service');
+        const messageInput = document.getElementById('message');
+
+        function validateName() {
+            const nameRegex = /^[A-Za-z\s]+$/;
+            if (!nameInput.value.trim()) {
+                nameInput.classList.add('error');
+                document.getElementById('nameError').style.display = 'block';
+                document.getElementById('nameError').textContent = 'Name is required';
+                return false;
+            } else if (!nameRegex.test(nameInput.value)) {
+                nameInput.classList.add('error');
+                document.getElementById('nameError').style.display = 'block';
+                document.getElementById('nameError').textContent = 'Only characters allowed';
+                return false;
+            } else {
+                nameInput.classList.remove('error');
+                document.getElementById('nameError').style.display = 'none';
+                return true;
+            }
+        }
+
+        function validateEmail() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailInput.value.trim()) {
+                emailInput.classList.add('error');
+                document.getElementById('emailError').style.display = 'block';
+                document.getElementById('emailError').textContent = 'Email is required';
+                return false;
+            } else if (!emailRegex.test(emailInput.value)) {
+                emailInput.classList.add('error');
+                document.getElementById('emailError').style.display = 'block';
+                document.getElementById('emailError').textContent = 'Enter valid email';
+                return false;
+            } else {
+                emailInput.classList.remove('error');
+                document.getElementById('emailError').style.display = 'none';
+                return true;
+            }
+        }
+
+        function validatePhone() {
+            if (!phoneInput.value.trim()) {
+                phoneInput.classList.add('error');
+                document.getElementById('phoneError').style.display = 'block';
+                document.getElementById('phoneError').textContent = 'Mobile number required';
+                return false;
+            } else if (phoneInput.value.length !== 10) {
+                phoneInput.classList.add('error');
+                document.getElementById('phoneError').style.display = 'block';
+                document.getElementById('phoneError').textContent = 'Enter 10-digit number';
+                return false;
+            } else {
+                phoneInput.classList.remove('error');
+                document.getElementById('phoneError').style.display = 'none';
+                return true;
+            }
+        }
+
+        function validateService() {
+            if (!serviceInput.value) {
+                serviceInput.classList.add('error');
+                document.getElementById('serviceError').style.display = 'block';
+                return false;
+            } else {
+                serviceInput.classList.remove('error');
+                document.getElementById('serviceError').style.display = 'none';
+                return true;
+            }
+        }
+
+        function validateMessage() {
+            if (!messageInput.value.trim()) {
+                messageInput.classList.add('error');
+                document.getElementById('messageError').style.display = 'block';
+                return false;
+            } else {
+                messageInput.classList.remove('error');
+                document.getElementById('messageError').style.display = 'none';
+                return true;
+            }
+        }
+
+        // Attach validation
+        if (nameInput) nameInput.addEventListener('input', validateName);
+        if (emailInput) emailInput.addEventListener('input', validateEmail);
+        if (phoneInput) phoneInput.addEventListener('input', validatePhone);
+        if (serviceInput) serviceInput.addEventListener('change', validateService);
+        if (messageInput) messageInput.addEventListener('input', validateMessage);
+
+        // Form submit
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const isNameValid = validateName();
+                const isEmailValid = validateEmail();
+                const isPhoneValid = validatePhone();
+                const isServiceValid = validateService();
+                const isMessageValid = validateMessage();
+
+                if (isNameValid && isEmailValid && isPhoneValid && isServiceValid && isMessageValid) {
+                    window.location.href = '4042.html'; // Redirect to thank you page
+                }
+            });
+        }
+    </script>
+
+    <style>
+        .error-message { display: none; }
+        .input-group input.error, .input-group textarea.error, .input-group select.error {
+            border-color: #ef4444 !important;
+        }
+        .fa-govt:before { content: "\f0ac"; } /* Temporary - use a government icon */
+    </style>
+</body>
+</html>

@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Support | Government e-Services</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f7ff;
+            color: #1e2b3c;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            padding-top: 85px; 
+        }
+
+        /* Fixed Header Container */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* Hide horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Header spacing */
+        #header-placeholder {
+            width: 100%;
+        }
+
+        /* Main content wrapper */
+        .support-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 20px 60px;
+            overflow-x: hidden;
+        }
+
+        /* ===== SECTION 1: HERO WITH BUTTONS ===== */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border-radius: 40px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            box-shadow: 0 25px 50px rgba(0, 51, 102, 0.3);
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #003366 0%, rgba(0, 51, 102, 0.8) 40%, rgba(0, 0, 0, 0.4) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 60px;
+            color: white;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #ffd966;
+            color: #003366;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            width: fit-content;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-content h1 span {
+            color: #ffd966;
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* Hero buttons */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn-primary {
+            background: #ffd966;
+            color: #003366;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #ffd966;
+        }
+
+        .hero-btn-primary:hover {
+            background: transparent;
+            color: #ffd966;
+            transform: translateY(-3px);
+        }
+
+        .hero-btn-secondary {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            color: white;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .hero-btn-secondary:hover {
+            background: white;
+            color: #003366;
+            transform: translateY(-3px);
+        }
+
+        .hero-btn-outline {
+            background: transparent;
+            color: white;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #ffd966;
+        }
+
+        .hero-btn-outline:hover {
+            background: #ffd966;
+            color: #003366;
+            transform: translateY(-3px);
+        }
+
+        /* Help tags */
+        .help-tags {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .help-tags span {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .help-tag {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .help-tag:hover {
+            background: #ffd966;
+            color: #003366;
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTION 2: SUPPORT CATEGORIES - FLOATING CARD DESIGN ===== */
+        .categories-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #003366;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: #ffd966;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            position: relative;
+        }
+
+        .category-card {
+            background: white;
+            width: 220px;
+            padding: 30px 20px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 51, 102, 0.1);
+            border: 1px solid #e6edf5;
+            transition: all 0.4s;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .category-card:nth-child(odd) {
+            transform: translateY(20px);
+        }
+
+        .category-card:nth-child(even) {
+            transform: translateY(-20px);
+        }
+
+        .category-card:hover {
+            transform: translateY(-30px) scale(1.05);
+            box-shadow: 0 30px 50px rgba(255, 217, 102, 0.3);
+            border-color: #ffd966;
+            z-index: 10;
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #003366, #1e4a6d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #ffd966;
+            font-size: 32px;
+            transition: all 0.3s;
+        }
+
+        .category-card:hover .category-icon {
+            background: #ffd966;
+            color: #003366;
+            transform: rotateY(180deg);
+        }
+
+        .category-card h3 {
+            font-size: 1.2rem;
+            color: #003366;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .category-card p {
+            color: #4a6670;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* ===== SECTION 3: LIVE CHAT & HELP DESK - SPLIT BANNER ===== */
+        .livechat-section {
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #003366, #1e4a6d);
+            border-radius: 50px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .livechat-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 217, 102, 0.1);
+            border-radius: 50%;
+        }
+
+        .livechat-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .livechat-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .livechat-image {
+            flex: 1;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .livechat-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .livechat-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .livechat-content {
+            flex: 1;
+            color: white;
+        }
+
+        .livechat-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .livechat-content h2 span {
+            color: #ffd966;
+        }
+
+        .livechat-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .chat-features {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .chat-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        .chat-feature i {
+            color: #ffd966;
+        }
+
+        .chat-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .chat-btn-primary {
+            background: #ffd966;
+            color: #003366;
+            font-weight: 700;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            border: 2px solid #ffd966;
+        }
+
+        .chat-btn-primary:hover {
+            background: transparent;
+            color: #ffd966;
+            transform: translateY(-5px);
+        }
+
+        .chat-btn-secondary {
+            background: transparent;
+            color: white;
+            font-weight: 600;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .chat-btn-secondary:hover {
+            background: white;
+            color: #003366;
+            transform: translateY(-5px);
+        }
+
+        /* ===== SECTION 4: TROUBLESHOOTING ACCORDION ===== */
+        .troubleshoot-section {
+            margin-bottom: 80px;
+            display: flex;
+            gap: 40px;
+            background: white;
+            border-radius: 40px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.1);
+        }
+
+        .troubleshoot-left {
+            flex: 1;
+        }
+
+        .troubleshoot-left h2 {
+            font-size: 2.2rem;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        .troubleshoot-left p {
+            color: #4a6670;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .troubleshoot-image {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 51, 102, 0.2);
+        }
+
+        .troubleshoot-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .troubleshoot-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .troubleshoot-right {
+            flex: 1;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border: 2px solid #e6edf5;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .accordion-question {
+            padding: 20px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .accordion-question:hover {
+            background: #f8fafc;
+        }
+
+        .accordion-question h3 {
+            font-size: 1.1rem;
+            color: #003366;
+            font-weight: 600;
+        }
+
+        .accordion-question i {
+            color: #ffd966;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .accordion-item.active .accordion-question i {
+            transform: rotate(45deg);
+        }
+
+        .accordion-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            background: #f8fafc;
+        }
+
+        .accordion-item.active .accordion-answer {
+            padding: 20px;
+            max-height: 200px;
+        }
+
+        .accordion-answer p {
+            color: #4a6670;
+            line-height: 1.6;
+        }
+
+        .accordion-answer button {
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .accordion-answer button:hover {
+            background: #ffd966;
+            color: #003366;
+        }
+
+        /* ===== SECTION 5: SUPPORT HOURS & CONTACT ===== */
+        .hours-section {
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #f8fafc, #e6f0ff);
+            border-radius: 50px;
+            padding: 50px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hours-content {
+            flex: 1;
+        }
+
+        .hours-content h2 {
+            font-size: 2.2rem;
+            color: #003366;
+            margin-bottom: 25px;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .hour-card {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 51, 102, 0.05);
+            transition: all 0.3s;
+        }
+
+        .hour-card:hover {
+            transform: scale(1.05);
+            background: #ffd966;
+        }
+
+        .hour-card:hover h4,
+        .hour-card:hover p {
+            color: #003366;
+        }
+
+        .hour-card h4 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .hour-card p {
+            color: #4a6670;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .hour-card i {
+            font-size: 1.5rem;
+            color: #ffd966;
+            margin-bottom: 10px;
+        }
+
+        .hour-card:hover i {
+            color: #003366;
+        }
+
+        .emergency-note {
+            background: #ffd966;
+            padding: 15px 25px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #003366;
+            font-weight: 600;
+        }
+
+        .emergency-note i {
+            font-size: 1.2rem;
+        }
+
+        .hours-image {
+            flex: 1;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.2);
+        }
+
+        .hours-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .hours-image:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ===== SECTION 6: VIDEO TUTORIALS & RESOURCES ===== */
+        .videos-section {
+            margin-bottom: 80px;
+        }
+
+        .videos-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .videos-header h2 {
+            font-size: 2.2rem;
+            color: #003366;
+        }
+
+        .videos-header a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .videos-header a:hover {
+            color: #ffd966;
+            transform: translateX(5px);
+        }
+
+        .videos-grid {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .video-card {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 51, 102, 0.1);
+            transition: all 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 50px rgba(255, 217, 102, 0.3);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: #ffd966;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #003366;
+            font-size: 24px;
+            opacity: 0.9;
+            transition: all 0.3s;
+        }
+
+        .video-card:hover .play-icon {
+            background: #003366;
+            color: #ffd966;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-content {
+            padding: 20px;
+        }
+
+        .video-content h3 {
+            font-size: 1.2rem;
+            color: #003366;
+            margin-bottom: 8px;
+        }
+
+        .video-content p {
+            color: #4a6670;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .video-btn {
+            background: transparent;
+            color: #003366;
+            border: 2px solid #003366;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .video-btn:hover {
+            background: #003366;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* ===== SECTION 7: FEEDBACK & REPORT ISSUE ===== */
+        .feedback-section {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 50px;
+            padding: 50px;
+            display: flex;
+            gap: 40px;
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.1);
+            border: 2px solid #e6edf5;
+            flex-wrap: wrap;
+        }
+
+        .feedback-image {
+            flex: 1;
+            min-width: 280px;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .feedback-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .feedback-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .feedback-content {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .feedback-content h2 {
+            font-size: 2.2rem;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        .feedback-content p {
+            color: #4a6670;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .rating-box {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+        }
+
+        .rating-box p {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .stars {
+            display: flex;
+            gap: 10px;
+            font-size: 24px;
+            color: #ffd966;
+            cursor: pointer;
+            flex-wrap: wrap;
+        }
+
+        .stars i:hover {
+            color: #003366;
+            transform: scale(1.2);
+        }
+
+        .feedback-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feedback-btn {
+            flex: 1;
+            min-width: 200px;
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .feedback-btn:hover {
+            background: #ffd966;
+            color: #003366;
+            transform: translateY(-5px);
+        }
+
+        .feedback-btn.secondary {
+            background: white;
+            color: #003366;
+            border: 2px solid #003366;
+        }
+
+        .feedback-btn.secondary:hover {
+            background: #003366;
+            color: white;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .categories-container {
+                gap: 15px;
+            }
+            
+            .category-card {
+                width: 180px;
+            }
+            
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 75px;
+            }
+            
+            .hero-content {
+                padding: 0 30px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h1 span {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero-btn-primary,
+            .hero-btn-secondary,
+            .hero-btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .help-tags {
+                justify-content: center;
+            }
+            
+            .categories-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .category-card:nth-child(odd),
+            .category-card:nth-child(even) {
+                transform: translateY(0);
+            }
+            
+            .livechat-container {
+                flex-direction: column;
+            }
+            
+            .troubleshoot-section {
+                flex-direction: column;
+            }
+            
+            .hours-section {
+                flex-direction: column;
+            }
+            
+            .feedback-section {
+                flex-direction: column;
+            }
+            
+            .chat-buttons {
+                flex-direction: column;
+            }
+            
+            .chat-features {
+                flex-direction: column;
+            }
+            
+            .videos-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feedback-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .hero-section {
+                height: 650px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .livechat-section,
+            .troubleshoot-section,
+            .hours-section,
+            .feedback-section {
+                padding: 30px 20px;
+            }
+            
+            .stars {
+                justify-content: center;
+            }
+        }
+
+        /* Footer spacing */
+        #footer-placeholder {
+            width: 100%;
+        }
+
+        /* When mobile menu is open */
+        body.menu-open {
+            overflow: hidden;
+        }
+    </style>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Support Content -->
+    <div class="support-wrapper">
+        <!-- SECTION 1: HERO WITH BUTTONS (UPDATED) -->
+        <section class="hero-section" data-aos="fade-down">
+            <img src="GS2.webp" alt="Government Support Center" class="hero-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-content" data-aos="fade-right" data-aos-delay="200">
+                <span class="hero-badge"><i class="fas fa-headset"></i> 24/7 CITIZEN SUPPORT</span>
+                <h1>How Can We <span>Help You Today?</span></h1>
+                <p>Get instant assistance for all government e-services - Aadhaar, PAN, Passport, Driving License and more.</p>
+                
+                <!-- BUTTONS INSTEAD OF SEARCH BAR -->
+                <div class="hero-buttons">
+                    <a href="4042.html" class="hero-btn-primary">
+                        <i class="fas fa-headset"></i> Live Chat
+                    </a>
+                    <a href="4042.html" class="hero-btn-secondary">
+                        <i class="fas fa-calendar-alt"></i> Schedule Callback
+                    </a>
+                    <a href="4042.html" class="hero-btn-outline">
+                        <i class="fas fa-question-circle"></i> FAQs
+                    </a>
+                </div>
+                
+                <!-- Quick help tags -->
+                <div class="help-tags">
+                    <span>Popular:</span>
+                    <a href="4042.html" class="help-tag">Aadhaar Update</a>
+                    <a href="4042.html" class="help-tag">Passport Appointment</a>
+                    <a href="4042.html" class="help-tag">Driving License</a>
+                    <a href="4042.html" class="help-tag">PAN Correction</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: SUPPORT CATEGORIES - FLOATING CARD DESIGN -->
+        <section class="categories-section">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Browse Support Topics</h2>
+            </div>
+            <div class="categories-container">
+                <div class="category-card" data-aos="flip-left" data-aos-delay="100" onclick="window.location.href='4042.html'">
+                    <div class="category-icon"><i class="fas fa-id-card"></i></div>
+                    <h3>Aadhaar Services</h3>
+                    <p>Enrolment, update, download, PVC card, and linking</p>
+                </div>
+                <div class="category-card" data-aos="flip-left" data-aos-delay="200" onclick="window.location.href='4042.html'">
+                    <div class="category-icon"><i class="fas fa-passport"></i></div>
+                    <h3>Passport Seva</h3>
+                    <p>Application, appointment, status check, renewal</p>
+                </div>
+                <div class="category-card" data-aos="flip-left" data-aos-delay="300" onclick="window.location.href='4042.html'">
+                    <div class="category-icon"><i class="fas fa-car"></i></div>
+                    <h3>Driving License</h3>
+                    <p>Learner's license, DL application, duplicate, test booking</p>
+                </div>
+                <div class="category-card" data-aos="flip-left" data-aos-delay="400" onclick="window.location.href='4042.html'">
+                    <div class="category-icon"><i class="fas fa-file-invoice"></i></div>
+                    <h3>PAN & Income Tax</h3>
+                    <p>New PAN, correction, e-filing, ITR status</p>
+                </div>
+                <div class="category-card" data-aos="flip-left" data-aos-delay="500" onclick="window.location.href='4042.html'">
+                    <div class="category-icon"><i class="fas fa-vote-yea"></i></div>
+                    <h3>Voter Services</h3>
+                    <p>Voter ID application, correction, booth details</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LIVE CHAT & HELP DESK - SPLIT BANNER -->
+        <section class="livechat-section" data-aos="zoom-in">
+            <div class="livechat-container">
+                <div class="livechat-image" data-aos="fade-right">
+                    <img src="GS1.webp" alt="Live Chat Support">
+                </div>
+                <div class="livechat-content" data-aos="fade-left">
+                    <h2>Live <span>Citizen Support</span></h2>
+                    <p>Connect with our government support executives in real-time for instant resolution of your queries.</p>
+                    <div class="chat-features">
+                        <span class="chat-feature"><i class="fas fa-clock"></i> Avg. wait: 2 mins</span>
+                        <span class="chat-feature"><i class="fas fa-language"></i> 8 languages</span>
+                        <span class="chat-feature"><i class="fas fa-headset"></i> 24x7</span>
+                    </div>
+                    <div class="chat-buttons">
+                        <a href="4042.html" class="chat-btn-primary">Start Live Chat <i class="fas fa-comment-dots"></i></a>
+                        <a href="4042.html" class="chat-btn-secondary">Schedule Callback <i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TROUBLESHOOTING ACCORDION -->
+        <section class="troubleshoot-section" data-aos="fade-up">
+            <div class="troubleshoot-left">
+                <h2>Common Issues & Solutions</h2>
+                <p>Quick fixes for frequently encountered problems with government e-services portals.</p>
+                <div class="troubleshoot-image">
+                    <img src="GS7.webp" alt="Troubleshooting">
+                </div>
+            </div>
+            <div class="troubleshoot-right">
+                <div class="accordion-item active">
+                    <div class="accordion-question">
+                        <h3><i class="fas fa-fingerprint" style="color: #ffd966; margin-right: 10px;"></i> Aadhaar OTP not received?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-answer">
+                        <p>Check if mobile number is registered with Aadhaar. Wait for 3 minutes and request again. Max 5 attempts per day.</p>
+                        <button onclick="window.location.href='4042.html'">Detailed Guide <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-question">
+                        <h3><i class="fas fa-passport" style="color: #ffd966; margin-right: 10px;"></i> Passport appointment not available?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-answer">
+                        <p>New slots open at 10:00 AM daily. Check nearby Passport Seva Kendras. Tatkal scheme available for urgent travel.</p>
+                        <button onclick="window.location.href='4042.html'">Check Slots <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-question">
+                        <h3><i class="fas fa-car" style="color: #ffd966; margin-right: 10px;"></i> Driving License test booking failed?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-answer">
+                        <p>Clear browser cache, use Chrome/Edge. Ensure all documents uploaded are below 2MB. Try after 24 hours.</p>
+                        <button onclick="window.location.href='4042.html'">RTO Helpline <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-question">
+                        <h3><i class="fas fa-file-invoice" style="color: #ffd966; margin-right: 10px;"></i> PAN card payment failed?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="accordion-answer">
+                        <p>Money will be refunded within 5-7 working days. Try again with different payment method. Check transaction status.</p>
+                        <button onclick="window.location.href='4042.html'">Check Refund Status <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: SUPPORT HOURS & CONTACT -->
+        <section class="hours-section" data-aos="fade-up">
+            <div class="hours-content">
+                <h2>Support Availability</h2>
+                <div class="hours-grid">
+                    <div class="hour-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>Phone Support</h4>
+                        <p>6:00 AM - 10:00 PM</p>
+                    </div>
+                    <div class="hour-card">
+                        <i class="fas fa-comment"></i>
+                        <h4>Live Chat</h4>
+                        <p>24x7</p>
+                    </div>
+                    <div class="hour-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email Response</h4>
+                        <p>Within 24 hrs</p>
+                    </div>
+                    <div class="hour-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <h4>Weekend Support</h4>
+                        <p>9 AM - 6 PM</p>
+                    </div>
+                </div>
+                <div class="emergency-note">
+                    <i class="fas fa-exclamation-triangle"></i> Emergency: Dial 112 for urgent government service issues
+                </div>
+            </div>
+            <div class="hours-image">
+                <img src="GS14.webp" alt="Support Center">
+            </div>
+        </section>
+
+        <!-- SECTION 6: VIDEO TUTORIALS & RESOURCES -->
+        <section class="videos-section" data-aos="fade-up">
+            <div class="videos-header">
+                <h2>Video Tutorials</h2>
+                <a href="4042.html">View All Tutorials <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="Aadhaar.webp" alt="Aadhaar Tutorial">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-content">
+                        <h3>How to Update Aadhaar Online</h3>
+                        <p>Step-by-step guide for address change and document upload</p>
+                        <a href="4042.html" class="video-btn">Watch Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="Passport.webp" alt="Passport Tutorial">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-content">
+                        <h3>Passport Application Process</h3>
+                        <p>Complete guide from form filling to police verification</p>
+                        <a href="4042.html" class="video-btn">Watch Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="Driving.webp" alt="Driving License">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-content">
+                        <h3>Driving License Online Booking</h3>
+                        <p>How to book slot and prepare for driving test</p>
+                        <a href="4042.html" class="video-btn">Watch Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: FEEDBACK & REPORT ISSUE -->
+        <section class="feedback-section" data-aos="fade-up">
+            <div class="feedback-image">
+                <img src="GS18.webp" alt="Feedback">
+            </div>
+            <div class="feedback-content">
+                <h2>Help Us Improve</h2>
+                <p>Your feedback helps us enhance citizen service delivery. Report issues or share suggestions with our team.</p>
+                
+                <div class="rating-box">
+                    <p>How would you rate your support experience?</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="feedback-buttons">
+                    <a href="4042.html" class="feedback-btn"><i class="fas fa-exclamation-circle"></i> Report an Issue</a>
+                    <a href="4042.html" class="feedback-btn secondary"><i class="fas fa-lightbulb"></i> Give Suggestion</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.9rem;"><i class="fas fa-lock" style="color: #ffd966;"></i> Your feedback remains anonymous and secure</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: false,
+            mirror: true,
+            duration: 900,
+            offset: 20,
+            easing: 'ease-out-cubic'
+        });
+
+        // Header and Footer Loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header2.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #1e4a6d; color: white; padding: 20px; text-align: center;">⚠️ Header Not Found</header>';
+                });
+
+            // Load footer
+            fetch('footer2.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1e4a6d; color: white; padding: 40px; text-align: center;">⚠️ Footer Not Found</footer>';
+                });
+        });
+
+        // Header interactions
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (navMenu.classList.contains('active')) {
+                        document.body.classList.add('menu-open');
+                    } else {
+                        document.body.classList.remove('menu-open');
+                    }
+                });
+            }
+
+            // Close mobile menu when any link is clicked
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 950) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        closeAllDropdowns();
+                    }
+                });
+            });
+
+            function closeAllDropdowns(except = null) {
+                document.querySelectorAll('.nav-item.dropdown').forEach(d => {
+                    if (d !== except) d.classList.remove('open');
+                });
+            }
+
+            // Escape key
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    }
+                    closeAllDropdowns();
+                }
+            });
+
+            // Handle plus icons
+            document.querySelectorAll('.dropdown-plus').forEach(plus => {
+                plus.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const parentItem = this.closest('.nav-item.dropdown');
+                    if (parentItem) {
+                        const isOpen = parentItem.classList.contains('open');
+                        closeAllDropdowns(isOpen ? parentItem : null);
+                        parentItem.classList.toggle('open');
+                    }
+                });
+            });
+
+            // Don't close when clicking inside dropdown
+            document.querySelectorAll('.home-dropdown').forEach(c => {
+                c.addEventListener('click', e => e.stopPropagation());
+            });
+        }
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Star rating effect
+        document.querySelectorAll('.stars i').forEach((star, index) => {
+            star.addEventListener('mouseenter', function() {
+                for(let i = 0; i <= index; i++) {
+                    document.querySelectorAll('.stars i')[i].style.color = '#003366';
+                }
+            });
+            star.addEventListener('mouseleave', function() {
+                document.querySelectorAll('.stars i').forEach(s => s.style.color = '#ffd966');
+            });
+            star.addEventListener('click', function() {
+                window.location.href = '4042.html';
+            });
+        });
+    </script>
+</body>
+</html>

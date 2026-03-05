@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Projects - Government Services Online</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        section { 
+            padding: 100px 0; 
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #ffd700;
+            color: #1e3c5c;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #8e0a64;
+            color: #8e0a64;
+        }
+
+        .btn-outline:hover {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: #8e0a64;
+        }
+
+        .btn-video {
+            background: #ff4500;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-video:hover {
+            background: #ff5722;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #8e0a64, #c71585);
+            color: white;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: #1e3c5c;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: #8e0a64;
+        }
+
+        .section-desc {
+            font-size: 1.2rem;
+            color: #4a5a6e;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== SECTION 1: HERO WITH VIDEO BACKGROUND ===== */
+        .projects-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,15,28,0.85), rgba(142,10,100,0.8));
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 30px;
+            background: rgba(255,215,0,0.2);
+            border: 2px solid #ffd700;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #ffd700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 50px 0 40px;
+        }
+
+        .hero-stat {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            min-width: 180px;
+        }
+
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffd700;
+            display: block;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== SECTION 2: FEATURED PROJECTS CARDS ===== */
+        .featured-section {
+            background: white;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .featured-card {
+            background: #f8fafd;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(142,10,100,0.2);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .featured-card:hover .featured-image img {
+            transform: scale(1.15);
+        }
+
+        .featured-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ffd700;
+            color: #1e3c5c;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        .featured-content {
+            padding: 30px;
+        }
+
+        .featured-content h3 {
+            font-size: 1.6rem;
+            color: #1e3c5c;
+            margin-bottom: 15px;
+        }
+
+        .featured-content p {
+            color: #4a5a6e;
+            margin-bottom: 20px;
+        }
+
+        .featured-progress {
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e0e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #8e0a64;
+            border-radius: 4px;
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #4a5a6e;
+        }
+
+        /* ===== SECTION 3: MAJOR INITIATIVES WITH VIDEO ===== */
+        .initiatives-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .initiatives-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .initiatives-content h2 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            margin-bottom: 25px;
+        }
+
+        .initiatives-content h2 span {
+            color: #ffd700;
+        }
+
+        .initiatives-list {
+            margin: 40px 0;
+        }
+
+        .initiative-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+
+        .initiative-item:hover {
+            transform: translateX(15px);
+            background: rgba(142,10,100,0.3);
+        }
+
+        .initiative-item i {
+            font-size: 2rem;
+            color: #ffd700;
+        }
+
+        .initiative-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .video-container {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 30px;
+        }
+
+        /* ===== SECTION 4: ONGOING PROJECTS TIMELINE ===== */
+        .ongoing-section {
+            background: white;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+            background: #f8fafd;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(-15px);
+            box-shadow: 0 20px 40px rgba(142,10,100,0.15);
+        }
+
+        .timeline-year-box {
+            min-width: 100px;
+            height: 100px;
+            background: #8e0a64;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .timeline-year-box .year {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .timeline-year-box .quarter {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            color: #1e3c5c;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: #4a5a6e;
+            margin-bottom: 15px;
+        }
+
+        .timeline-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: #8e0a64;
+        }
+
+        /* ===== SECTION 5: PROJECT SHOWCASE GALLERY ===== */
+        .gallery-section {
+            background: #f8fafd;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.2);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(142,10,100,0.9), transparent);
+            color: white;
+            padding: 25px;
+            transform: translateY(100%);
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        /* ===== SECTION 6: PROJECT IMPACT STATS ===== */
+        .impact-section {
+            background: linear-gradient(135deg, #0a192f, #1e3c5c);
+            color: white;
+        }
+
+        .impact-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .impact-header h2 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            color: white;
+        }
+
+        .impact-header h2 span {
+            color: #ffd700;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .impact-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            border-color: #ffd700;
+            background: rgba(142,10,100,0.2);
+        }
+
+        .impact-icon {
+            width: 80px;
+            height: 80px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: #1e3c5c;
+        }
+
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .impact-label {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .impact-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ===== SECTION 7: UPCOMING PROJECTS ===== */
+        .upcoming-section {
+            background: white;
+        }
+
+        .upcoming-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .upcoming-card {
+            background: linear-gradient(135deg, #f8fafd, #ffffff);
+            border-radius: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid #e0e8f0;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upcoming-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #8e0a64, #c71585);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .upcoming-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .upcoming-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 50px rgba(142,10,100,0.15);
+        }
+
+        .upcoming-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #8e0a64, #c71585);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .upcoming-year {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #8e0a64;
+            margin-bottom: 15px;
+        }
+
+        .upcoming-card h3 {
+            font-size: 1.5rem;
+            color: #1e3c5c;
+            margin-bottom: 15px;
+        }
+
+        .upcoming-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            background: #ffd700;
+            color: #1e3c5c;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        /* ===== SECTION 8: CTA WITH PROJECT SHOWCASE ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #8e0a64, #c71585);
+            color: white;
+        }
+
+        .cta-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cta-feature i {
+            width: 30px;
+            height: 30px;
+            background: #ffd700;
+            color: #1e3c5c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-image {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .cta-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cta-image-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255,215,0,0.9);
+            color: #1e3c5c;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .featured-grid,
+            .upcoming-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .initiatives-container,
+            .cta-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .video-container {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { 
+                padding: 60px 0; 
+            }
+            
+            .featured-grid,
+            .upcoming-grid,
+            .gallery-grid,
+            .impact-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .hero-stats {
+                gap: 15px;
+            }
+            
+            .hero-stat {
+                min-width: 140px;
+                padding: 15px;
+            }
+            
+            .hero-stat .number {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-year-box {
+                margin: 0 auto;
+            }
+            
+            .timeline-meta {
+                justify-content: center;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+            
+            .video-container video {
+                height: 300px;
+            }
+            
+            .cta-image img {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .hero-stat {
+                min-width: 120px;
+                padding: 12px;
+            }
+            
+            .hero-stat .number {
+                font-size: 1.6rem;
+            }
+            
+            .featured-card {
+                margin: 0;
+            }
+            
+            .featured-content h3 {
+                font-size: 1.4rem;
+            }
+            
+            .initiative-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .initiative-item i {
+                margin: 0 auto;
+            }
+            
+            .impact-card {
+                padding: 30px 20px;
+            }
+            
+            .impact-number {
+                font-size: 2.5rem;
+            }
+            
+            .upcoming-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .upcoming-year {
+                font-size: 1.6rem;
+            }
+            
+            .cta-image-caption {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Fix horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+        }
+
+         /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #8e0a64;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border: 2px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: #a80d78;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(142,10,100,0.4);
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+    <!-- HEADER PLACEHOLDER with Loading Animation -->
+    <div id="header-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1: Hero with Video Background -->
+        <section class="projects-hero">
+            <video autoplay muted loop playsinline id="bg-video">
+                <source src="vid1.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="hero-badge" data-aos="flip-up">TRANSFORMING INDIA</div>
+                    <h1 data-aos="fade-up" data-aos-delay="100">Flagship <span>Projects</span> for Digital Governance</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Pioneering initiatives that are reshaping citizen services through technology and innovation</p>
+                    
+                    <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+                        <div class="hero-stat">
+                            <span class="number">12+</span>
+                            <span class="label">Major Projects</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="number">500+</span>
+                            <span class="label">Services Enabled</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="number">₹500Cr</span>
+                            <span class="label">Project Value</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                        <a href="404.html" class="btn btn-primary">Explore Projects</a>
+                        <a href="404.html" class="btn btn-outline-light">Watch Overview</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Featured Projects Cards -->
+        <section class="featured-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Featured <span>Projects</span></h2>
+                    <p class="section-desc">Transformative initiatives driving digital governance across India</p>
+                </div>
+                
+                <div class="featured-grid">
+                    <div class="featured-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="featured-image">
+                            <img src="GS10.webp" alt="Digital India" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%2334495e\'/%3E%3Ctext x=\'100\' y=\'125\' fill=\'white\' font-size=\'20\'%3EDigital India%3C/text%3E%3C/svg%3E'">
+                            <span class="featured-tag">National Mission</span>
+                        </div>
+                        <div class="featured-content">
+                            <h3>Digital India Programme</h3>
+                            <p>Flagship initiative to transform India into a digitally empowered society and knowledge economy.</p>
+                            <div class="featured-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="progress-stats">
+                                    <span>85% Complete</span>
+                                    <span>2025 Target</span>
+                                </div>
+                            </div>
+                            <a href="404.html" class="btn btn-outline">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="featured-image">
+                            <img src="GS11.webp" alt="UMANG" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%2334495e\'/%3E%3Ctext x=\'100\' y=\'125\' fill=\'white\' font-size=\'20\'%3EUMANG%3C/text%3E%3C/svg%3E'">
+                            <span class="featured-tag">Mobile First</span>
+                        </div>
+                        <div class="featured-content">
+                            <h3>UMANG App</h3>
+                            <p>Unified Mobile App for New-age Governance - 500+ services in one platform with 50M+ downloads.</p>
+                            <div class="featured-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                                <div class="progress-stats">
+                                    <span>92% Coverage</span>
+                                    <span>50M Users</span>
+                                </div>
+                            </div>
+                            <a href="404.html" class="btn btn-outline">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="featured-image">
+                            <img src="GS12.webp" alt="DigiLocker" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'%3E%3Crect width=\'400\' height=\'250\' fill=\'%2334495e\'/%3E%3Ctext x=\'100\' y=\'125\' fill=\'white\' font-size=\'20\'%3EDigiLocker%3C/text%3E%3C/svg%3E'">
+                            <span class="featured-tag">Paperless</span>
+                        </div>
+                        <div class="featured-content">
+                            <h3>DigiLocker Platform</h3>
+                            <p>Digital document wallet for citizens with 100M+ registered users and 5B+ issued documents.</p>
+                            <div class="featured-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                                <div class="progress-stats">
+                                    <span>78% Adoption</span>
+                                    <span>100M Users</span>
+                                </div>
+                            </div>
+                            <a href="404.html" class="btn btn-outline">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Major Initiatives with Video -->
+        <section class="initiatives-section">
+            <div class="container">
+                <div class="initiatives-container">
+                    <div class="initiatives-content" data-aos="fade-right">
+                        <h2>Major <span>Initiatives</span> Transforming Governance</h2>
+                        <p>Comprehensive programs designed to revolutionize citizen services through cutting-edge technology</p>
+                        
+                        <div class="initiatives-list">
+                            <div class="initiative-item">
+                                <i class="fas fa-cloud"></i>
+                                <div>
+                                    <h4>MeghRaj Cloud</h4>
+                                    <p>Government cloud with 20+ data centers serving all departments</p>
+                                </div>
+                            </div>
+                            <div class="initiative-item">
+                                <i class="fas fa-database"></i>
+                                <div>
+                                    <h4>India Stack</h4>
+                                    <p>Open APIs for digital identity, payments, and data sharing</p>
+                                </div>
+                            </div>
+                            <div class="initiative-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>Cyber Surakshit</h4>
+                                    <p>National cybersecurity framework for citizen data protection</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="404.html" class="btn btn-secondary">View All Initiatives</a>
+                    </div>
+                    
+                    <div class="video-container" data-aos="fade-left">
+                        <video controls poster="GS13.webp">
+                            <source src="vid1.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-caption">
+                            <h4>Digital India: The Journey So Far</h4>
+                            <p>Watch our progress in transforming citizen services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Ongoing Projects Timeline -->
+        <section class="ongoing-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Ongoing <span>Projects</span></h2>
+                    <p class="section-desc">Current initiatives in various stages of implementation</p>
+                </div>
+                
+                <div class="timeline-grid">
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-year-box">
+                            <span class="year">2024</span>
+                            <span class="quarter">Q4</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>AI-Powered Service Delivery</h3>
+                            <p>Implementing machine learning for predictive citizen services and automated grievance redressal.</p>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Pan India</span>
+                                <span><i class="fas fa-clock"></i> 65% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-year-box">
+                            <span class="year">2025</span>
+                            <span class="quarter">Q1</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Blockchain Document Verification</h3>
+                            <p>Tamper-proof certificate verification system across all states and departments.</p>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> 15 States</span>
+                                <span><i class="fas fa-clock"></i> 40% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-year-box">
+                            <span class="year">2025</span>
+                            <span class="quarter">Q2</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>5G-Enabled Smart Services</h3>
+                            <p>Leveraging 5G networks for real-time citizen services in 100 smart cities.</p>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> 100 Cities</span>
+                                <span><i class="fas fa-clock"></i> 30% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="timeline-year-box">
+                            <span class="year">2025</span>
+                            <span class="quarter">Q3</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Unified Payment Interface 2.0</h3>
+                            <p>Enhanced UPI platform for all government transactions with 0% failure rate.</p>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Pan India</span>
+                                <span><i class="fas fa-clock"></i> 55% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="404.html" class="btn btn-primary">View Complete Timeline</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Project Showcase Gallery -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Project <span>Gallery</span></h2>
+                    <p class="section-desc">Visual journey through our major initiatives</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="GS15.webp" alt="Project 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\' viewBox=\'0 0 300 300\'%3E%3Crect width=\'300\' height=\'300\' fill=\'%2334495e\'/%3E%3Ctext x=\'80\' y=\'150\' fill=\'white\' font-size=\'20\'%3EData Center%3C/text%3E%3C/svg%3E'">
+                        <div class="gallery-overlay">
+                            <h4>National Data Center</h4>
+                            <p>20+ facilities across India</p>
+                            <a href="404.html" style="color: white;"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="150">
+                        <img src="GS16.webp" alt="Project 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\' viewBox=\'0 0 300 300\'%3E%3Crect width=\'300\' height=\'300\' fill=\'%2334495e\'/%3E%3Ctext x=\'80\' y=\'150\' fill=\'white\' font-size=\'20\'%3ESatellite%3C/text%3E%3C/svg%3E'">
+                        <div class="gallery-overlay">
+                            <h4>GIS Mapping</h4>
+                            <p>Land records digitization</p>
+                            <a href="404.html" style="color: white;"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="GS17.webp" alt="Project 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\' viewBox=\'0 0 300 300\'%3E%3Crect width=\'300\' height=\'300\' fill=\'%2334495e\'/%3E%3Ctext x=\'80\' y=\'150\' fill=\'white\' font-size=\'20\'%3ECSC Center%3C/text%3E%3C/svg%3E'">
+                        <div class="gallery-overlay">
+                            <h4>CSC 2.0</h4>
+                            <p>5 lakh+ village centers</p>
+                            <a href="404.html" style="color: white;"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="250">
+                        <img src="GS19.webp" alt="Project 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\' viewBox=\'0 0 300 300\'%3E%3Crect width=\'300\' height=\'300\' fill=\'%2334495e\'/%3E%3Ctext x=\'80\' y=\'150\' fill=\'white\' font-size=\'20\'%3EWiFi Hotspots%3C/text%3E%3C/svg%3E'">
+                        <div class="gallery-overlay">
+                            <h4>Public WiFi Network</h4>
+                            <p>2 lakh+ hotspots</p>
+                            <a href="404.html" style="color: white;"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Project Impact Stats -->
+        <section class="impact-section">
+            <div class="container">
+                <div class="impact-header" data-aos="fade-down">
+                    <h2>Project <span>Impact</span> by Numbers</h2>
+                    <p class="section-desc" style="color: rgba(255,255,255,0.9);">Measurable outcomes from our digital initiatives</p>
+                </div>
+                
+                <div class="impact-grid">
+                    <div class="impact-card" data-aos="flip-up" data-aos-delay="100">
+                        <div class="impact-icon"><i class="fas fa-users"></i></div>
+                        <div class="impact-number">1.4B</div>
+                        <div class="impact-label">Citizens Covered</div>
+                        <div class="impact-desc">100% population reach</div>
+                    </div>
+                    
+                    <div class="impact-card" data-aos="flip-up" data-aos-delay="200">
+                        <div class="impact-icon"><i class="fas fa-download"></i></div>
+                        <div class="impact-number">50B+</div>
+                        <div class="impact-label">Digital Transactions</div>
+                        <div class="impact-desc">Annual volume</div>
+                    </div>
+                    
+                    <div class="impact-card" data-aos="flip-up" data-aos-delay="300">
+                        <div class="impact-icon"><i class="fas fa-save"></i></div>
+                        <div class="impact-number">₹2.5L Cr</div>
+                        <div class="impact-label">Citizen Savings</div>
+                        <div class="impact-desc">Through digitization</div>
+                    </div>
+                    
+                    <div class="impact-card" data-aos="flip-up" data-aos-delay="400">
+                        <div class="impact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="impact-number">85%</div>
+                        <div class="impact-label">Time Reduction</div>
+                        <div class="impact-desc">In service delivery</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Upcoming Projects -->
+        <section class="upcoming-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Upcoming <span>Projects</span></h2>
+                    <p class="section-desc">Future initiatives planned for the next 3 years</p>
+                </div>
+                
+                <div class="upcoming-grid">
+                    <div class="upcoming-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="upcoming-icon"><i class="fas fa-robot"></i></div>
+                        <div class="upcoming-year">2025</div>
+                        <h3>AI Governance Suite</h3>
+                        <p>AI-powered decision support system for policy making and service delivery</p>
+                        <span class="upcoming-badge">In Development</span>
+                        <a href="404.html" class="btn btn-outline" style="margin-top: 20px;">Learn More</a>
+                    </div>
+                    
+                    <div class="upcoming-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="upcoming-icon"><i class="fas fa-brain"></i></div>
+                        <div class="upcoming-year">2026</div>
+                        <h3>Predictive Governance</h3>
+                        <p>Anticipating citizen needs through life-event based service delivery</p>
+                        <span class="upcoming-badge">Planning Phase</span>
+                        <a href="404.html" class="btn btn-outline" style="margin-top: 20px;">Learn More</a>
+                    </div>
+                    
+                    <div class="upcoming-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="upcoming-icon"><i class="fas fa-globe"></i></div>
+                        <div class="upcoming-year">2027</div>
+                        <h3>Metaverse Governance</h3>
+                        <p>Immersive virtual government offices for remote citizen interaction</p>
+                        <span class="upcoming-badge">Research Phase</span>
+                        <a href="404.html" class="btn btn-outline" style="margin-top: 20px;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: CTA with Project Showcase -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-container">
+                    <div class="cta-content" data-aos="fade-right">
+                        <h2>Partner with <span>Us</span> in Nation Building</h2>
+                        <p>Join our mission to transform citizen services through technology and innovation</p>
+                        
+                        <div class="cta-features">
+                            <div class="cta-feature">
+                                <i class="fas fa-handshake"></i>
+                                <span>PPP Opportunities worth ₹1000Cr</span>
+                            </div>
+                            <div class="cta-feature">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>Technology Partnership Programs</span>
+                            </div>
+                            <div class="cta-feature">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Research & Innovation Grants</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-buttons">
+                            <a href="404.html" class="btn btn-secondary">Become a Partner</a>
+                            <a href="404.html" class="btn btn-outline-light">View Tenders</a>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-image" data-aos="fade-left">
+                        <img src="GS21.webp" alt="Partnership" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'500\' height=\'400\' viewBox=\'0 0 500 400\'%3E%3Crect width=\'500\' height=\'400\' fill=\'%2334495e\'/%3E%3Ctext x=\'150\' y=\'200\' fill=\'white\' font-size=\'30\'%3EPartnership%3C/text%3E%3C/svg%3E'">
+                        <div class="cta-image-caption">
+                            <i class="fas fa-briefcase"></i> 25+ Technology Partners Onboarded
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PLACEHOLDER - Footer will load here -->
+    <div id="footer-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+
+        //======================================================
+        // Header and Footer Loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found (header1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    
+                    // Initialize header interactions after header is loaded
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #8e0a64; color: white; padding: 20px; text-align: center;">⚠️ Header Not Found - Please check header1.html file</header>';
+                });
+
+            // Load footer
+            fetch('footer1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found (footer1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    
+                    // Optional: Initialize footer interactions if needed
+                    setTimeout(initFooterInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1e2a3a; color: white; padding: 40px; text-align: center;">⚠️ Footer Not Found - Please check footer1.html file</footer>';
+                });
+        });
+
+        // Initialize header interactions (hamburger menu, dropdown)
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const logo = document.querySelector('.logo');
+            
+            console.log('Header initialized - menu toggle:', menuToggle ? '✓ Found' : '✗ Not Found');
+            
+            // Mobile menu toggle with logo hide
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (logo) {
+                        if (navMenu.classList.contains('active')) {
+                            logo.style.opacity = '0';
+                            logo.style.visibility = 'hidden';
+                            logo.style.pointerEvents = 'none';
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+            
+            // Handle all dropdown buttons
+            document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                const dropdownId = btn.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('[data-dropdown]').forEach(otherBtn => {
+                            if (otherBtn !== btn) {
+                                const otherDropdownId = otherBtn.getAttribute('data-dropdown');
+                                const otherDropdown = document.getElementById(otherDropdownId);
+                                if (otherDropdown) {
+                                    otherDropdown.classList.remove('show');
+                                    otherBtn.classList.remove('active');
+                                }
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('show');
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+            
+            // Close mobile menu when clicking on any link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                        
+                        document.querySelectorAll('.dropdown-menu').forEach(d => {
+                            d.classList.remove('show');
+                        });
+                        document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]') && !e.target.closest('.dropdown-menu')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (logo) {
+                        logo.style.opacity = '1';
+                        logo.style.visibility = 'visible';
+                        logo.style.pointerEvents = 'auto';
+                    }
+                    document.body.style.overflow = 'auto';
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Escape key handler
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                    }
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Initialize footer interactions (if needed)
+        function initFooterInteractions() {
+            console.log('Footer initialized');
+        }
+
+        // Refresh AOS on load and resize
+        window.addEventListener('load', () => AOS.refresh());
+        window.addEventListener('resize', () => AOS.refresh());
+
+        //=========================================================
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100,
+            easing: 'ease-in-out',
+            mirror: true
+        });
+
+        // Back to Top Button Functionality
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Online Services - Government Services Online</title>
+    
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        section { 
+            padding: 100px 0; 
+            overflow: hidden; 
+            position: relative;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #ffd700;
+            color: #1e3c5c;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #8e0a64;
+            color: #8e0a64;
+        }
+
+        .btn-outline:hover {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #8e0a64, #c71585);
+            color: white;
+            border: none;
+        }
+
+        .btn-3d {
+            background: #8e0a64;
+            color: white;
+            box-shadow: 0 10px 0 #4a0534;
+            transform: translateY(-3px);
+        }
+
+        .btn-3d:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 0 #4a0534;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: #1e3c5c;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: #8e0a64;
+        }
+
+        .section-desc {
+            font-size: 1.2rem;
+            color: #4a5a6e;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== SECTION 1: HERO WITH 3D CARDS (KEEP SAME) ===== */
+        .hero-3d {
+            min-height: 90vh;
+            background: linear-gradient(135deg, #0a192f, #1e3c5c);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-bg-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(142,10,100,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: pulse 4s infinite;
+        }
+
+        .hero-content-3d {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text-3d h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text-3d h1 span {
+            color: #ffd700;
+            display: inline-block;
+            animation: glow 2s infinite;
+        }
+
+        .hero-text-3d p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-cards-3d {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            perspective: 1000px;
+        }
+
+        .hero-card-3d {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 20px;
+            padding: 25px;
+            transform-style: preserve-3d;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        .hero-card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
+            background: rgba(142,10,100,0.3);
+            border-color: #ffd700;
+        }
+
+        .hero-card-3d i {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .hero-card-3d h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-card-3d p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ===== SECTION 2: SERVICE CUBES - REDESIGNED ===== */
+        .cubes-section {
+            background: white;
+        }
+
+        .service-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .service-showcase-item {
+            background: #f8fafd;
+            border-radius: 40px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e0e8f0;
+        }
+
+        .service-showcase-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #8e0a64, #c71585);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+
+        .service-showcase-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-showcase-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 50px rgba(142,10,100,0.15);
+        }
+
+        .service-showcase-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #8e0a64, #c71585);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3.5rem;
+            color: white;
+            box-shadow: 0 20px 40px rgba(142,10,100,0.3);
+        }
+
+        .service-showcase-item h3 {
+            font-size: 2rem;
+            color: #1e3c5c;
+            margin-bottom: 15px;
+        }
+
+        .service-showcase-desc {
+            color: #4a5a6e;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .service-showcase-meta {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 25px 0;
+            padding: 15px 0;
+            border-top: 2px dashed #e0e8f0;
+            border-bottom: 2px dashed #e0e8f0;
+        }
+
+        .service-showcase-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            color: #1e3c5c;
+            font-weight: 500;
+        }
+
+        .service-showcase-meta i {
+            color: #8e0a64;
+        }
+
+        .service-showcase-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: #8e0a64;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .service-showcase-btn:hover {
+            background: #c71585;
+            transform: scale(1.05);
+        }
+
+        /* ===== SECTION 3: HEXAGON GRID (KEEP SAME) ===== */
+        .hexagon-section {
+            background: #f8fafd;
+        }
+
+        .hexagon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .hexagon-card {
+            background: white;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            padding: 60px 40px;
+            text-align: center;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        .hexagon-card:hover {
+            transform: scale(1.05);
+            background: #8e0a64;
+            color: white;
+        }
+
+        .hexagon-card i {
+            font-size: 3rem;
+            color: #8e0a64;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .hexagon-card:hover i {
+            color: #ffd700;
+            transform: scale(1.2);
+        }
+
+        .hexagon-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .hexagon-card p {
+            margin-bottom: 20px;
+        }
+
+        .hexagon-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #ffd700;
+            color: #1e3c5c;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* ===== SECTION 4: INTERACTIVE TIMELINE - REDESIGNED ===== */
+        .timeline-interactive {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .journey-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .journey-step {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .journey-step:hover {
+            transform: translateY(-20px);
+            background: rgba(142,10,100,0.3);
+            border-color: #ffd700;
+        }
+
+        .journey-step-number {
+            width: 70px;
+            height: 70px;
+            background: #ffd700;
+            color: #1e3c5c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 auto 25px;
+            border: 4px solid white;
+        }
+
+        .journey-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .journey-step p {
+            opacity: 0.9;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .journey-step-time {
+            display: inline-block;
+            padding: 6px 20px;
+            background: rgba(255,215,0,0.2);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #ffd700;
+        }
+
+        .journey-connector {
+            position: absolute;
+            top: 80px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #8e0a64);
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        /* ===== SECTION 5: FLOATING CARDS (KEEP SAME) ===== */
+        .floating-section {
+            background: white;
+            overflow: visible;
+        }
+
+        .floating-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .float-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .float-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .float-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-card:hover {
+            animation: none;
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 40px 80px rgba(142,10,100,0.2);
+        }
+
+        .float-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #8e0a64, #c71585);
+            border-radius: 30px 30px 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .float-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #8e0a64;
+            opacity: 0.1;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+
+        /* ===== SECTION 6: HOVER GALLERY (KEEP SAME) ===== */
+        .gallery-hover {
+            background: #f8fafd;
+        }
+
+        .hover-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .hover-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 350px;
+            cursor: pointer;
+        }
+
+        .hover-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .hover-item:hover img {
+            transform: scale(1.2);
+        }
+
+        .hover-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, #8e0a64, transparent);
+            color: white;
+            padding: 30px;
+            transition: bottom 0.4s;
+        }
+
+        .hover-item:hover .hover-overlay {
+            bottom: 0;
+        }
+
+        .hover-overlay h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .hover-overlay .price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        /* ===== SECTION 7: STATS WHEEL - REDESIGNED ===== */
+        .stats-wheel {
+            background: linear-gradient(135deg, #0a192f, #1e3c5c);
+            color: white;
+        }
+
+        .impact-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .impact-left h2 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            margin-bottom: 30px;
+        }
+
+        .impact-left h2 span {
+            color: #ffd700;
+        }
+
+        .impact-left p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .impact-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .impact-stat-block {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .impact-stat-block:hover {
+            transform: scale(1.05);
+            border-color: #ffd700;
+            background: rgba(142,10,100,0.2);
+        }
+
+        .impact-stat-block .number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .impact-stat-block .label {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .impact-stat-block .desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .impact-right {
+            position: relative;
+        }
+
+        .impact-chart {
+            width: 100%;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 40px;
+            padding: 30px;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        .chart-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .chart-bar-label {
+            width: 120px;
+            font-weight: 600;
+        }
+
+        .chart-bar-progress {
+            flex: 1;
+            height: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .chart-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700, #8e0a64);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1s;
+        }
+
+        .chart-bar-value {
+            width: 60px;
+            color: #ffd700;
+            font-weight: 700;
+        }
+
+        /* ===== SECTION 8: ACCORDION TABS (KEEP SAME) ===== */
+        .tabs-section {
+            background: white;
+        }
+
+        .tabs-container {
+            max-width: 900px;
+            margin: 50px auto 0;
+        }
+
+        .tab-headers {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-header {
+            flex: 1;
+            padding: 15px;
+            background: #f8fafd;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-header.active {
+            background: #8e0a64;
+            color: white;
+        }
+
+        .tab-panel {
+            display: none;
+            padding: 40px;
+            background: #f8fafd;
+            border-radius: 20px;
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .tab-content img {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        /* ===== SECTION 9: PREMIUM SHOWCASE - NEW ===== */
+.premium-showcase {
+    background: linear-gradient(135deg, #0a192f, #1e3c5c);
+    color: white;
+    padding: 100px 0;
+}
+
+.premium-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.premium-showcase-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    padding: 50px 30px 40px;
+    border: 1px solid rgba(255,215,0,0.2);
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-showcase-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ffd700, #8e0a64);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+    transform-origin: left;
+}
+
+.premium-showcase-card:hover::before {
+    transform: scaleX(1);
+}
+
+.premium-showcase-card:hover {
+    transform: translateY(-20px);
+    border-color: #ffd700;
+    box-shadow: 0 30px 50px rgba(255,215,0,0.2);
+}
+
+.premium-showcase-card.featured {
+    transform: scale(1.05);
+    border: 2px solid #ffd700;
+    box-shadow: 0 20px 40px rgba(255,215,0,0.2);
+}
+
+.premium-showcase-card.featured:hover {
+    transform: scale(1.05) translateY(-20px);
+}
+
+.premium-showcase-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: #ffd700;
+    color: #1e3c5c;
+    padding: 8px 40px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transform: rotate(45deg);
+    letter-spacing: 1px;
+}
+
+.premium-showcase-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.premium-showcase-header i {
+    font-size: 3.5rem;
+    color: #ffd700;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.premium-showcase-header h3 {
+    font-size: 2rem;
+    color: white;
+}
+
+.premium-showcase-price {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-top: 2px dashed rgba(255,215,0,0.3);
+    border-bottom: 2px dashed rgba(255,215,0,0.3);
+}
+
+.premium-showcase-price .currency {
+    font-size: 1.5rem;
+    color: #ffd700;
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.premium-showcase-price .amount {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #ffd700;
+    line-height: 1;
+}
+
+.premium-showcase-price .period {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    display: block;
+    margin-top: 5px;
+}
+
+.premium-showcase-features {
+    margin-bottom: 40px;
+}
+
+.premium-showcase-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.premium-showcase-feature i {
+    color: #ffd700;
+    font-size: 1.1rem;
+}
+
+.premium-showcase-feature span {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+}
+
+.premium-showcase-btn {
+    display: block;
+    padding: 15px;
+    background: linear-gradient(135deg, #ffd700, #f0b000);
+    color: #1e3c5c;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.premium-showcase-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(255,215,0,0.3);
+}
+
+/* ===== SECTION 10: CTA MODERN - NEW ===== */
+.cta-modern {
+    background: linear-gradient(135deg, #f8fafd, #ffffff);
+    padding: 80px 0;
+}
+
+.cta-modern-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    background: linear-gradient(135deg, #8e0a64, #c71585);
+    border-radius: 60px;
+    padding: 60px;
+    box-shadow: 0 40px 80px rgba(142,10,100,0.3);
+}
+
+.cta-modern-content {
+    color: white;
+}
+
+.cta-modern-content h2 {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.cta-modern-content h2 span {
+    color: #ffd700;
+    display: block;
+}
+
+.cta-modern-content p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+.cta-modern-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.cta-modern-stat {
+    text-align: center;
+}
+
+.cta-modern-stat .stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffd700;
+    display: block;
+    line-height: 1.2;
+}
+
+.cta-modern-stat .stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.cta-modern-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cta-btn-primary {
+    background: #ffd700;
+    color: #1e3c5c;
+    border: none;
+}
+
+.cta-btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-btn-secondary:hover {
+    background: white;
+    color: #8e0a64;
+}
+
+.cta-btn-tertiary {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.cta-btn-tertiary:hover {
+    background: white;
+    color: #8e0a64;
+    border-color: white;
+}
+
+.cta-modern-image {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+
+.cta-modern-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.cta-modern-image:hover img {
+    transform: scale(1.1);
+}
+
+.cta-modern-image-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    background: rgba(255,215,0,0.9);
+    color: #1e3c5c;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    backdrop-filter: blur(5px);
+}
+
+.cta-modern-image-badge i {
+    margin-right: 8px;
+    color: #8e0a64;
+}
+
+/* Responsive for new sections */
+@media (max-width: 1024px) {
+    .premium-showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cta-modern-wrapper {
+        grid-template-columns: 1fr;
+        padding: 40px;
+    }
+    
+    .cta-modern-image {
+        order: -1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .premium-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .premium-showcase-card.featured {
+        transform: scale(1);
+    }
+    
+    .premium-showcase-card.featured:hover {
+        transform: translateY(-20px);
+    }
+    
+    .cta-modern-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .cta-modern-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-modern-image img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .premium-showcase-card {
+        padding: 40px 20px 30px;
+    }
+    
+    .premium-showcase-header i {
+        font-size: 2.5rem;
+    }
+    
+    .premium-showcase-header h3 {
+        font-size: 1.6rem;
+    }
+    
+    .premium-showcase-price .amount {
+        font-size: 3rem;
+    }
+    
+    .premium-showcase-ribbon {
+        font-size: 0.8rem;
+        padding: 6px 30px;
+        right: -30px;
+    }
+    
+    .cta-modern-wrapper {
+        padding: 30px 20px;
+        border-radius: 40px;
+    }
+    
+    .cta-modern-content h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-modern-image-badge {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+}
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-content-3d,
+            .impact-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .service-showcase,
+            .journey-steps,
+            .premium-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hover-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .journey-connector {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 60px 0; }
+
+            .service-showcase,
+            .hexagon-grid,
+            .floating-container,
+            .journey-steps,
+            .premium-grid,
+            .hover-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cards-3d {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .impact-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wave-banner {
+                padding: 40px 20px;
+            }
+
+            .wave-banner h2 {
+                font-size: 2.2rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text-3d h1 {
+                font-size: 2.2rem;
+            }
+
+            .service-showcase-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .service-showcase-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hexagon-card {
+                clip-path: none;
+                border-radius: 20px;
+            }
+
+            .float-number {
+                font-size: 3rem;
+            }
+
+            .tab-header {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+
+            .premium-price {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(255,215,0,0.5); }
+            50% { text-shadow: 0 0 40px rgba(255,215,0,0.8); }
+        }
+
+        /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: #8e0a64;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border: 2px solid white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background: #a80d78;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(142,10,100,0.4);
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 768px) {
+        .back-to-top {
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+    <!-- HEADER PLACEHOLDER with Loading Animation -->
+    <div id="header-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <main>
+        <!-- Section 1: Hero with 3D Cards (SAME) -->
+        <section class="hero-3d">
+            <div class="hero-bg-orb"></div>
+            <div class="container">
+                <div class="hero-content-3d">
+                    <div class="hero-text-3d" data-aos="fade-right">
+                        <h1>Digital <span>Services</span> for Every Citizen</h1>
+                        <p>Access 500+ government services online with just a few clicks. Fast, secure, and transparent.</p>
+                        <a href="404.html" class="btn btn-3d">Explore All Services</a>
+                    </div>
+                    <div class="hero-cards-3d" data-aos="fade-left">
+                        <div class="hero-card-3d">
+                            <i class="fas fa-id-card"></i>
+                            <h3>Aadhaar</h3>
+                            <p>Update, download, verify</p>
+                            <span style="color: #ffd700;">5 mins</span>
+                        </div>
+                        <div class="hero-card-3d">
+                            <i class="fas fa-passport"></i>
+                            <h3>Passport</h3>
+                            <p>Apply, renew, track</p>
+                            <span style="color: #ffd700;">7 days</span>
+                        </div>
+                        <div class="hero-card-3d">
+                            <i class="fas fa-car"></i>
+                            <h3>Driving License</h3>
+                            <p>Learner's, permanent</p>
+                            <span style="color: #ffd700;">3 days</span>
+                        </div>
+                        <div class="hero-card-3d">
+                            <i class="fas fa-file-invoice"></i>
+                            <h3>Property</h3>
+                            <p>Registration, tax</p>
+                            <span style="color: #ffd700;">24 hrs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Service Showcase - REDESIGNED -->
+        <section class="cubes-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Popular <span>Services</span></h2>
+                    <p class="section-desc">Most accessed government services online</p>
+                </div>
+                
+                <div class="service-showcase">
+                    <div class="service-showcase-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-showcase-icon"><i class="fas fa-id-card"></i></div>
+                        <h3>Aadhaar Services</h3>
+                        <p class="service-showcase-desc">Update, download, and verify your Aadhaar online instantly</p>
+                        <div class="service-showcase-meta">
+                            <span><i class="fas fa-clock"></i> 5 mins</span>
+                            <span><i class="fas fa-rupee-sign"></i> Free</span>
+                        </div>
+                        <a href="404.html" class="service-showcase-btn">Apply Now →</a>
+                    </div>
+                    
+                    <div class="service-showcase-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-showcase-icon"><i class="fas fa-passport"></i></div>
+                        <h3>Passport Services</h3>
+                        <p class="service-showcase-desc">Apply for new passport, renew existing, track status online</p>
+                        <div class="service-showcase-meta">
+                            <span><i class="fas fa-clock"></i> 7 days</span>
+                            <span><i class="fas fa-rupee-sign"></i> ₹1500</span>
+                        </div>
+                        <a href="404.html" class="service-showcase-btn">Apply Now →</a>
+                    </div>
+                    
+                    <div class="service-showcase-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-showcase-icon"><i class="fas fa-car"></i></div>
+                        <h3>Driving License</h3>
+                        <p class="service-showcase-desc">Apply for learner's license, permanent license, and renewals</p>
+                        <div class="service-showcase-meta">
+                            <span><i class="fas fa-clock"></i> 3 days</span>
+                            <span><i class="fas fa-rupee-sign"></i> ₹500</span>
+                        </div>
+                        <a href="404.html" class="service-showcase-btn">Apply Now →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Hexagon Grid (SAME) -->
+        <section class="hexagon-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Service <span>Features</span></h2>
+                    <p class="section-desc">Everything you need in one place</p>
+                </div>
+                
+                <div class="hexagon-grid">
+                    <div class="hexagon-card" data-aos="zoom-in">
+                        <i class="fas fa-clock"></i>
+                        <h3>24/7 Access</h3>
+                        <p>Apply anytime, anywhere</p>
+                        <span class="hexagon-badge">Available</span>
+                    </div>
+                    
+                    <div class="hexagon-card" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure Platform</h3>
+                        <p>Bank level encryption</p>
+                        <span class="hexagon-badge">Protected</span>
+                    </div>
+                    
+                    <div class="hexagon-card" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Fast Processing</h3>
+                        <p>Under 5 minutes average</p>
+                        <span class="hexagon-badge">Quick</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Journey Steps - REDESIGNED -->
+        <section class="timeline-interactive">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title" style="color: white;">Application <span style="color: #ffd700;">Journey</span></h2>
+                    <p class="section-desc" style="color: rgba(255,255,255,0.9);">Simple 4-step process for all services</p>
+                </div>
+                
+                <div class="journey-steps">
+                    <div class="journey-connector"></div>
+                    
+                    <div class="journey-step" data-aos="flip-left" data-aos-delay="100">
+                        <div class="journey-step-number">1</div>
+                        <h3>Register / Login</h3>
+                        <p>Create your account using Aadhaar or mobile number</p>
+                        <span class="journey-step-time">2 minutes</span>
+                    </div>
+                    
+                    <div class="journey-step" data-aos="flip-left" data-aos-delay="200">
+                        <div class="journey-step-number">2</div>
+                        <h3>Select Service</h3>
+                        <p>Choose from 500+ services across 33 departments</p>
+                        <span class="journey-step-time">1 minute</span>
+                    </div>
+                    
+                    <div class="journey-step" data-aos="flip-left" data-aos-delay="300">
+                        <div class="journey-step-number">3</div>
+                        <h3>Upload Documents</h3>
+                        <p>Submit digitally signed documents securely</p>
+                        <span class="journey-step-time">3 minutes</span>
+                    </div>
+                    
+                    <div class="journey-step" data-aos="flip-left" data-aos-delay="400">
+                        <div class="journey-step-number">4</div>
+                        <h3>Get Certificate</h3>
+                        <p>Download instantly or receive via email/DigiLocker</p>
+                        <span class="journey-step-time">Instant</span>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 50px;">
+                    <a href="404.html" class="btn btn-secondary">Start Application</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Floating Cards (SAME) -->
+        <section class="floating-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Why Choose <span>Online Services</span></h2>
+                    <p class="section-desc">Benefits of digital governance</p>
+                </div>
+                
+                <div class="floating-container">
+                    <div class="float-card" data-aos="fade-up">
+                        <div class="float-number">01</div>
+                        <div class="float-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Save Time</h3>
+                        <p>No more standing in queues. Apply from home.</p>
+                    </div>
+                    
+                    <div class="float-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="float-number">02</div>
+                        <div class="float-icon"><i class="fas fa-rupee-sign"></i></div>
+                        <h3>Save Money</h3>
+                        <p>No middlemen, no extra charges.</p>
+                    </div>
+                    
+                    <div class="float-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="float-number">03</div>
+                        <div class="float-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Safe & Secure</h3>
+                        <p>Your data is encrypted and protected.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Hover Gallery (SAME) -->
+        <section class="gallery-hover">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Service <span>Gallery</span></h2>
+                    <p class="section-desc">Preview our digital services</p>
+                </div>
+                
+                <div class="hover-grid">
+                    <div class="hover-item" data-aos="zoom-in">
+                        <img src="Aadhaar.webp" alt="Service">
+                        <div class="hover-overlay">
+                            <h3>Aadhaar Update</h3>
+                            <div class="price">Free</div>
+                            <a href="404.html" class="btn btn-outline-light">Update Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="hover-item" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="Passport.webp" alt="Service">
+                        <div class="hover-overlay">
+                            <h3>Passport</h3>
+                            <div class="price">₹1500</div>
+                            <a href="404.html" class="btn btn-outline-light">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="hover-item" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="Driving.webp" alt="Service">
+                        <div class="hover-overlay">
+                            <h3>Driving License</h3>
+                            <div class="price">₹500</div>
+                            <a href="404.html" class="btn btn-outline-light">Apply Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="hover-item" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="GS15.webp" alt="Service">
+                        <div class="hover-overlay">
+                            <h3>Property Tax</h3>
+                            <div class="price">Pay Online</div>
+                            <a href="404.html" class="btn btn-outline-light">Pay Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Impact Showcase - REDESIGNED -->
+        <section class="stats-wheel">
+            <div class="container">
+                <div class="impact-showcase">
+                    <div class="impact-left" data-aos="fade-right">
+                        <h2>Our <span>Impact</span> in Numbers</h2>
+                        <p>Transforming lives through digital governance across India</p>
+                        
+                        <div class="impact-stats-grid">
+                            <div class="impact-stat-block">
+                                <span class="number">500+</span>
+                                <span class="label">Services</span>
+                                <span class="desc">Available online</span>
+                            </div>
+                            <div class="impact-stat-block">
+                                <span class="number">33</span>
+                                <span class="label">Departments</span>
+                                <span class="desc">Integrated</span>
+                            </div>
+                            <div class="impact-stat-block">
+                                <span class="number">50M+</span>
+                                <span class="label">Active Users</span>
+                                <span class="desc">Monthly</span>
+                            </div>
+                            <div class="impact-stat-block">
+                                <span class="number">94%</span>
+                                <span class="label">Satisfaction</span>
+                                <span class="desc">Citizen rating</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="impact-right" data-aos="fade-left">
+                        <div class="impact-chart">
+                            <h3 style="margin-bottom: 30px;">Service Adoption Rate</h3>
+                            <div class="chart-bar">
+                                <span class="chart-bar-label">Aadhaar</span>
+                                <div class="chart-bar-progress">
+                                    <div class="chart-bar-fill" style="width: 95%"></div>
+                                </div>
+                                <span class="chart-bar-value">95%</span>
+                            </div>
+                            <div class="chart-bar">
+                                <span class="chart-bar-label">Passport</span>
+                                <div class="chart-bar-progress">
+                                    <div class="chart-bar-fill" style="width: 82%"></div>
+                                </div>
+                                <span class="chart-bar-value">82%</span>
+                            </div>
+                            <div class="chart-bar">
+                                <span class="chart-bar-label">Driving License</span>
+                                <div class="chart-bar-progress">
+                                    <div class="chart-bar-fill" style="width: 78%"></div>
+                                </div>
+                                <span class="chart-bar-value">78%</span>
+                            </div>
+                            <div class="chart-bar">
+                                <span class="chart-bar-label">Property Tax</span>
+                                <div class="chart-bar-progress">
+                                    <div class="chart-bar-fill" style="width: 65%"></div>
+                                </div>
+                                <span class="chart-bar-value">65%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Accordion Tabs (SAME) -->
+        <section class="tabs-section">
+            <div class="container">
+                <div class="text-center" data-aos="fade-down">
+                    <h2 class="section-title">Service <span>Details</span></h2>
+                    <p class="section-desc">Comprehensive information about each service</p>
+                </div>
+                
+                <div class="tabs-container">
+                    <div class="tab-headers">
+                        <button class="tab-header active" onclick="showTab(1)">Aadhaar</button>
+                        <button class="tab-header" onclick="showTab(2)">Passport</button>
+                        <button class="tab-header" onclick="showTab(3)">Driving License</button>
+                    </div>
+                    
+                    <div class="tab-panel active" id="tab1">
+                        <div class="tab-content">
+                            <img src="Aadhaar.webp" alt="Aadhaar">
+                            <div>
+                                <h3>Aadhaar Services</h3>
+                                <p>Update your address, mobile number, and biometrics online. Download e-Aadhaar anytime.</p>
+                                <ul style="margin: 20px 0;">
+                                    <li><i class="fas fa-check" style="color: #8e0a64;"></i> Online Update - Free</li>
+                                    <li><i class="fas fa-check" style="color: #8e0a64;"></i> e-Aadhaar Download - Free</li>
+                                    <li><i class="fas fa-check" style="color: #8e0a64;"></i> Address Change - Free</li>
+                                </ul>
+                                <a href="404.html" class="btn btn-primary">Update Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="tab2">
+                        <div class="tab-content">
+                            <img src="Passport.webp" alt="Passport">
+                            <div>
+                                <h3>Passport Services</h3>
+                                <p>Apply for fresh passport, renew existing, or get duplicate passport online.</p>
+                                <ul style="margin: 20px 0;">
+                                    <li><i class="fas fa-check" style="color: #8e0a64;"></i> New Application - ₹1500</li>
+                                    <li><i class="fas fa-check" style="color: #8e0a64;"></i> Renewal - ₹1500</li>
+                                    <li><i class="fas fa-check" style="color: #8e0a64;"></i> Police Verification Tracking</li>
+                                </ul>
+                                <a href="404.html" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="tab3">
+                        <div class="tab-content">
+                            <img src="Driving.webp" alt="Driving License">
+                            <div>
+                                <h3>Driving License</h3>
+                                <p>Apply for learner's license, permanent license, and renewals online.</p>
+                                <ul style="margin: 20px 0;">
+                                    <li><i class="fas fa-check" style="color: #8e0a64;"></i> Learner's License - ₹500</li>
+                                    <li><i class="fas fa-check" style="color: #8e0a64;"></i> Permanent License - ₹1000</li>
+                                    <li><i class="fas fa-check" style="color: #8e0a64;"></i> Renewal - ₹500</li>
+                                </ul>
+                                <a href="404.html" class="btn btn-primary">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Premium Cards - NEW STRUCTURE -->
+<section class="premium-showcase">
+    <div class="container">
+        <div class="text-center" data-aos="fade-down">
+            <h2 class="section-title" style="color: white;">Premium <span style="color: #ffd700;">Services</span></h2>
+            <p class="section-desc" style="color: rgba(255,255,255,0.9);">Enhanced features for faster processing</p>
+        </div>
+        
+        <div class="premium-showcase-grid">
+            <div class="premium-showcase-card" data-aos="fade-right" data-aos-delay="100">
+                <div class="premium-showcase-ribbon">Most Popular</div>
+                <div class="premium-showcase-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Tatkaal Passport</h3>
+                </div>
+                <div class="premium-showcase-price">
+                    <span class="currency">₹</span>
+                    <span class="amount">3500</span>
+                    <span class="period">/one time</span>
+                </div>
+                <div class="premium-showcase-features">
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>3 days processing</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Priority verification</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Home delivery</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>SMS alerts</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>24x7 support</span>
+                    </div>
+                </div>
+                <a href="404.html" class="premium-showcase-btn">Apply Now →</a>
+            </div>
+            
+            <div class="premium-showcase-card featured" data-aos="zoom-in" data-aos-delay="200">
+                <div class="premium-showcase-ribbon">Best Value</div>
+                <div class="premium-showcase-header">
+                    <i class="fas fa-gem"></i>
+                    <h3>Premium Aadhaar</h3>
+                </div>
+                <div class="premium-showcase-price">
+                    <span class="currency">₹</span>
+                    <span class="amount">300</span>
+                    <span class="period">/one time</span>
+                </div>
+                <div class="premium-showcase-features">
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Instant update</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Priority support</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>PVC card delivery</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>E-Aadhaar download</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Biometric update</span>
+                    </div>
+                </div>
+                <a href="404.html" class="premium-showcase-btn">Apply Now →</a>
+            </div>
+            
+            <div class="premium-showcase-card" data-aos="fade-left" data-aos-delay="300">
+                <div class="premium-showcase-ribbon">Express</div>
+                <div class="premium-showcase-header">
+                    <i class="fas fa-crown"></i>
+                    <h3>Express License</h3>
+                </div>
+                <div class="premium-showcase-price">
+                    <span class="currency">₹</span>
+                    <span class="amount">800</span>
+                    <span class="period">/one time</span>
+                </div>
+                <div class="premium-showcase-features">
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>24 hrs processing</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Online test</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Digital license</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Smart card delivery</span>
+                    </div>
+                    <div class="premium-showcase-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>LLR included</span>
+                    </div>
+                </div>
+                <a href="404.html" class="premium-showcase-btn">Apply Now →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 10: CTA Wave - NEW STRUCTURE -->
+<section class="cta-modern">
+    <div class="container">
+        <div class="cta-modern-wrapper" data-aos="flip-up">
+            <div class="cta-modern-content">
+                <h2>Ready to Get <span>Started?</span></h2>
+                <p>Join <strong>50 million+</strong> citizens already using our online services</p>
+                
+                <div class="cta-modern-stats">
+                    <div class="cta-modern-stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Services</span>
+                    </div>
+                    <div class="cta-modern-stat">
+                        <span class="stat-number">33</span>
+                        <span class="stat-label">Departments</span>
+                    </div>
+                    <div class="cta-modern-stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+                
+                <div class="cta-modern-buttons">
+                    <a href="404.html" class="btn cta-btn-primary">Register Now</a>
+                    <a href="404.html" class="btn cta-btn-secondary">View All Services</a>
+                    <a href="404.html" class="btn cta-btn-tertiary">Contact Support</a>
+                </div>
+            </div>
+            
+            <div class="cta-modern-image">
+                <img src="GS1.webp" alt="Citizen Services">
+                <div class="cta-modern-image-badge">
+                    <i class="fas fa-check-circle"></i> 50M+ Happy Citizens
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER PLACEHOLDER - Footer will load here -->
+    <div id="footer-placeholder">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+
+        //======================================================
+        // Header and Footer Loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('header1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Header file not found (header1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    
+                    // Initialize header interactions after header is loaded
+                    setTimeout(initHeaderInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Header could not be loaded:', error);
+                    document.getElementById('header-placeholder').innerHTML = 
+                        '<header style="background: #8e0a64; color: white; padding: 20px; text-align: center;">⚠️ Header Not Found - Please check header1.html file</header>';
+                });
+
+            // Load footer
+            fetch('footer1.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Footer file not found (footer1.html)');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    
+                    // Optional: Initialize footer interactions if needed
+                    setTimeout(initFooterInteractions, 100);
+                })
+                .catch(error => {
+                    console.warn('Footer could not be loaded:', error);
+                    document.getElementById('footer-placeholder').innerHTML = 
+                        '<footer style="background: #1e2a3a; color: white; padding: 40px; text-align: center;">⚠️ Footer Not Found - Please check footer1.html file</footer>';
+                });
+        });
+
+        // Initialize header interactions (hamburger menu, dropdown)
+        function initHeaderInteractions() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const logo = document.querySelector('.logo');
+            
+            console.log('Header initialized - menu toggle:', menuToggle ? '✓ Found' : '✗ Not Found');
+            
+            // Mobile menu toggle with logo hide
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    if (logo) {
+                        if (navMenu.classList.contains('active')) {
+                            logo.style.opacity = '0';
+                            logo.style.visibility = 'hidden';
+                            logo.style.pointerEvents = 'none';
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                            document.body.style.overflow = 'auto';
+                        }
+                    }
+                });
+            }
+            
+            // Handle all dropdown buttons
+            document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                const dropdownId = btn.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Close other dropdowns
+                        document.querySelectorAll('[data-dropdown]').forEach(otherBtn => {
+                            if (otherBtn !== btn) {
+                                const otherDropdownId = otherBtn.getAttribute('data-dropdown');
+                                const otherDropdown = document.getElementById(otherDropdownId);
+                                if (otherDropdown) {
+                                    otherDropdown.classList.remove('show');
+                                    otherBtn.classList.remove('active');
+                                }
+                            }
+                        });
+                        
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('show');
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+            
+            // Close mobile menu when clicking on any link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        if (menuToggle) menuToggle.classList.remove('active');
+                        if (navMenu) navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                        
+                        document.querySelectorAll('.dropdown-menu').forEach(d => {
+                            d.classList.remove('show');
+                        });
+                        document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[data-dropdown]') && !e.target.closest('.dropdown-menu')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    if (menuToggle) menuToggle.classList.remove('active');
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (logo) {
+                        logo.style.opacity = '1';
+                        logo.style.visibility = 'visible';
+                        logo.style.pointerEvents = 'auto';
+                    }
+                    document.body.style.overflow = 'auto';
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Escape key handler
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (logo) {
+                            logo.style.opacity = '1';
+                            logo.style.visibility = 'visible';
+                            logo.style.pointerEvents = 'auto';
+                        }
+                        document.body.style.overflow = 'auto';
+                    }
+                    
+                    document.querySelectorAll('.dropdown-menu').forEach(d => {
+                        d.classList.remove('show');
+                    });
+                    document.querySelectorAll('[data-dropdown]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        }
+
+        // Initialize footer interactions (if needed)
+        function initFooterInteractions() {
+            console.log('Footer initialized');
+        }
+
+        // Refresh AOS on load and resize
+        window.addEventListener('load', () => AOS.refresh());
+        window.addEventListener('resize', () => AOS.refresh());
+
+        //=========================================================
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100,
+            easing: 'ease-in-out',
+            mirror: true
+        });
+
+        // Tabs functionality
+        function showTab(tabNumber) {
+            document.querySelectorAll('.tab-header').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(`tab${tabNumber}`).classList.add('active');
+        }
+
+        // Animate chart bars on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.chart-bar-fill').forEach(bar => {
+                        bar.style.width = bar.style.width;
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const chartSection = document.querySelector('.impact-chart');
+        if (chartSection) {
+            observer.observe(chartSection);
+        }
+
+        // Back to Top Button Functionality
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+</body>
+</html>
